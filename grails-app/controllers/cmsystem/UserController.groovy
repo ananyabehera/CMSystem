@@ -13,13 +13,19 @@ class UserController {
 			flash.message = "Login Succeeded"
 			session.user = user
 			session.login = false
+
+			if(user.level == Permission.ADMIN)
+				redirect(controller: "AdminHome", action: "renderHomePage")
+			else
+				render "Hello"
 		}
 		else {
 			flash.message = "Login Failed"
 			session.login = true
+
+			redirect(action: 'index')
 		}
 		
-		redirect(controller: 'User', action: 'index')
 	}
 	
 	def logout() {
