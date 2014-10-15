@@ -59,6 +59,7 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
+grails.gorm.failOnError = true
 environments {
     development {
         grails.logging.jul.usebridge = true
@@ -88,4 +89,16 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+}
+
+environments {
+    development {
+        uploadFolder = "/Users/Gulu/Desktop/DocUploads/"
+    }
+    test {
+        uploadFolder = "/Users/Gulu/Desktop/DocUploads/"
+    }
+    production {
+        uploadFolder = "/Users/Gulu/Desktop/DocUploads/"
+    }
 }
