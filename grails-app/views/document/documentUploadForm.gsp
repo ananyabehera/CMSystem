@@ -11,8 +11,8 @@
   			<div class="row">
   				
   				<!-- Home Button Col -->
-  				<div class="col-md-1">
-  					<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> Home</button>
+  				<div class="col-md-1 home-button">
+  					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   				</div> <!-- /col-md-1 -->
   				
   				<!-- Page Heading Col -->
@@ -35,7 +35,7 @@
 							</span>
 							<input type="text" id="fileText" name="fileText" class="form-control" placeholder="Document" readonly/> -->
 					
-							<label for="file">Document</label><br/>
+							
 							<input type="file" id="file" name="file" class="form-control btn-file" required />
 							<p class="help-block">For best results, your document should not exceed 16KB.</p>
 						</div> <!-- /form-group -->

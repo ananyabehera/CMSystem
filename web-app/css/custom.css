@@ -59,3 +59,8 @@ textarea {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.home-button {
+	margin-top: 22px;
+	margin-right: 22px;
+}

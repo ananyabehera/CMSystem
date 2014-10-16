@@ -12,8 +12,8 @@
   		<div class="row">
   			
   			<!-- Home Button Col -->
-  			<div class="col-md-1">
-  				<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> Home</button>
+  			<div class="col-md-1 home-button">
+  				<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   			</div> <!-- /col-md-1 -->
   				
   			<!-- Page Heading Col -->

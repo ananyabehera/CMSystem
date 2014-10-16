@@ -12,30 +12,17 @@
 					Welcome ${session.user.firstName} ${session.user.lastName}
 					<g:link class="small" action="logout" controller="User">Logout?</g:link>
 				</h1>
-				<g:form controller="AdminHome">
-					<g:actionSubmit  class="btn btn-primary btn-lg btn-block" value="Upload Document" action="uploadDoc" />
-<<<<<<< Updated upstream
-=======
-					<br/>
-					<g:actionSubmit  class="btn btn-success btn-lg btn-block" value="List all Documents" action="listDocs" />
-					<br/>
->>>>>>> Stashed changes
-				</g:form>
+				<h2>Document Options:</h2>
+				<g:link class="btn btn-success btn-lg btn-block" action="uploadDoc"><span class="glyphicon glyphicon-cloud-upload"></span> Upload Document</g:link>
+				<g:link class="btn btn-primary btn-lg btn-block" action="listDocs"><span class="glyphicon glyphicon-list-alt"></span> Document Library</g:link>
 
 				<!--Added the remainder buttons just incase.  Will update them as soon as we finish development on that part.-->
-
-				<button type="button" class="btn btn-success btn-lg btn-block">
-					<span class="glyphicon glyphicon-plus"></span> Create Project(s)
-				</button>
 				
-				<button type="button" class="btn btn btn-warning btn-lg btn-block">
-					<span class="glyphicon glyphicon-pencil"></span> Edit Project(s)
-				</button>
+				<h2>Tag Options:</h2>
+				<g:link class="btn btn-success btn-lg btn-block" action="#"><span class="glyphicon glyphicon-plus"></span> Create Tag(s)</g:link>
+				<g:link class="btn btn-primary btn-lg btn-block" action="#"><span class="glyphicon glyphicon-list-alt"></span> Tag List(s)</g:link>
 				
-				<button type="button" class="btn btn-danger btn-lg btn-block">
-					<span class="glyphicon glyphicon-trash"></span> Delete Project(s)
-				</button>
-			</div>
+			</div> <!-- /container -->
 		</g:if>
 		<g:else>
 			You are not Logged In! <g:link href="/index"> Login Page</g:link>
