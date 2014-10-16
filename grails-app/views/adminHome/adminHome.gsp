@@ -7,7 +7,9 @@
     	<meta name="description" content="">
     	<meta name="author" content="">
     	<link rel="icon" href="../../favicon.ico">
+		
 		<title>Admin Home Page</title>
+		
 		<!-- Bootstrap core CSS -->
     	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" />
     	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'custom.css')}" />
@@ -25,15 +27,12 @@
 	<body>
 		<g:if test="${session.user}">
 			<div class="container">
-				<br/>
 				<h1>
 					Welcome ${session.user.firstName} ${session.user.lastName}
 					<g:link class="small" action="logout" controller="User">Logout?</g:link>
 				</h1>
-				<g:form controller="AdminHome" >
-					<br/>
+				<g:form controller="AdminHome">
 					<g:actionSubmit  class="btn btn-primary btn-lg btn-block" value="Upload Document" action="uploadDoc" />
-					<br/>
 				</g:form>
 
 				<!--Added the remainder buttons just incase.  Will update them as soon as we finish development on that part.-->
