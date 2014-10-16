@@ -12,15 +12,6 @@ class DocumentController {
 		render(view: "documentUploadForm")
 	}
 	
-	def renderHomePage() {
-		if(session.user.level == "ADMIN")
-		{
-			render (view: "adminHome")
-		}
-		
-		render(view: "index")
-	}
-	
 	def upload_Doc() {
 		
 		def file = request.getFile('file')

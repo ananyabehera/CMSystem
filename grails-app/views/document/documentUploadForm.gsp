@@ -1,42 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    	<meta charset="utf-8">
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<meta name="description" content="">
-    	<meta name="author" content="">
-    	<link rel="icon" href="../../favicon.ico">
-
-    	<title>Document Upload</title>
-
-    	<!-- Bootstrap core CSS -->
-    	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" />
-    	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'custom.css')}" />
-
-    	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    	<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    	<!--[if lt IE 9]>
-      		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    	<![endif]-->
+  		<meta name="layout" content="main" />
+  		
+  		<title>[APP]::Document Upload</title>
   	</head>
+  	
   	<body>
   		<div class="container">
   			<div class="row">
   				
-  				<!-- Button Col -->
-  				<div class="col-md-1">
-  					<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-home"></span> Home</button>
+  				<!-- Home Button Col -->
+  				<div class="col-md-1 home-button">
+  					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   				</div> <!-- /col-md-1 -->
   				
   				<!-- Page Heading Col -->
-  				<div class="col=md-1">
+  				<div class="col=md-12">
   					<h1>Upload Document</h1>
-  				</div> <!-- /col-md-1 -->
+  				</div> <!-- /col-md-12 -->
   				
   			</div> <!-- /row -->
   			
@@ -53,7 +35,7 @@
 							</span>
 							<input type="text" id="fileText" name="fileText" class="form-control" placeholder="Document" readonly/> -->
 					
-							<label for="file">Document</label><br/>
+							
 							<input type="file" id="file" name="file" class="form-control btn-file" required />
 							<p class="help-block">For best results, your document should not exceed 16KB.</p>
 						</div> <!-- /form-group -->
@@ -93,35 +75,9 @@
 			</g:uploadForm>
 			
 		</div> <!-- /container -->
+		
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+		
 	</body>
 </html>
-
-<!--
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main"/>
-		<title></title>
-		<style type="text/css">
-			label{
-				float:left;
-				width:65px;			
-			}
-		</style>
-	</head>
-	<body>
-		<g:uploadForm controller="Document" action="upload_Doc">
-			<div style="width:720px;">
-				<label>Name:</label><input type="text" name="userName"/><br/>
-				<label>Date:</label><g:datePicker name="date"/><br/><br/>
-				<label for="file">Document</label><br/>
-			    <input type="file" name="file" id="file" /><br/>
-			    <div style="font-size:0.8em; margin: 1.0em;">
-			      For best results, your document should not exceed 16KB.
-			    </div>
-			    <input type="submit" class="buttons" value="Upload" />
-			</div>
-		</g:uploadForm>
-	</body>
-</html>
- -->
