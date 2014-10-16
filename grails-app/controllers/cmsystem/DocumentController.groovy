@@ -38,33 +38,11 @@ class DocumentController {
 		flash.message = "Document uploaded."
 		redirect(controller: "AdminHome", action: "renderHomePage")
 		
-		/*def doc = new Document()
-		
-		def CommonsMultipartFile uploadedFile = params.file
-		
-		log.info("File uploaded")
-		if (!okcontents.contains(uploadedFile.getContentType())) {
-			flash.message = "Document must be one of: ${okcontents}"
-			render(view:'documentUploadForm')
-			return
-		}
-		
-		doc.file = uploadedFile.bytes
-		doc.filetype = uploadedFile.contentType
-		doc.name = params.name
-		doc.uploadDate =params.date
-		
-		log.info("File uploaded")
-		
-		if (!doc.save(flush: true)) {
-			flash.message = "Error Occured"
-			render(view:'documentUploadForm')
-			return
-		  }
-		
-		  flash.message = "Docuemnt (${doc.filetype}, ${doc.file.size()} bytes) uploaded."
-		  redirect(controller: "AdminHome", action: "renderHomePage")*/
-		
-		
 	}
+
+	def renderListing() {
+		//params.max = 10
+        [documentInstanceList: Document.list(), documentInstanceTotal: Document.count()]
+	}
+
 }

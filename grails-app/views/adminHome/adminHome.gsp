@@ -33,6 +33,12 @@
 				</h1>
 				<g:form controller="AdminHome">
 					<g:actionSubmit  class="btn btn-primary btn-lg btn-block" value="Upload Document" action="uploadDoc" />
+<<<<<<< Updated upstream
+=======
+					<br/>
+					<g:actionSubmit  class="btn btn-success btn-lg btn-block" value="List all Documents" action="listDocs" />
+					<br/>
+>>>>>>> Stashed changes
 				</g:form>
 
 				<!--Added the remainder buttons just incase.  Will update them as soon as we finish development on that part.-->

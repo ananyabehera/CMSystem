@@ -11,4 +11,8 @@ class AdminHomeController {
 	def uploadDoc() {
 		redirect(controller: "Document", action: "renderUploadForm")
 	}
+
+	def listDocs() {
+		redirect(controller: "Document", action: "renderListing")
+	}
 }

@@ -12752,6 +12752,7 @@ java.lang.RuntimeException: Error initializing GroovyPageView
 	at java.lang.Thread.run(Thread.java:722)
 Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Grails tag [g:actionSubmit] was not closed
 	... 5 more
+<<<<<<< Updated upstream
 2014-10-16 09:07:09,786 [http-bio-8080-exec-8] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.pdf (No such file or directory)
 	at java.io.FileOutputStream.open(Native Method)
@@ -12786,11 +12787,32 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.p
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+=======
+2014-10-16 12:13:17,707 [http-bio-9000-exec-5] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:179)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGrailsView(GrailsViewResolver.java:160)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.loadView(GrailsViewResolver.java:85)
+	at org.codehaus.groovy.grails.scaffolding.view.ScaffoldingViewResolver.loadView(ScaffoldingViewResolver.java:59)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.createView(AbstractCachingViewResolver.java:211)
+	at org.springframework.web.servlet.view.UrlBasedViewResolver.createView(UrlBasedViewResolver.java:401)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.resolveViewName(AbstractCachingViewResolver.java:120)
+	at org.springframework.web.servlet.DispatcherServlet.resolveViewName(DispatcherServlet.java:1211)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1160)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:369)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+>>>>>>> Stashed changes
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+<<<<<<< Updated upstream
 	at grails.plugin.cache.web.filter.simple.MemoryPageFragmentCachingFilter.doFilter(MemoryPageFragmentCachingFilter.java)
+=======
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
@@ -12846,6 +12868,7 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.p
 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
 	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1002)
 	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:585)
+<<<<<<< Updated upstream
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
@@ -12936,11 +12959,71 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.p
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+=======
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.parseExpression(GroovyPageScanner.java:235)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.nextToken(GroovyPageScanner.java:200)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.page(GroovyPageParser.java:729)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.generateGsp(GroovyPageParser.java:340)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.parse(GroovyPageParser.java:301)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.buildPageMetaInfo(GroovyPagesTemplateEngine.java:576)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:469)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateWithResource(GroovyPagesTemplateEngine.java:451)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:257)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:346)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:318)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:311)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:282)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.createGroovyPageException(GroovyPageView.java:185)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.handleException(GroovyPageView.java:181)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.afterPropertiesSet(GroovyPageView.java:241)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:177)
+	... 76 more
+2014-10-16 12:13:17,747 [http-bio-9000-exec-5] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.parseExpression(GroovyPageScanner.java:235)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.nextToken(GroovyPageScanner.java:200)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.page(GroovyPageParser.java:729)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.generateGsp(GroovyPageParser.java:340)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.parse(GroovyPageParser.java:301)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.buildPageMetaInfo(GroovyPagesTemplateEngine.java:576)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:469)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateWithResource(GroovyPagesTemplateEngine.java:451)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:257)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:346)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:318)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:311)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:282)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.createGroovyPageException(GroovyPageView.java:185)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.handleException(GroovyPageView.java:181)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.afterPropertiesSet(GroovyPageView.java:241)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:177)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGrailsView(GrailsViewResolver.java:160)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.loadView(GrailsViewResolver.java:85)
+	at org.codehaus.groovy.grails.scaffolding.view.ScaffoldingViewResolver.loadView(ScaffoldingViewResolver.java:59)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.createView(AbstractCachingViewResolver.java:211)
+	at org.springframework.web.servlet.view.UrlBasedViewResolver.createView(UrlBasedViewResolver.java:401)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.resolveViewName(AbstractCachingViewResolver.java:120)
+	at org.springframework.web.servlet.DispatcherServlet.resolveViewName(DispatcherServlet.java:1211)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1160)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:369)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+>>>>>>> Stashed changes
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+<<<<<<< Updated upstream
 	at grails.plugin.cache.web.filter.simple.MemoryPageFragmentCachingFilter.doFilter(MemoryPageFragmentCachingFilter.java)
+=======
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
@@ -12999,6 +13082,7 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.p
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 09:10:31,702 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.pdf (No such file or directory)
@@ -13006,10 +13090,34 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.p
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:449)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:13:17,748 [http-bio-9000-exec-5] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:13:17,787 [http-bio-9000-exec-5] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:13:17,787 [http-bio-9000-exec-5] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+>>>>>>> Stashed changes
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 09:10:31,706 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.pdf (No such file or directory)
@@ -13017,10 +13125,16 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.p
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:449)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:13:17,787 [http-bio-9000-exec-5] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 09:10:31,706 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.pdf (No such file or directory)
@@ -13028,10 +13142,18 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.p
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:449)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:13:17,787 [http-bio-9000-exec-5] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 09:10:31,707 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.pdf (No such file or directory)
@@ -13039,10 +13161,18 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.p
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:449)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:13:17,788 [http-bio-9000-exec-5] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 09:10:31,707 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.pdf (No such file or directory)
@@ -13050,10 +13180,16 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Ib medley sheets.p
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:449)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:13:17,788 [http-bio-9000-exec-5] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 09:54:37,939 [http-bio-8080-exec-10] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Screen Shot 2014-10-16 at 9.12.15 am.png (No such file or directory)
@@ -13089,11 +13225,35 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Screen Shot 2014-1
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:12,253 [http-bio-9000-exec-3] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:179)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGrailsView(GrailsViewResolver.java:160)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.loadView(GrailsViewResolver.java:85)
+	at org.codehaus.groovy.grails.scaffolding.view.ScaffoldingViewResolver.loadView(ScaffoldingViewResolver.java:59)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.createView(AbstractCachingViewResolver.java:211)
+	at org.springframework.web.servlet.view.UrlBasedViewResolver.createView(UrlBasedViewResolver.java:401)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.resolveViewName(AbstractCachingViewResolver.java:120)
+	at org.springframework.web.servlet.DispatcherServlet.resolveViewName(DispatcherServlet.java:1211)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1160)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:369)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+>>>>>>> Stashed changes
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+<<<<<<< Updated upstream
 	at grails.plugin.cache.web.filter.simple.MemoryPageFragmentCachingFilter.doFilter(MemoryPageFragmentCachingFilter.java)
+=======
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
@@ -13149,6 +13309,7 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Screen Shot 2014-1
 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
 	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1002)
 	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:585)
+<<<<<<< Updated upstream
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
@@ -13237,11 +13398,71 @@ java.lang.NullPointerException: Cannot get property 'empty' on null object
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+=======
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.parseExpression(GroovyPageScanner.java:235)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.nextToken(GroovyPageScanner.java:200)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.page(GroovyPageParser.java:729)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.generateGsp(GroovyPageParser.java:340)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.parse(GroovyPageParser.java:301)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.buildPageMetaInfo(GroovyPagesTemplateEngine.java:576)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:469)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateWithResource(GroovyPagesTemplateEngine.java:451)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:257)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:346)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:318)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:311)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:282)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.createGroovyPageException(GroovyPageView.java:185)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.handleException(GroovyPageView.java:181)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.afterPropertiesSet(GroovyPageView.java:241)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:177)
+	... 76 more
+2014-10-16 12:15:12,255 [http-bio-9000-exec-3] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.parseExpression(GroovyPageScanner.java:235)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.nextToken(GroovyPageScanner.java:200)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.page(GroovyPageParser.java:729)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.generateGsp(GroovyPageParser.java:340)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.parse(GroovyPageParser.java:301)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.buildPageMetaInfo(GroovyPagesTemplateEngine.java:576)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:469)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateWithResource(GroovyPagesTemplateEngine.java:451)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:257)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:346)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:318)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:311)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:282)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.createGroovyPageException(GroovyPageView.java:185)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.handleException(GroovyPageView.java:181)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.afterPropertiesSet(GroovyPageView.java:241)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:177)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGrailsView(GrailsViewResolver.java:160)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.loadView(GrailsViewResolver.java:85)
+	at org.codehaus.groovy.grails.scaffolding.view.ScaffoldingViewResolver.loadView(ScaffoldingViewResolver.java:59)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.createView(AbstractCachingViewResolver.java:211)
+	at org.springframework.web.servlet.view.UrlBasedViewResolver.createView(UrlBasedViewResolver.java:401)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.resolveViewName(AbstractCachingViewResolver.java:120)
+	at org.springframework.web.servlet.DispatcherServlet.resolveViewName(DispatcherServlet.java:1211)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1160)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:369)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+>>>>>>> Stashed changes
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+<<<<<<< Updated upstream
 	at grails.plugin.cache.web.filter.simple.MemoryPageFragmentCachingFilter.doFilter(MemoryPageFragmentCachingFilter.java)
+=======
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
@@ -13297,6 +13518,7 @@ java.lang.NullPointerException: Cannot get property 'empty' on null object
 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
 	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1002)
 	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:585)
+<<<<<<< Updated upstream
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
@@ -13304,42 +13526,97 @@ java.lang.NullPointerException: Cannot get property 'empty' on null object
 2014-10-16 11:19:15,613 [http-bio-8080-exec-8] ERROR StackTrace  - Full Stack Trace:
 java.lang.NullPointerException: Cannot get property 'empty' on null object
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:18)
+=======
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:15:12,256 [http-bio-9000-exec-3] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:12,258 [http-bio-9000-exec-3] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:12,259 [http-bio-9000-exec-3] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+>>>>>>> Stashed changes
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:19:15,617 [http-bio-8080-exec-8] ERROR StackTrace  - Full Stack Trace:
 java.lang.NullPointerException: Cannot get property 'empty' on null object
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:18)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:15:12,259 [http-bio-9000-exec-3] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:19:15,617 [http-bio-8080-exec-8] ERROR StackTrace  - Full Stack Trace:
 java.lang.NullPointerException: Cannot get property 'empty' on null object
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:18)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:12,259 [http-bio-9000-exec-3] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:19:15,617 [http-bio-8080-exec-8] ERROR StackTrace  - Full Stack Trace:
 java.lang.NullPointerException: Cannot get property 'empty' on null object
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:18)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:12,260 [http-bio-9000-exec-3] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:19:15,617 [http-bio-8080-exec-8] ERROR StackTrace  - Full Stack Trace:
 java.lang.NullPointerException: Cannot get property 'empty' on null object
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:18)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:15:12,260 [http-bio-9000-exec-3] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:19:39,844 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
 java.lang.NullPointerException: Cannot get property 'empty' on null object
@@ -13370,11 +13647,35 @@ java.lang.NullPointerException: Cannot get property 'empty' on null object
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:13,854 [http-bio-9000-exec-4] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:179)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGrailsView(GrailsViewResolver.java:160)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.loadView(GrailsViewResolver.java:85)
+	at org.codehaus.groovy.grails.scaffolding.view.ScaffoldingViewResolver.loadView(ScaffoldingViewResolver.java:59)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.createView(AbstractCachingViewResolver.java:211)
+	at org.springframework.web.servlet.view.UrlBasedViewResolver.createView(UrlBasedViewResolver.java:401)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.resolveViewName(AbstractCachingViewResolver.java:120)
+	at org.springframework.web.servlet.DispatcherServlet.resolveViewName(DispatcherServlet.java:1211)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1160)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:369)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+>>>>>>> Stashed changes
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+<<<<<<< Updated upstream
 	at grails.plugin.cache.web.filter.simple.MemoryPageFragmentCachingFilter.doFilter(MemoryPageFragmentCachingFilter.java)
+=======
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
@@ -13433,6 +13734,7 @@ java.lang.NullPointerException: Cannot get property 'empty' on null object
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:19:39,848 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
 java.lang.NullPointerException: Cannot get property 'empty' on null object
@@ -13508,11 +13810,68 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.parseExpression(GroovyPageScanner.java:235)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.nextToken(GroovyPageScanner.java:200)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.page(GroovyPageParser.java:729)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.generateGsp(GroovyPageParser.java:340)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.parse(GroovyPageParser.java:301)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.buildPageMetaInfo(GroovyPagesTemplateEngine.java:576)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:469)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateWithResource(GroovyPagesTemplateEngine.java:451)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:257)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:346)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:318)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:311)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:282)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.createGroovyPageException(GroovyPageView.java:185)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.handleException(GroovyPageView.java:181)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.afterPropertiesSet(GroovyPageView.java:241)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:177)
+	... 76 more
+2014-10-16 12:15:13,855 [http-bio-9000-exec-4] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.parseExpression(GroovyPageScanner.java:235)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.nextToken(GroovyPageScanner.java:200)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.page(GroovyPageParser.java:729)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.generateGsp(GroovyPageParser.java:340)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.parse(GroovyPageParser.java:301)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.buildPageMetaInfo(GroovyPagesTemplateEngine.java:576)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:469)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateWithResource(GroovyPagesTemplateEngine.java:451)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:257)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:346)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:318)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:311)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:282)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.createGroovyPageException(GroovyPageView.java:185)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.handleException(GroovyPageView.java:181)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.afterPropertiesSet(GroovyPageView.java:241)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:177)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGrailsView(GrailsViewResolver.java:160)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.loadView(GrailsViewResolver.java:85)
+	at org.codehaus.groovy.grails.scaffolding.view.ScaffoldingViewResolver.loadView(ScaffoldingViewResolver.java:59)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.createView(AbstractCachingViewResolver.java:211)
+	at org.springframework.web.servlet.view.UrlBasedViewResolver.createView(UrlBasedViewResolver.java:401)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.resolveViewName(AbstractCachingViewResolver.java:120)
+	at org.springframework.web.servlet.DispatcherServlet.resolveViewName(DispatcherServlet.java:1211)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1160)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:369)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+>>>>>>> Stashed changes
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+<<<<<<< Updated upstream
 	at grails.plugin.cache.web.filter.simple.MemoryPageFragmentCachingFilter.doFilter(MemoryPageFragmentCachingFilter.java)
+=======
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
@@ -13571,6 +13930,7 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:22:19,105 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batch-File.sh (No such file or directory)
@@ -13578,10 +13938,34 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:426)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:15:13,856 [http-bio-9000-exec-4] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:13,857 [http-bio-9000-exec-4] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:13,857 [http-bio-9000-exec-4] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+>>>>>>> Stashed changes
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:22:19,108 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batch-File.sh (No such file or directory)
@@ -13589,10 +13973,16 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:426)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:15:13,857 [http-bio-9000-exec-4] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:22:19,108 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batch-File.sh (No such file or directory)
@@ -13600,10 +13990,18 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:426)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:13,857 [http-bio-9000-exec-4] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:22:19,109 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batch-File.sh (No such file or directory)
@@ -13611,10 +14009,18 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:426)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:15:13,858 [http-bio-9000-exec-4] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:22:19,109 [http-bio-8080-exec-2] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batch-File.sh (No such file or directory)
@@ -13622,10 +14028,16 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at org.apache.commons.fileupload.disk.DiskFileItem.write(DiskFileItem.java:426)
 	at cmsystem.DocumentController.upload_Doc(DocumentController.groovy:24)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:15:13,858 [http-bio-9000-exec-4] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:22:32,476 [http-bio-8080-exec-9] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batch-File.sh (No such file or directory)
@@ -13658,11 +14070,35 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:16:05,214 [http-bio-9000-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:179)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGrailsView(GrailsViewResolver.java:160)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.loadView(GrailsViewResolver.java:85)
+	at org.codehaus.groovy.grails.scaffolding.view.ScaffoldingViewResolver.loadView(ScaffoldingViewResolver.java:59)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.createView(AbstractCachingViewResolver.java:211)
+	at org.springframework.web.servlet.view.UrlBasedViewResolver.createView(UrlBasedViewResolver.java:401)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.resolveViewName(AbstractCachingViewResolver.java:120)
+	at org.springframework.web.servlet.DispatcherServlet.resolveViewName(DispatcherServlet.java:1211)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1160)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:369)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+>>>>>>> Stashed changes
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+<<<<<<< Updated upstream
 	at grails.plugin.cache.web.filter.simple.MemoryPageFragmentCachingFilter.doFilter(MemoryPageFragmentCachingFilter.java)
+=======
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
@@ -13721,6 +14157,7 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:22:32,478 [http-bio-8080-exec-9] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batch-File.sh (No such file or directory)
@@ -13814,6 +14251,65 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.simple.MemoryPageFragmentCachingFilter.doFilter(MemoryPageFragmentCachingFilter.java)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.parseExpression(GroovyPageScanner.java:235)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.nextToken(GroovyPageScanner.java:200)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.page(GroovyPageParser.java:729)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.generateGsp(GroovyPageParser.java:340)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.parse(GroovyPageParser.java:301)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.buildPageMetaInfo(GroovyPagesTemplateEngine.java:576)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:469)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateWithResource(GroovyPagesTemplateEngine.java:451)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:257)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:346)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:318)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:311)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:282)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.createGroovyPageException(GroovyPageView.java:185)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.handleException(GroovyPageView.java:181)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.afterPropertiesSet(GroovyPageView.java:241)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:177)
+	... 76 more
+2014-10-16 12:16:05,216 [http-bio-9000-exec-7] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.parseExpression(GroovyPageScanner.java:235)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageScanner.nextToken(GroovyPageScanner.java:200)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.page(GroovyPageParser.java:729)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.generateGsp(GroovyPageParser.java:340)
+	at org.codehaus.groovy.grails.web.pages.GroovyPageParser.parse(GroovyPageParser.java:301)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.buildPageMetaInfo(GroovyPagesTemplateEngine.java:576)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:469)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateWithResource(GroovyPagesTemplateEngine.java:451)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:257)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:346)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:318)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplateForUri(GroovyPagesTemplateEngine.java:311)
+	at org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine.createTemplate(GroovyPagesTemplateEngine.java:282)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.createGroovyPageException(GroovyPageView.java:185)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.handleException(GroovyPageView.java:181)
+	at org.codehaus.groovy.grails.web.servlet.view.GroovyPageView.afterPropertiesSet(GroovyPageView.java:241)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGroovyPageView(GrailsViewResolver.java:177)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.createGrailsView(GrailsViewResolver.java:160)
+	at org.codehaus.groovy.grails.web.servlet.view.GrailsViewResolver.loadView(GrailsViewResolver.java:85)
+	at org.codehaus.groovy.grails.scaffolding.view.ScaffoldingViewResolver.loadView(ScaffoldingViewResolver.java:59)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.createView(AbstractCachingViewResolver.java:211)
+	at org.springframework.web.servlet.view.UrlBasedViewResolver.createView(UrlBasedViewResolver.java:401)
+	at org.springframework.web.servlet.view.AbstractCachingViewResolver.resolveViewName(AbstractCachingViewResolver.java:120)
+	at org.springframework.web.servlet.DispatcherServlet.resolveViewName(DispatcherServlet.java:1211)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1160)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:369)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+>>>>>>> Stashed changes
 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
@@ -13871,6 +14367,7 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:22:36,873 [http-bio-8080-exec-10] ERROR StackTrace  - Full Stack Trace:
 java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batch-File.sh (No such file or directory)
@@ -14549,10 +15046,16 @@ Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentU
 
 1 error
 
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:16:05,217 [http-bio-9000-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
 Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentUploadForm_gsp: 71: unexpected char: ''' @ line 71, column 67.
@@ -14583,10 +15086,18 @@ Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentU
 
 1 error
 
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:16:05,220 [http-bio-9000-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
 Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentUploadForm_gsp: 71: unexpected char: ''' @ line 71, column 67.
@@ -14630,10 +15141,18 @@ Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentU
 	at org.codehaus.groovy.control.CompilationUnit.doPhaseOperation(CompilationUnit.java:566)
 	at org.codehaus.groovy.control.CompilationUnit.processPhaseOperations(CompilationUnit.java:542)
 	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:519)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:16:05,220 [http-bio-9000-exec-7] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:37:03,330 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
 org.codehaus.groovy.grails.web.pages.exceptions.GroovyPagesException: Could not parse script [/grails-app/views/document/documentUploadForm.gsp]: startup failed:
@@ -14643,10 +15162,16 @@ Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentU
 
 1 error
 
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:16:05,220 [http-bio-9000-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
 Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentUploadForm_gsp: 71: unexpected char: ''' @ line 71, column 67.
@@ -14677,10 +15202,18 @@ Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentU
 
 1 error
 
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:16:05,220 [http-bio-9000-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
 Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentUploadForm_gsp: 71: unexpected char: ''' @ line 71, column 67.
@@ -14724,10 +15257,18 @@ Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentU
 	at org.codehaus.groovy.control.CompilationUnit.doPhaseOperation(CompilationUnit.java:566)
 	at org.codehaus.groovy.control.CompilationUnit.processPhaseOperations(CompilationUnit.java:542)
 	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:519)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+2014-10-16 12:16:05,220 [http-bio-9000-exec-7] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 2014-10-16 11:37:03,332 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
 org.codehaus.groovy.grails.web.pages.exceptions.GroovyPagesException: Could not parse script [/grails-app/views/document/documentUploadForm.gsp]: startup failed:
@@ -14737,10 +15278,16 @@ Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentU
 
 1 error
 
+=======
+	at java.lang.Thread.run(Thread.java:722)
+2014-10-16 12:16:05,221 [http-bio-9000-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: Error initializing GroovyPageView
+>>>>>>> Stashed changes
 	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:195)
 	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+<<<<<<< Updated upstream
 	at java.lang.Thread.run(Thread.java:724)
 Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
 Users_christian_Documents_workspace_CMSystem_grails_app_views_document_documentUploadForm_gsp: 71: unexpected char: ''' @ line 71, column 67.
@@ -16079,3 +16626,8 @@ java.io.FileNotFoundException: /Users/Gulu/Desktop/DocUploads/Maven-Install-Batc
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 	at java.lang.Thread.run(Thread.java:724)
+=======
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Unclosed GSP expression
+	... 5 more
+>>>>>>> Stashed changes
