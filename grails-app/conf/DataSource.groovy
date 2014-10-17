@@ -48,8 +48,8 @@ environments {
                testOnBorrow=true
                testWhileIdle=true
                testOnReturn=true
-               validationQuery="SELECT 1"*/
-            }
+               validationQuery="SELECT 1"
+            }*/
         }
     }
 }
