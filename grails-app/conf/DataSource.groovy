@@ -25,7 +25,19 @@ environments {
     }
     production {
         dataSource {
+
             dbCreate = "update"
+            driverClassName = "org.postgresql.Driver"
+            dialect = org.hibernate.dialect.PostgreSQLDialect
+
+            uri = new URI(System.env.DATABASE_URL?:"postgres://dohfhduvmubcqn:BGmqyIja8bqT7Nsd5yzwUg5ZeC@ec2-54-83-204-85.compute-1.amazonaws.com:5432/d3h2r5och27n95")
+
+            url = "jdbc:postgresql://"+uri.host+uri.path
+            username = uri.userInfo.split(":")[0]
+            password = uri.userInfo.split(":")[1]
+
+
+            /*dbCreate = "update"
             url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
             pooled = true
             properties {
@@ -36,7 +48,7 @@ environments {
                testOnBorrow=true
                testWhileIdle=true
                testOnReturn=true
-               validationQuery="SELECT 1"
+               validationQuery="SELECT 1"*/
             }
         }
     }
