@@ -12,6 +12,6 @@ class User {
     }
 
     static mapping = {
-    	table '`user`'
+    	table '`User`'
     }
 }
