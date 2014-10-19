@@ -10,4 +10,8 @@ class User {
 	
     static constraints = {
     }
+
+    static static mapping = {
+    	table '`user`'
+    }
 }
