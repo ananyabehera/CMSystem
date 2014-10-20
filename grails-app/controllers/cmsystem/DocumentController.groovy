@@ -20,7 +20,7 @@ class DocumentController {
 		} else {
 			def documentInstance = new Document()
 			documentInstance.name = file.originalFilename
-			documentInstance.fullPath = grailsApplication.config.uploadFolder + documentInstance.name
+			documentInstance.fullPath = getServletContext().getRealPath("/") + grailsApplication.config.uploadFolder + documentInstance.name
 			file.transferTo(new File(documentInstance.fullPath))
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
