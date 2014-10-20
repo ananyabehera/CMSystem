@@ -16,7 +16,7 @@ environments {
     
     development {
         dataSource {
-            dbCreate = "none" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:h2:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
     }
@@ -31,7 +31,7 @@ environments {
     production {
         dataSource {
 
-            dbCreate = "none"
+            dbCreate = "create-drop"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
 
