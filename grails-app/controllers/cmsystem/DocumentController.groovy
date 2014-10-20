@@ -1,10 +1,12 @@
 package cmsystem
 
 import org.springframework.web.multipart.commons.CommonsMultipartFile
+import org.codehaus.groovy.grails.web.context.ServletContextHolder
+import grails.util.GrailsUtil
 
 class DocumentController {
 
-	private static final okcontents = ['pdf']
+	boolean transactional = true
 	
     def index() { }
 	
@@ -13,6 +15,7 @@ class DocumentController {
 	}
 	
 	def upload_Doc() {
+
 		
 		def file = request.getFile('file')
 		if(file.empty) {
@@ -20,9 +23,10 @@ class DocumentController {
 		} else {
 			def documentInstance = new Document()
 			documentInstance.name = file.originalFilename
-			documentInstance.fullPath = grailsApplication.config.uploadFolder + documentInstance.name
+			documentInstance.file = file.bytes
+			/*documentInstance.fullPath = grailsApplication.config.uploadFolder + documentInstance.name
 			File dest = new File(documentInstance.fullPath)
-			file.transferTo(dest)
+			file.transferTo(dest)*/
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
 		}
