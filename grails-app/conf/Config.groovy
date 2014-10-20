@@ -93,12 +93,12 @@ log4j = {
 
 environments {
     development {
-        uploadFolder = "/CMSystem/uploads/"
+        uploadFolder = "/Users/Gulu/Desktop/CMSystem/uploads/"
     }
     test {
-        uploadFolder = "/CMSystem/uploads/"
+        uploadFolder = "/Users/Gulu/Desktop/CMSystem/uploads/"
     }
     production {
-        uploadFolder = "/CMSystem/uploads/"
+        uploadFolder = "/Users/Gulu/Desktop/CMSystem/uploads/"
     }
 }

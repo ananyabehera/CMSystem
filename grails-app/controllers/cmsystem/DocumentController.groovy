@@ -21,7 +21,7 @@ class DocumentController {
 			def documentInstance = new Document()
 			documentInstance.name = file.originalFilename
 			documentInstance.fullPath = grailsApplication.config.uploadFolder + documentInstance.name
-			File dest = new File(req.getServletContext().getResource(documentInstance.fullPath).toURI())
+			File dest = new File(documentInstance.fullPath)
 			file.transferTo(dest)
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
