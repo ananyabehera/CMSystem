@@ -54,7 +54,7 @@
        	 						<tr>
        	 							<td><input type="checkbox" id="selectAll" name="selectAll" /></td>
             						<td>${doc.name}</td>
-            						<td>${doc.uploadDate}</td>
+            						<td><g:formatDate date="${doc.uploadDate}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>[DOCTYPE]</td>
             						<td>View | Edit | Delete</td>
         						</tr>

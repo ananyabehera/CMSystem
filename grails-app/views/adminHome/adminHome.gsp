@@ -19,8 +19,8 @@
 				<!--Added the remainder buttons just incase.  Will update them as soon as we finish development on that part.-->
 				
 				<h2>Tag Options:</h2>
-				<g:link class="btn btn-success btn-lg btn-block" action="#"><span class="glyphicon glyphicon-plus"></span> Create Tag(s)</g:link>
-				<g:link class="btn btn-primary btn-lg btn-block" action="#"><span class="glyphicon glyphicon-list-alt"></span> Tag List(s)</g:link>
+				<g:link class="btn btn-success btn-lg btn-block" action="createTag"><span class="glyphicon glyphicon-plus"></span> Create Tag(s)</g:link>
+				<g:link class="btn btn-primary btn-lg btn-block" action="listTags"><span class="glyphicon glyphicon-list-alt"></span> Tag List(s)</g:link>
 				
 			</div> <!-- /container -->
 		</g:if>

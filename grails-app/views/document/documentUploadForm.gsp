@@ -22,7 +22,7 @@
   				
   			</div> <!-- /row -->
   			
-  			<g:uploadForm controller="Document" action="upload_Doc" role="uploadForm">
+  			<g:uploadForm controller="Document" action="upload_Doc">
   				
   				<!-- Document Upload Row -->
   				<div class="row">
@@ -56,6 +56,22 @@
 					</div> <!-- /col-md-9 -->
 				
 				</div> <!-- /row -->
+				
+				<!-- Tag Row -->
+				<div class="row">
+					<div class="col-md-9">
+						
+						<div class="form-group">
+							<select multiple class="form-control">
+  								<g:each in="${tagInstanceList}" status="i" var="tag">
+  									<option value="${tag.tagName}">${tag.tagName}</option>
+  								</g:each>
+							</select>
+						</div>
+						
+					</div> <!-- col-md-9 -->
+					
+  				</div> <!-- /row -->
 				
 				<!-- Document Description and Upload Button Row -->
 				<div class="row">

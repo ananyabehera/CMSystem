@@ -10,8 +10,8 @@ class DocumentController {
 	
     def index() { }
 	
-	def renderUploadForm() {
-		render(view: "documentUploadForm")
+	def documentUploadForm() {
+		[tagInstanceList: Tag.list(), TagInstanceTotal: Tag.count()]
 	}
 	
 	def upload_Doc() {
