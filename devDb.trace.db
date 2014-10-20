@@ -206,3 +206,6 @@ org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic c
 	at groovy.lang.Closure.call(Closure.java:406)
 	at groovy.lang.Closure.run(Closure.java:490)
 	at java.lang.Thread.run(Thread.java:724)
+10-20 15:06:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "FILE BINARY(255) NOT NULL": "X'255044462d312e340a25e2e3cfd30a322030206f626a0a3c3c2f4c656e6774682036352f46696c7465722f466c6174654465636f64653e3e73747265616d0a... (9184)"; SQL statement:
+insert into document (id, version, file, name, upload_date) values (null, ?, ?, ?, ?) [22001-164]
