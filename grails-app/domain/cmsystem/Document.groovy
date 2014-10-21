@@ -13,4 +13,8 @@ class Document {
 		file(nullable:false, maxSize:1073741824)
         //fullPath(blank:false,nullable:false)
     }
+
+    static mapping = {
+    	table 'document'
+    }
 }
