@@ -5,7 +5,7 @@ class Document {
 	String name
 	Date uploadDate = new Date()
 	String desc
-	byte[] file
+	//byte[] file
 	String type
 	
     static constraints = {
@@ -14,7 +14,7 @@ class Document {
         //fullPath(blank:false,nullable:false)
     }
 
-   /* static mapping = {
+    static mapping = {
     	table 'document'
-    }*/
+    }
 }
