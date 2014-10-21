@@ -11,6 +11,7 @@ class Document {
     static constraints = {
 		name(blank:false,nullable:false)
 		file(nullable:false, maxSize:1073741824)
+        //fullPath(blank:false,nullable:false)
     }
 
     static mapping = {
