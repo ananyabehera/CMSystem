@@ -30,7 +30,7 @@
 					<div class="col-md-9">
 					
   						<div class="form-group">
-							<input type="text" id="tagName" name="tagName" class="form-control" placeholder="Tag Name" required />
+							<input type="text" id="tagName" name="tagName" class="form-control" placeholder="Tag Name" maxlength="50" required />
 						</div> <!-- /form-group -->
 						
 					</div> <!-- /col-md-9 -->
@@ -42,7 +42,7 @@
 					<div class="col-md-9">
 						
 						<div class="form-group">
-							<textarea id="tagDesc" name="tagDesc" class="form-control" placeholder="Description" rows="5" required></textarea>
+							<textarea id="tagDesc" name="tagDesc" class="form-control" placeholder="Description" rows="5" maxlength="1000" required></textarea>
 						</div>
 				
 						<!-- <label>Date:</label><g:datePicker name="date"/><br/><br/> -->

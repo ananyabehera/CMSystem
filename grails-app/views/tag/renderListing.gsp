@@ -57,8 +57,8 @@
             						<td><g:formatDate date="${tag.dateCreated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td><g:formatDate date="${tag.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>
-            							View | 
-            							<g:link controller="Tag" action="editTag" id="${tag.id}">Edit |</g:link>
+            							<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link> | 
+            							<g:link controller="Tag" action="tagEditForm" id="${tag.id}">Edit</g:link> |
             							<g:link controller="Tag" action="deleteTag" id="${tag.id}">Delete</g:link>
             						</td>
         						</tr>
