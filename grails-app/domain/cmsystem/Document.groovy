@@ -4,7 +4,7 @@ class Document {
 	
 	String name
 	Date uploadDate = new Date()
-	String desc
+	String documentDescription
 	byte[] file
 	String type
 	

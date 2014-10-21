@@ -26,7 +26,7 @@ class DocumentController {
 			documentInstance.name = params.documentTitle
 			documentInstance.file = file.bytes
 			documentInstance.type = file.contentType
-			documentInstance.desc = params.documentDesc
+			documentInstance.documentDescription = params.documentDesc
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
 		}
