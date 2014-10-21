@@ -59,7 +59,7 @@ class DocumentController {
 		def doc = Document.load(params.id)
 
 		doc.name = params.documentTitle
-		doc.desc = params.documentDesc
+		doc.documentDescription = params.documentDesc
 
 		redirect(controller: "AdminHome", action: "renderHomePage")
 		//Tag fields need to be added
