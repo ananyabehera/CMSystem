@@ -8,8 +8,8 @@ class User {
 	String password
 	Permission level
 	
-    /*static constraints = {
-    }*/
+    static constraints = {
+    }
 
     static mapping = {
     	table '`User`'
