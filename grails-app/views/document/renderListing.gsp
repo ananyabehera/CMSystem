@@ -55,8 +55,12 @@
        	 							<td><input type="checkbox" id="selectAll" name="selectAll" /></td>
             						<td>${doc.name}</td>
             						<td><g:formatDate date="${doc.uploadDate}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
-            						<td>[DOCTYPE]</td>
-            						<td>View | Edit | Delete</td>
+            						<td>${doc.type}</td>
+            						<td>
+                          View | 
+                          <g:link controller="Document" action="editDocumentForm" id="${doc.id}">Edit |</g:link>
+                          <g:link controller="Document" action="deleteDocument" id="${doc.id}">Delete</g:link>
+                        </td>
         						</tr>
         					</tbody>
    						</g:each>

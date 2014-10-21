@@ -3,6 +3,7 @@ package cmsystem
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
 import grails.util.GrailsUtil
+import java.lang.*
 
 class DocumentController {
 
@@ -22,11 +23,10 @@ class DocumentController {
 			flash.message = "File cannot be empty"
 		} else {
 			def documentInstance = new Document()
-			documentInstance.name = file.originalFilename
+			documentInstance.name = params.documentTitle
 			documentInstance.file = file.bytes
-			/*documentInstance.fullPath = grailsApplication.config.uploadFolder + documentInstance.name
-			File dest = new File(documentInstance.fullPath)
-			file.transferTo(dest)*/
+			documentInstance.type = file.contentType
+			documentInstance.desc = params.documentDesc
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
 		}
@@ -37,8 +37,32 @@ class DocumentController {
 	}
 
 	def renderListing() {
-		//params.max = 10
+		//params.max = 1
         [documentInstanceList: Document.list(), documentInstanceTotal: Document.count()]
+	}
+
+	def deleteDocument() {
+		def doc = Document.findById(params.id)
+		
+		if(doc)
+		{
+			doc.delete(flush: true)
+			redirect(controller: "Document", action: "renderListing")
+		}
+	}
+
+	def editDocumentForm() {
+		[documentInstance: Document.load(params.id)]
+	}
+
+	def edit_Doc() {
+		def doc = Document.load(params.id)
+
+		doc.name = params.documentTitle
+		doc.desc = params.documentDesc
+
+		redirect(controller: "AdminHome", action: "renderHomePage")
+		//Tag fields need to be added
 	}
 
 }

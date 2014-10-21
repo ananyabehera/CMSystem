@@ -16,14 +16,14 @@ environments {
     
     development {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:h2:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
     }
     
     test {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "validate"
             url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
     }
@@ -31,7 +31,7 @@ environments {
     production {
         dataSource {
 
-            dbCreate = "create-drop"
+            dbCreate = "validate"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
 
