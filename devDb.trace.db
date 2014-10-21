@@ -322,3 +322,21 @@ org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic c
 	at groovy.lang.Closure.call(Closure.java:406)
 	at groovy.lang.Closure.run(Closure.java:490)
 	at java.lang.Thread.run(Thread.java:722)
+10-21 09:09:05 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "TAG_DESC VARCHAR(255) NOT NULL": "'Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Te... (661)"; SQL statement:
+insert into tag (id, version, date_created, date_updated, tag_desc, tag_name) values (null, ?, ?, ?, ?, ?) [22001-164]
+10-21 09:16:38 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "TAG_DESC VARCHAR(255) NOT NULL": "'Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Te... (736)"; SQL statement:
+insert into tag (id, version, date_created, date_updated, tag_desc, tag_name) values (null, ?, ?, ?, ?, ?) [22001-164]
+10-21 09:18:33 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "TAG_DESC VARCHAR(255) NOT NULL": "'tagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesct... (540)"; SQL statement:
+insert into tag (id, version, date_created, date_updated, tag_desc, tag_name) values (null, ?, ?, ?, ?, ?) [22001-164]
+10-21 09:18:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "TAG_DESC VARCHAR(255) NOT NULL": "'tagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesctagDesct... (279)"; SQL statement:
+insert into tag (id, version, date_created, date_updated, tag_desc, tag_name) values (null, ?, ?, ?, ?, ?) [22001-164]
+10-21 09:24:32 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "TAG_DESC VARCHAR(255) NOT NULL": "STRINGDECODE('Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test... (486)"; SQL statement:
+insert into tag (id, version, date_created, date_updated, tag_desc, tag_name) values (null, ?, ?, ?, ?, ?) [22001-164]
+10-21 09:31:42 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "TAG_DESC VARCHAR(255) NOT NULL": "'CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CLOB CL... (595)"; SQL statement:
+insert into tag (id, version, date_created, date_updated, tag_desc, tag_name) values (null, ?, ?, ?, ?, ?) [22001-164]
