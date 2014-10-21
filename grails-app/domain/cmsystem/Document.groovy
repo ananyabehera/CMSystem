@@ -14,7 +14,7 @@ class Document {
         //fullPath(blank:false,nullable:false)
     }
 
-    static mapping = {
+   /* static mapping = {
     	table 'document'
-    }
+    }*/
 }
