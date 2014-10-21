@@ -78,7 +78,7 @@
 					<div class="col-md-9">
 						
 						<div class="form-group">
-							<textarea id="documentDesc" name="documentDesc" class="form-control" placeholder="Description" rows="5"></textarea>
+							<textarea id="docDesc" name="docDesc" class="form-control" placeholder="Description" rows="5"></textarea>
 						</div>
 				
 						<!-- <label>Date:</label><g:datePicker name="date"/><br/><br/> -->

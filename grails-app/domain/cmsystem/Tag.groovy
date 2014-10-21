@@ -6,6 +6,8 @@ class Tag {
 	String tagDesc
 	Date dateCreated = new Date()
 	Date dateUpdated = new Date()
+	static belongsTo = Document
+	static hasMany = [document:Document]
 	
     static constraints = {
 		tagName size: 1..50

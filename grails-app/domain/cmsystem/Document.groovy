@@ -7,6 +7,9 @@ class Document {
 	String documentDescription
 	byte[] file
 	String type
+	List tag
+	
+	static hasMany = [tag:Tag]
 	
     static constraints = {
 		name(blank:false,nullable:false)

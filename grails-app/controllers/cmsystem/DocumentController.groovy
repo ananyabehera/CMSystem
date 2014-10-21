@@ -26,7 +26,7 @@ class DocumentController {
 			documentInstance.name = params.documentTitle
 			documentInstance.file = file.bytes
 			documentInstance.type = file.contentType
-			documentInstance.documentDescription = params.documentDesc
+			documentInstance.documentDescription = params.docDesc
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
 		}
@@ -59,10 +59,9 @@ class DocumentController {
 		def doc = Document.load(params.id)
 
 		doc.name = params.documentTitle
-		doc.documentDescription = params.documentDesc
+		doc.documentDescription = params.docDesc
 
 		redirect(controller: "AdminHome", action: "renderHomePage")
 		//Tag fields need to be added
 	}
-
 }
