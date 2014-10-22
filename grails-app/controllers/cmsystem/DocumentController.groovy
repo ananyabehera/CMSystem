@@ -27,7 +27,9 @@ class DocumentController {
 			def documentInstance = new Document()
 			documentInstance.name = params.documentTitle
 			documentInstance.file = file.bytes
-			documentInstance.type = file.contentType
+
+			//Code to get filetype explicitly
+			documentInstance.type = file.contentType.split("/")[1]
 			documentInstance.documentDesc = params.docDesc
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
@@ -80,7 +82,7 @@ class DocumentController {
 		else
 		{
 			response.setContentType("APPLICATION/OCTET-STREAM")
-            response.setHeader("Content-Disposition", "Attachment;Filename=\"${doc.name}\"")
+            response.setHeader("Content-Disposition", "Attachment;Filename=\"${doc.name}.${doc.type}\"")
 
             def outputStream = response.getOutputStream()
             outputStream << doc.file
