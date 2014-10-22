@@ -32,19 +32,22 @@
            			<p><strong>Date Updated:</strong> <g:formatDate date="${tagInstance.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></p>
 				</div>
 			</div> <!-- /row -->
+			<g:if test="${session.level == 'ADMIN'}">
 				
-			<!-- Button Options -->
-			<div class="row">
-				<div class="col-md-1">
-					<g:link id="${tagInstance.id}" class="btn btn-warning" controller="Tag" action="tagEditForm"><span class="glyphicon glyphicon-pencil"></span> Edit</g:link>
-				</div> <!-- col-md-1 -->
+				<!-- Button Options -->
+				<div class="row">
+					<div class="col-md-1">
+						<g:link id="${tagInstance.id}" class="btn btn-warning" controller="Tag" action="tagEditForm"><span class="glyphicon glyphicon-pencil"></span> Edit</g:link>
+					</div> <!-- col-md-1 -->
 					
-				<div class="col-md-1">
-					<g:link id="${tagInstance.id}" class="btn btn-danger" controller="Tag" action="deleteTag"><span class="glyphicon glyphicon-trash"></span> Delete</g:link>
-				</div> <!-- col-md-1 -->
+					<div class="col-md-1">
+						<g:link id="${tagInstance.id}" class="btn btn-danger" controller="Tag" action="deleteTag"><span class="glyphicon glyphicon-trash"></span> Delete</g:link>
+					</div> <!-- col-md-1 -->
 					
-  			</div> <!-- /row -->
-				
+  				</div> <!-- /row -->
+			
+			</g:if>
+			
 			<!-- tag Description -->
 			<div class="row">
 				<div class="col-md-12">

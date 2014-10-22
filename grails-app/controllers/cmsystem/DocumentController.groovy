@@ -3,7 +3,7 @@ package cmsystem
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
 import grails.util.GrailsUtil
-/*import java.lang.**/
+import java.lang.*
 
 class DocumentController {
 

@@ -17,7 +17,7 @@ class UserController {
 			if(user.level == Permission.ADMIN)
 				redirect(controller: "AdminHome", action: "renderHomePage")
 			else
-				render "Hello"
+				redirect(controller: "GeneralHome", action: "renderHomePage")
 		}
 		else {
 			flash.message = "Login Failed"

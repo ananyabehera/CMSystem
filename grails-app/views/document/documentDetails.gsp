@@ -36,18 +36,26 @@
 				
 			<!-- Button Options -->
 			<div class="row">
-				<div class="col-md-2">
-					<g:link id="${documentInstance.id}" class="btn btn-success" controller="Document" action="download_Doc"><span class="glyphicon glyphicon-cloud-download"></span> Download</g:link>
-				</div> <!-- col-md-1 -->
 				
-				<div class="col-md-1">
-					<g:link id="${documentInstance.id}" class="btn btn-warning" controller="Document" action="editDocumentForm"><span class="glyphicon glyphicon-pencil"></span> Edit</g:link>
-				</div> <!-- col-md-1 -->
+				<g:if test="${session.level == 'USER'}">
+					<div class="col-md-2">
+						<g:link id="${documentInstance.id}" class="btn btn-success" controller="Document" action="download_Doc"><span class="glyphicon glyphicon-cloud-download"></span> Download</g:link>
+					</div> <!-- col-md-1 -->
+				</g:if>
+				<g:else>
+					<div class="col-md-2">
+						<g:link id="${documentInstance.id}" class="btn btn-success" controller="Document" action="download_Doc"><span class="glyphicon glyphicon-cloud-download"></span> Download</g:link>
+					</div> <!-- col-md-1 -->
 					
-				<div class="col-md-1">
-					<g:link id="${documentInstance.id}" class="btn btn-danger" controller="Document" action="deleteDocument"><span class="glyphicon glyphicon-trash"></span> Delete</g:link>
-				</div> <!-- col-md-1 -->
+					<div class="col-md-1">
+						<g:link id="${documentInstance.id}" class="btn btn-warning" controller="Document" action="editDocumentForm"><span class="glyphicon glyphicon-pencil"></span> Edit</g:link>
+					</div> <!-- col-md-1 -->
 					
+					<div class="col-md-1">
+						<g:link id="${documentInstance.id}" class="btn btn-danger" controller="Document" action="deleteDocument"><span class="glyphicon glyphicon-trash"></span> Delete</g:link>
+					</div> <!-- col-md-1 -->
+				</g:else>
+  			
   			</div> <!-- /row -->
 				
 			<!-- Document Description -->

@@ -57,9 +57,14 @@
             						<td><g:formatDate date="${tag.dateCreated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td><g:formatDate date="${tag.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>
-            							<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link> | 
-            							<g:link controller="Tag" action="tagEditForm" id="${tag.id}">Edit</g:link> |
-            							<g:link controller="Tag" action="deleteTag" id="${tag.id}">Delete</g:link>
+            							<g:if test="${session.level == 'USER'}">
+            								<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link>
+            							</g:if>
+            							<g:else>
+            								<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link> | 
+            								<g:link controller="Tag" action="tagEditForm" id="${tag.id}">Edit</g:link> |
+            								<g:link controller="Tag" action="deleteTag" id="${tag.id}">Delete</g:link>
+            							</g:else>
             						</td>
         						</tr>
         					</tbody>
