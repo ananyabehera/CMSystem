@@ -37,7 +37,7 @@
 			<!-- Button Options -->
 			<div class="row">
 				
-				<g:if test="${session.level == Permission.ADMIN}">
+				<g:if test="${session.user.level == Permission.ADMIN}">
 					<div class="col-md-2">
 						<g:link id="${documentInstance.id}" class="btn btn-success" controller="Document" action="download_Doc"><span class="glyphicon glyphicon-cloud-download"></span> Download</g:link>
 					</div> <!-- col-md-1 -->

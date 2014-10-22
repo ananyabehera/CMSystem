@@ -14,7 +14,7 @@
   			<!-- Home Button Col -->
   			<div class="col-md-1 home-button">
   			
-  				<g:if test="${session.level == Permission.ADMIN}">
+  				<g:if test="${session.user.level == Permission.ADMIN}">
   					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   				</g:if>
   				<g:else>
@@ -64,7 +64,7 @@
             						<td><g:formatDate date="${doc.uploadDate}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>${doc.type}</td>
             						<td>
-            							<g:if test="${session.level == Permission.ADMIN}">
+            							<g:if test="${session.user.level == Permission.ADMIN}">
                           					<g:link controller="Document" action="download_Doc" id="${doc.id}">Download</g:link> |
                           					<g:link controller="Document" action="documentDetails" id="${doc.id}">View</g:link> | 
                           					<g:link controller="Document" action="editDocumentForm" id="${doc.id}">Edit</g:link> |
