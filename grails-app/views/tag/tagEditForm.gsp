@@ -8,9 +8,10 @@
   	
   	<body>
   		<div class="container">
+  			
   			<div class="row">
   				
-  				<!-- Home Button Col -->
+  				<!-- List Button Col -->
   				<div class="col-md-1 home-button">
   					<g:link class="btn btn-success" controller="Tag" action="renderListing"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
   				</div> <!-- /col-md-1 -->
@@ -24,37 +25,34 @@
   			
   			<g:uploadForm controller="Tag" action="updateTag">
 				
-				<g:each in="${tagInstance}" status="i" var="tag">
-					<g:hiddenField name="id" value="${tag.id}" />
+				<g:hiddenField name="id" value="${tagInstance.id}" />
 					
-					<!-- Tag Name Row -->
-					<div class="row">
+				<!-- Tag Name Row -->
+				<div class="row">
 					
-						<div class="col-md-9">
+					<div class="col-md-9">
 					
-  							<div class="form-group">
-								<input type="text" id="tagName" name="tagName" class="form-control" placeholder="Tag Name" maxlength="50" value="${tag.tagName}" required />
-							</div> <!-- /form-group -->
+  						<div class="form-group">
+							<input type="text" id="tagName" name="tagName" class="form-control" placeholder="Tag Name" maxlength="50" value="${tagInstance.tagName}" required />
+						</div> <!-- /form-group -->
 						
-						</div> <!-- /col-md-9 -->
+					</div> <!-- /col-md-9 -->
 				
-					</div> <!-- /row -->
+				</div> <!-- /row -->
 				
-					<!-- Tag Description and Create Button Row -->
-					<div class="row">
-						<div class="col-md-9">
+				<!-- Tag Description and Create Button Row -->
+				<div class="row">
+					<div class="col-md-9">
 						
-							<div class="form-group">
-								<textarea id="tagDesc" name="tagDesc" class="form-control" placeholder="Description" rows="5" maxlength="1000" required>${tag.tagDesc}</textarea>
-							</div>
+						<div class="form-group">
+							<textarea id="tagDesc" name="tagDesc" class="form-control" placeholder="Description" rows="5" maxlength="1000" required>${tagInstance.tagDesc}</textarea>
+						</div>
 				
-							<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Update</button>
+						<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Update</button>
   				
-						</div> <!-- col-md-9 -->
+					</div> <!-- col-md-9 -->
 					
-  					</div> <!-- /row -->
-			
-				</g:each>
+  				</div> <!-- /row -->
 			
 			</g:uploadForm>
 			

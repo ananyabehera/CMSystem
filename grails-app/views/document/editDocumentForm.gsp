@@ -10,14 +10,14 @@
   		<div class="container">
   			<div class="row">
   				
-  				<!-- Home Button Col -->
+  				<!-- List Button Col -->
   				<div class="col-md-1 home-button">
-  					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
+  					<g:link class="btn btn-success" controller="Document" action="renderListing"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
   				</div> <!-- /col-md-1 -->
   				
   				<!-- Page Heading Col -->
   				<div class="col=md-12">
-  					<h1>Upload Document</h1>
+  					<h1>Edit Document</h1>
   				</div> <!-- /col-md-12 -->
   				
   			</div> <!-- /row -->
@@ -44,9 +44,9 @@
 						
 						<div class="form-group">
 							<select multiple class="form-control">
-  								<g:each in="${tagInstanceList}" status="i" var="tag">
+  								<!--<g:each in="${tagInstanceList}" status="i" var="tag">
   									<option value="${tag.tagName}">${tag.tagName}</option>
-  								</g:each>
+  								</g:each>-->
 							</select>
 						</div>
 						
@@ -61,9 +61,8 @@
 						<div class="form-group">
 							<textarea id="documentDesc" name="documentDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.documentDescription}</textarea>
 						</div>
-				
-						<!-- <label>Date:</label><g:datePicker name="date"/><br/><br/> -->
-						<button type="submit" class="btn btn-primary pull-right" id="${documentInstance.id}"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</button>
+						
+						<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Update</button>
   				
 					</div> <!-- col-md-9 -->
 					
