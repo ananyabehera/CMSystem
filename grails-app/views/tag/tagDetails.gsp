@@ -32,7 +32,7 @@
            			<p><strong>Date Updated:</strong> <g:formatDate date="${tagInstance.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></p>
 				</div>
 			</div> <!-- /row -->
-			<g:if test="${session.level == 'ADMIN'}">
+			<g:if test="${session.level == Permission.ADMIN}">
 				
 				<!-- Button Options -->
 				<div class="row">
