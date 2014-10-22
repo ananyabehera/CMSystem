@@ -3,7 +3,7 @@ package cmsystem
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
 import grails.util.GrailsUtil
-import java.lang.*
+/*import java.lang.**/
 
 class DocumentController {
 
@@ -15,9 +15,11 @@ class DocumentController {
 		[tagInstanceList: Tag.list(), TagInstanceTotal: Tag.count()]
 	}
 	
+	def documentDetails() {
+		[documentInstance: Document.load(params.id)]
+	}
+	
 	def upload_Doc() {
-
-		
 		def file = request.getFile('file')
 		if(file.empty) {
 			flash.message = "File cannot be empty"
@@ -56,13 +58,16 @@ class DocumentController {
 	}
 
 	def edit_Doc() {
-		def doc = Document.load(params.id)
+		def doc = Document.findById(params.id)
 
 		doc.name = params.documentTitle
 		doc.documentDesc = params.docDesc
 
-		redirect(controller: "AdminHome", action: "renderHomePage")
+		doc.save(flush: true)
+		
 		//Tag fields need to be added
+		redirect(controller: "AdminHome", action: "renderHomePage")
+		
 	}
 
 	def download_Doc() {

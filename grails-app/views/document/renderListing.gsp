@@ -57,9 +57,9 @@
             						<td><g:formatDate date="${doc.uploadDate}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>${doc.type}</td>
             						<td>
-                          View | 
-                          <g:link controller="Document" action="editDocumentForm" id="${doc.id}">Edit |</g:link>
-                          <g:link controller="Document" action="download_Doc" id="${doc.id}">Download |</g:link>
+                          <g:link controller="Document" action="download_Doc" id="${doc.id}">Download</g:link> |
+                          <g:link controller="Document" action="documentDetails" id="${doc.id}">View</g:link> | 
+                          <g:link controller="Document" action="editDocumentForm" id="${doc.id}">Edit</g:link> |
                           <g:link controller="Document" action="deleteDocument" id="${doc.id}">Delete</g:link>
                         </td>
         						</tr>
