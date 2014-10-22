@@ -13,7 +13,14 @@
   			
   			<!-- Home Button Col -->
   			<div class="col-md-1 home-button">
-  				<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
+  			
+  				<g:if test="${session.level == 'USER'}">
+  					<g:link class="btn btn-success" controller="generalHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
+  				</g:if>
+  				<g:else>
+  					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
+  				</g:else>
+  				
   			</div> <!-- /col-md-1 -->
   				
   			<!-- Page Heading Col -->
