@@ -26,7 +26,7 @@ class DocumentController {
 			documentInstance.name = params.documentTitle
 			documentInstance.file = file.bytes
 			documentInstance.type = file.contentType
-			documentInstance.documentDescription = params.docDesc
+			documentInstance.documentDesc = params.docDesc
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
 		}
@@ -59,9 +59,28 @@ class DocumentController {
 		def doc = Document.load(params.id)
 
 		doc.name = params.documentTitle
-		doc.documentDescription = params.docDesc
+		doc.documentDesc = params.docDesc
 
 		redirect(controller: "AdminHome", action: "renderHomePage")
 		//Tag fields need to be added
+	}
+
+	def download_Doc() {
+		def doc = Document.load(params.id)
+
+		if (doc == null)
+		{
+			redirect(controller: "Document", action: "renderListing")
+		}
+		else
+		{
+			response.setContentType("APPLICATION/OCTET-STREAM")
+            response.setHeader("Content-Disposition", "Attachment;Filename=\"${doc.name}\"")
+
+            def outputStream = response.getOutputStream()
+            outputStream << doc.file
+            outputStream.flush()
+            outputStream.close()
+		}
 	}
 }

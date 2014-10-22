@@ -4,7 +4,7 @@ class Document {
 	
 	String name
 	Date uploadDate = new Date()
-	String documentDescription
+	String documentDesc
 	byte[] file
 	String type
 	List tag

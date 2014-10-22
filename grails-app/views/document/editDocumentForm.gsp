@@ -59,7 +59,7 @@
 					<div class="col-md-9">
 						
 						<div class="form-group">
-							<textarea id="documentDesc" name="documentDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.documentDescription}</textarea>
+							<textarea id="documentDesc" name="documentDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.documentDesc}</textarea>
 						</div>
 				
 						<!-- <label>Date:</label><g:datePicker name="date"/><br/><br/> -->

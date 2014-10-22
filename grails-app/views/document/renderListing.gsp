@@ -59,6 +59,7 @@
             						<td>
                           View | 
                           <g:link controller="Document" action="editDocumentForm" id="${doc.id}">Edit |</g:link>
+                          <g:link controller="Document" action="download_Doc" id="${doc.id}">Download |</g:link>
                           <g:link controller="Document" action="deleteDocument" id="${doc.id}">Delete</g:link>
                         </td>
         						</tr>
