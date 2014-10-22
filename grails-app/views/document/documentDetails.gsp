@@ -37,7 +37,7 @@
 			<!-- Button Options -->
 			<div class="row">
 				<div class="col-md-2">
-					<g:link id="${documentInstance.id}" class="btn btn-success" controller="Document" action="documentDownload"><span class="glyphicon glyphicon-cloud-download"></span> Download</g:link>
+					<g:link id="${documentInstance.id}" class="btn btn-success" controller="Document" action="download_Doc"><span class="glyphicon glyphicon-cloud-download"></span> Download</g:link>
 				</div> <!-- col-md-1 -->
 				
 				<div class="col-md-1">
@@ -53,7 +53,7 @@
 			<!-- Document Description -->
 			<div class="row">
 				<div class="col-md-12">
-					<p>${documentInstance.documentDescription}</p>
+					<p>${documentInstance.documentDesc}</p>
 				</div> <!-- col-md-12 -->
 					
   			</div> <!-- /row -->

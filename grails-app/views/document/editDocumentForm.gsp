@@ -59,7 +59,7 @@
 					<div class="col-md-9">
 						
 						<div class="form-group">
-							<textarea id="documentDesc" name="documentDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.documentDesc}</textarea>
+							<textarea id="docDesc" name="docDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.documentDesc}</textarea>
 						</div>
 						
 						<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Update</button>
