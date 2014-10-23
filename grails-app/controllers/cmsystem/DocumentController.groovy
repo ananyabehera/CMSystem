@@ -68,7 +68,7 @@ class DocumentController {
 		doc.save(flush: true)
 		
 		//Tag fields need to be added
-		redirect(controller: "Document", action: "renderListing")
+		redirect(controller: "AdminHome", action: "renderHomePage")
 		
 	}
 

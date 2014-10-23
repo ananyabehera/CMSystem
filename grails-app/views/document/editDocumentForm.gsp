@@ -23,7 +23,7 @@
   			</div> <!-- /row -->
   			
   			<g:uploadForm controller="Document" action="edit_Doc">
-  				<g:hiddenField name="id" value="${documentInstance.id}"/>
+  			<g:hiddenField name="id" value="${documentInstance.id}"/>
 				
 				<!-- Document Title Row -->
 				<div class="row">
