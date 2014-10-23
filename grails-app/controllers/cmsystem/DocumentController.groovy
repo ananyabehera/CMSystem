@@ -21,9 +21,12 @@ class DocumentController {
 	
 	def upload_Doc() {
 		def file = request.getFile('file')
-		if(file.empty) {
+		if(file.empty) 
+		{
 			flash.message = "File cannot be empty"
-		} else {
+		} 
+		else 
+		{
 			def documentInstance = new Document()
 			documentInstance.name = params.documentTitle
 			documentInstance.file = file.bytes

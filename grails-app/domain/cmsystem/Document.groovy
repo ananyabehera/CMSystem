@@ -7,9 +7,8 @@ class Document {
 	String documentDesc
 	byte[] file
 	String type
-	List tag
 	
-	static hasMany = [tag:Tag]
+	static hasMany = [tags:Tag]
 	
     static constraints = {
 		name(blank:false,nullable:false)

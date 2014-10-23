@@ -14,7 +14,7 @@ class UserController {
 			session.user = user
 			session.login = false
 
-			if(user.level == 1)
+			if(user.level == Permission.ADMIN)
 				redirect(controller: "AdminHome", action: "renderHomePage")
 			else
 				redirect(controller: "GeneralHome", action: "renderHomePage")
@@ -26,6 +26,18 @@ class UserController {
 			redirect(action: 'index')
 		}
 		
+	}
+	
+	def renderUserForm() {
+		render(view: "createUserForm")
+	}
+	
+	def createUser() {
+		def user = new User(params)
+		user.save()
+		
+		flash.message = "User created."
+		redirect(controller: "User", action: "index")
 	}
 	
 	def logout() {

@@ -64,7 +64,7 @@
 						<div class="form-group">
 							<select multiple class="form-control">
   								<g:each in="${tagInstanceList}" status="i" var="tag">
-  									<option value="${tag.tagName}">${tag.tagName}</option>
+  									<option value="${tag.id}">${tag.tagName}</option>
   								</g:each>
 							</select>
 						</div>

@@ -65,7 +65,7 @@
             						<td><g:formatDate date="${tag.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>
             							<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link>
-            							<g:if test="${session.user.level == 1}"> 
+            							<g:if test="${session.user.level == 'ADMIN'}"> 
             								| <g:link controller="Tag" action="tagEditForm" id="${tag.id}">Edit</g:link>
             								| <g:link controller="Tag" action="deleteTag" id="${tag.id}">Delete</g:link>
             							</g:if>
