@@ -59,13 +59,13 @@ class UserController {
 	}
 	
 	def randomSalt () {
-		def salt = 0
+		def String salt = 0
 		def random = new Random()
 		
 		
 		for(int i = 0; i < 16; i++)
 		{
-			salt += random.nextInt(10)
+			salt = salt + random.nextInt(10)
 		}
 		
 		return salt
