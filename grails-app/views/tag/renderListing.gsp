@@ -14,7 +14,8 @@
   			<!-- Home Button Col -->
   			<div class="col-md-1 home-button">
   			
-  				<g:if test="${session.user.level == 'ADMIN'}">
+  				<g:if test="${session.user.level == "ADMIN"}">
+  				Hello
   					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   				</g:if>
   				<g:else>
