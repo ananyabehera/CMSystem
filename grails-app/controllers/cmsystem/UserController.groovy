@@ -48,7 +48,7 @@ class UserController {
 		
 		userInstance.salt = randomSalt()
 		
-		passwordHash = calculateHash(user.password, user.salt)
+		passwordHash = calculateHash(userInstance.password, userInstance.salt)
 		userInstance.password = passwordHash
 		
 		user.save(flush: true)
