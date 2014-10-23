@@ -14,7 +14,7 @@ class UserController {
 			session.user = user
 			session.login = false
 
-			if(user.level == Permission.ADMIN)
+			if(user.level == ADMIN)
 				redirect(controller: "AdminHome", action: "renderHomePage")
 			else
 				redirect(controller: "GeneralHome", action: "renderHomePage")
