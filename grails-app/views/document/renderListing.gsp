@@ -10,7 +10,7 @@
   	<div class="container">
   		
   		<div class="row">
-  			<g:if test="${session.user.level == Permission.ADMIN}">
+  			<g:if test="${session.user.level == ADMIN}">
   				Hello WORLD
   			</g:if>
   			<!-- Home Button Col -->
