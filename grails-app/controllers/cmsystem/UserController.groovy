@@ -1,5 +1,9 @@
 package cmsystem
 
+import org.apache.commons.codec.digest.DigestUtils;
+
+import java.io.*;
+
 class UserController {
 
     def index() { 
@@ -36,10 +40,31 @@ class UserController {
 	
 	def createUser() {
 		def user = new User(params)
+		def passwordHash
+		
+		user.salt = randomSalt()
+		
+		passwordHash = calculateHash(user.password, user.salt)
+		
 		user.save(flush: true)
 		
 		flash.message = "User created."
 		login()
+	}
+	
+	def randomSalt () {
+		def salt
+		def random = new Random()
+		
+		
+		for(i = 0; i < 16; i++)
+		{
+			salt += random.nextInt(10)
+		}
+	}
+	
+	def calculateHash(String password, String salt) {
+		return DigestUtils.sha512Hex(password + salt);
 	}
 	
 	def logout() {
