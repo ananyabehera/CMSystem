@@ -56,7 +56,7 @@
 					<div class="col-md-9">
 					
   						<div class="form-group">
-							<input type="text" id="usrname" name="usrname" class="form-control" placeholder="Username" maxlength="50" required />
+							<input type="text" id="userName" name="userName" class="form-control" placeholder="Username" maxlength="50" required />
 						</div> <!-- /form-group -->
 						
 					</div> <!-- /col-md-9 -->
@@ -83,7 +83,7 @@
 					
   						<div class="form-group">
   							<strong>Permissions:</strong>
-  							<select id="accessLevel" name="accessLevel" Required>
+  							<select id="level" name="level" Required>
   								<option value="USER">USER</option>
   								<option value="ADMIN">ADMIN</option>
   							</select>

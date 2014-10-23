@@ -34,14 +34,14 @@ class UserController {
 	
 	def createUser() {
 		def user = new User(params)
-		user.save()
+		user.save(flush: true)
 		
 		flash.message = "User created."
 		
-		if (params.accessLevel == 'ADMIN')
+		/*if (params.level == 'ADMIN')
 			redirect(controller: "AdminHome", action: "renderHomePage")
 		else
-			redirect(controller: "GeneralHome", action: "renderHomePage")
+			redirect(controller: "GeneralHome", action: "renderHomePage")*/
 	}
 	
 	def logout() {
