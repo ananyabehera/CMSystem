@@ -12,7 +12,7 @@ class User {
 	
 	
     static constraints = {
-		password size 128
+		password size: 128
 		salt size: 16
     }
 
