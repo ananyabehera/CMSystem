@@ -32,6 +32,8 @@
            			<p><strong>Date Updated:</strong> <g:formatDate date="${tagInstance.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></p>
 				</div>
 			</div> <!-- /row -->
+			
+			<g:if test="${session.user.level == 'ADMIN'}">
 				
 				<!-- Button Options -->
 				<div class="row">
@@ -45,6 +47,8 @@
 					</div> <!-- col-md-1 -->
 					
   				</div> <!-- /row -->
+			
+			</g:if>
 			
 			<!-- tag Description -->
 			<div class="row">
