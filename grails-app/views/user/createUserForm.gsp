@@ -22,7 +22,7 @@
   				
   			</div> <!-- /row -->
   			
-  			<g:uploadForm controller="User" action="createuser">
+  			<g:uploadForm controller="User" action="createUser">
 				
 				<!-- First Name Row -->
 				<div class="row">
@@ -82,6 +82,7 @@
 					<div class="col-md-9">
 					
   						<div class="form-group">
+  							<strong>Permissions:</strong>
   							<select id="permissions" name="permissions" Required>
   								<option value="USER">USER</option>
   								<option value="ADMIN">ADMIN</option>
