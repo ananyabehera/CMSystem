@@ -38,7 +38,7 @@ class UserController {
 		
 		flash.message = "User created."
 		
-		if (params.permissions == 'ADMIN')
+		if (params.accessLevel == 'ADMIN')
 			redirect(controller: "AdminHome", action: "renderHomePage")
 		else
 			redirect(controller: "GeneralHome", action: "renderHomePage")
