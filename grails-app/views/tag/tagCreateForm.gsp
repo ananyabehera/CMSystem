@@ -8,51 +8,63 @@
   	
   	<body>
   		<div class="container">
-  			<div class="row">
+  			<g:if test="${session.user}">
+				<g:if test="${session.user.level != 'ADMIN'}">
   				
-  				<!-- Home Button Col -->
-  				<div class="col-md-1 home-button">
-  					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
-  				</div> <!-- /col-md-1 -->
+  					<div class="row">
   				
-  				<!-- Page Heading Col -->
-  				<div class="col=md-12">
-  					<h1>Create Tag</h1>
-  				</div> <!-- /col-md-12 -->
+  						<!-- Home Button Col -->
+  						<div class="col-md-1 home-button">
+  							<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
+  						</div> <!-- /col-md-1 -->
   				
-  			</div> <!-- /row -->
+  						<!-- Page Heading Col -->
+  						<div class="col=md-12">
+  							<h1>Create Tag</h1>
+  						</div> <!-- /col-md-12 -->
+  				
+  					</div> <!-- /row -->
   			
-  			<g:uploadForm controller="Tag" action="createTag">
+  					<g:uploadForm controller="Tag" action="createTag">
 				
-				<!-- Tag Name Row -->
-				<div class="row">
+						<!-- Tag Name Row -->
+						<div class="row">
 					
-					<div class="col-md-9">
-					
-  						<div class="form-group">
-							<input type="text" id="tagName" name="tagName" class="form-control" placeholder="Tag Name" maxlength="50" required />
-						</div> <!-- /form-group -->
+							<div class="col-md-9">
 						
-					</div> <!-- /col-md-9 -->
-				
-				</div> <!-- /row -->
-				
-				<!-- Tag Description and Create Button Row -->
-				<div class="row">
-					<div class="col-md-9">
+  								<div class="form-group">
+									<input type="text" id="tagName" name="tagName" class="form-control" placeholder="Tag Name" maxlength="50" required />
+								</div> <!-- /form-group -->
 						
-						<div class="form-group">
-							<textarea id="tagDesc" name="tagDesc" class="form-control" placeholder="Description" rows="5" maxlength="1000" required></textarea>
-						</div>
+							</div> <!-- /col-md-9 -->
 				
-						<!-- <label>Date:</label><g:datePicker name="date"/><br/><br/> -->
-						<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> Create</button>
+						</div> <!-- /row -->
+				
+						<!-- Tag Description and Create Button Row -->
+						<div class="row">
+							<div class="col-md-9">
+						
+								<div class="form-group">
+									<textarea id="tagDesc" name="tagDesc" class="form-control" placeholder="Description" rows="5" maxlength="1000" required></textarea>
+								</div>
+				
+								<!-- <label>Date:</label><g:datePicker name="date"/><br/><br/> -->
+								<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> Create</button>
   				
-					</div> <!-- col-md-9 -->
+							</div> <!-- col-md-9 -->
 					
-  				</div> <!-- /row -->
+  						</div> <!-- /row -->
 			
-			</g:uploadForm>
+					</g:uploadForm>
+		
+				</g:if>
+				<g:else>
+					<p>You do not have permission to view this page.</p>
+				</g:else>
+			</g:if>
+			<g:else>
+				<p>You are not Logged In! <g:link controller="User" action="index"> Login Page</g:link></p>
+			</g:else>
 			
 		</div> <!-- /container -->
 		
