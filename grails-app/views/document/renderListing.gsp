@@ -10,7 +10,9 @@
   	<div class="container">
   		
   		<div class="row">
-  			
+  			<g:if test="${session.user.level == 'ADMIN'}">
+  					Hello WORLD
+  				</g:if>
   			<!-- Home Button Col -->
   			<div class="col-md-1 home-button">
   				<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
