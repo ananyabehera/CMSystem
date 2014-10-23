@@ -45,7 +45,7 @@ class UserController {
 		userInstance.firstName = params.firstName
 		userInstance.lastName = params.lastName
 		userInstance.userName = params.userName
-		
+		userInstance.password = params.password
 		userInstance.salt = randomSalt()
 		
 		passwordHash = calculateHash(userInstance.password, userInstance.salt)
@@ -67,6 +67,8 @@ class UserController {
 		{
 			salt += random.nextInt(10)
 		}
+		
+		return salt
 	}
 	
 	def calculateHash(String password, String salt) {
