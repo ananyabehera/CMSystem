@@ -26,7 +26,7 @@
            				<input type="checkbox" value="remember-me"> Remember me
         			</label> -->
         			<button name="login" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        			<g:link controller="User" action="createUserForm"> Create User</g:link>
+        			<g:link controller="User" action="renderUserForm"> Create User</g:link>
 				</g:form>
 			</div> <!-- /login -->
 		</div> <!-- /container -->

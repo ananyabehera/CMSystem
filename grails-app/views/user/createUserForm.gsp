@@ -82,7 +82,7 @@
 					<div class="col-md-9">
 					
   						<div class="form-group">
-  							<select Required>
+  							<select id="permissions" name="permissions" Required>
   								<option value="USER">USER</option>
   								<option value="ADMIN">ADMIN</option>
   							</select>

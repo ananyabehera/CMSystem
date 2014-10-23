@@ -37,7 +37,11 @@ class UserController {
 		user.save()
 		
 		flash.message = "User created."
-		redirect(controller: "User", action: "index")
+		
+		if (params.permissions == 'ADMIN')
+			redirect(controller: "AdminHome", action: "renderHomePage")
+		else
+			redirect(controller: "GeneralHome", action: "renderHomePage")
 	}
 	
 	def logout() {
