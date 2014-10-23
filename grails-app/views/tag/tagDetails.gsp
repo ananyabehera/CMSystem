@@ -32,10 +32,12 @@
            			<p><strong>Date Updated:</strong> <g:formatDate date="${tagInstance.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></p>
 				</div>
 			</div> <!-- /row -->
-			<g:if test="${session.user.level == Permission.ADMIN}">
+			
+			<g:if test="${session.user.level == 'ADMIN'}">
 				
 				<!-- Button Options -->
 				<div class="row">
+				
 					<div class="col-md-1">
 						<g:link id="${tagInstance.id}" class="btn btn-warning" controller="Tag" action="tagEditForm"><span class="glyphicon glyphicon-pencil"></span> Edit</g:link>
 					</div> <!-- col-md-1 -->
