@@ -37,7 +37,7 @@ class UserController {
 		user.save(flush: true)
 		
 		flash.message = "User created."
-		
+		redirect(controller: "AdminHome", action: "renderHomePage")
 		/*if (params.level == 'ADMIN')
 			redirect(controller: "AdminHome", action: "renderHomePage")
 		else
