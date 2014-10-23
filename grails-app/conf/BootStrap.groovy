@@ -17,7 +17,7 @@ class BootStrap {
 					level: "USER").save(failOnError: true)
 		}
 		
-		// Check whether the Tag test data already exists.
+		// Check whether the Tag test data already exists. - Date might break it
 		if(!Tag.count()) {
 			new Tag(tagName: "PwC's Digital Change Services", 
 				tagDesc: "This is test data for PwC's Digital Change Services.", dateCreated: date(), 
@@ -32,8 +32,8 @@ class BootStrap {
 				tagDesc: "This is test data for Risk & Security.", dateCreated: date(),
 				dateUpdated: new Date()).save(failOnError: true)
 		}
-			
-	}
+    }
+	
     def destroy = {
     }
 }
