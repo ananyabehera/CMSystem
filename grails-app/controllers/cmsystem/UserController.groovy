@@ -39,21 +39,27 @@ class UserController {
 	}
 	
 	def createUser() {
-		def user = new User(params)
+		def userInstance = new User()
 		def passwordHash
 		
-		user.salt = randomSalt()
+		userInstance.firstName = params.firstName
+		userInstance.lastName = params.lastName
+		userInstance.userName = params.userName
+		
+		userInstance.salt = randomSalt()
 		
 		passwordHash = calculateHash(user.password, user.salt)
+		userInstance.password = passwordHash
 		
 		user.save(flush: true)
 		
 		flash.message = "User created."
-		login()
+		//login() - uncomment once login is setup to decode sha512+salt
+		redirect(controller: "User", action: "index")
 	}
 	
 	def randomSalt () {
-		def salt
+		def salt = 0
 		def random = new Random()
 		
 		
