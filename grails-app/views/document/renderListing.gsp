@@ -14,7 +14,8 @@
   			<!-- Home Button Col -->
   			<div class="col-md-1 home-button">
   				<p>Hello ${session.user.level}</p>
-  				<g:if test="${session.user.level.equals('ADMIN')}">
+  				<g:if test="${session.user.level.equals(Permission.ADMIN)}">
+  				Hello
   					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   				</g:if>
   				<g:else>
