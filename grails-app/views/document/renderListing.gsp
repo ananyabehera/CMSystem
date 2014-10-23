@@ -13,14 +13,7 @@
   			
   			<!-- Home Button Col -->
   			<div class="col-md-1 home-button">
-  				<p>Hello ${session.user.level}</p>
-  				<g:if test="${session.user.level.equals('ADMIN')}">
-  					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
-  				</g:if>
-  				<g:else>
-  					<g:link class="btn btn-success" controller="generalHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
-  				</g:else>
-  			
+  				<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   			</div> <!-- /col-md-1 -->
   				
   			<!-- Page Heading Col -->
@@ -64,16 +57,10 @@
             						<td><g:formatDate date="${doc.uploadDate}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>${doc.type}</td>
             						<td>
-            							<g:if test="${session.user.level == 'ADMIN'}">
-                          					<g:link controller="Document" action="download_Doc" id="${doc.id}">Download</g:link> |
-                          					<g:link controller="Document" action="documentDetails" id="${doc.id}">View</g:link> | 
-                          					<g:link controller="Document" action="editDocumentForm" id="${doc.id}">Edit</g:link> |
-                          					<g:link controller="Document" action="deleteDocument" id="${doc.id}">Delete</g:link>
-                        				</g:if>
-                        				<g:else>
-            								<g:link controller="Document" action="download_Doc" id="${doc.id}">Download</g:link> |
-                          					<g:link controller="Document" action="documentDetails" id="${doc.id}">View</g:link>
-            							</g:else>
+                          				<g:link controller="Document" action="download_Doc" id="${doc.id}">Download</g:link> |
+                          				<g:link controller="Document" action="documentDetails" id="${doc.id}">View</g:link> | 
+                          				<g:link controller="Document" action="editDocumentForm" id="${doc.id}">Edit</g:link> |
+                          				<g:link controller="Document" action="deleteDocument" id="${doc.id}">Delete</g:link>
                         			</td>
         						</tr>
         					</tbody>
