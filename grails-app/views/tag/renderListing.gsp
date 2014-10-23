@@ -15,7 +15,6 @@
   			<div class="col-md-1 home-button">
   			
   				<g:if test="${session.user.level = 'ADMIN'}">
-  				Hello
   					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   				</g:if>
   				<g:else>
@@ -65,14 +64,11 @@
             						<td><g:formatDate date="${tag.dateCreated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td><g:formatDate date="${tag.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>
-            							<g:if test="${session.user.level = 'ADMIN'}">
-            								<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link> | 
-            								<g:link controller="Tag" action="tagEditForm" id="${tag.id}">Edit</g:link> |
-            								<g:link controller="Tag" action="deleteTag" id="${tag.id}">Delete</g:link>
+            							<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link>
+            							<g:if test="${session.user.level = 'ADMIN'}"> 
+            								| <g:link controller="Tag" action="tagEditForm" id="${tag.id}">Edit</g:link>
+            								| <g:link controller="Tag" action="deleteTag" id="${tag.id}">Delete</g:link>
             							</g:if>
-            							<g:else>
-            								<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link>
-            							</g:else>
             						</td>
         						</tr>
         					</tbody>
