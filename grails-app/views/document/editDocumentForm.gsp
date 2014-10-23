@@ -3,7 +3,7 @@
 	<head>
   		<meta name="layout" content="main" />
   		
-  		<title>[APP]:: Edit Document</title>
+  		<title>[APP]::Edit Document</title>
   	</head>
   	
   	<body>
