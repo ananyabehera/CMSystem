@@ -2,7 +2,9 @@ package cmsystem
 
 class UserController {
 
-    def index() { }
+    def index() { 
+		render(view: 'index')
+	}
 	
 	def login() {
 		def login = false;
@@ -37,11 +39,7 @@ class UserController {
 		user.save(flush: true)
 		
 		flash.message = "User created."
-		redirect(controller: "AdminHome", action: "renderHomePage")
-		/*if (params.level == 'ADMIN')
-			redirect(controller: "AdminHome", action: "renderHomePage")
-		else
-			redirect(controller: "GeneralHome", action: "renderHomePage")*/
+		login()
 	}
 	
 	def logout() {

@@ -25,7 +25,7 @@
 			</div> <!-- /container -->
 		</g:if>
 		<g:else>
-			You are not Logged In! <g:link action="index"> Login Page</g:link>
+			You are not Logged In! <g:link controller="User" action="index"> Login Page</g:link>
 		</g:else>
 
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
