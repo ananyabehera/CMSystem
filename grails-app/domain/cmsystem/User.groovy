@@ -5,15 +5,22 @@ class User {
 	String firstName
 	String lastName
 	String userName
-	transient password
-	transient  salt
+	String password
+	String  salt
 	Permission level
 	
-	
+	static transients = ['password', 'salt']
 	
     static constraints = {
-		password size: 144
-		salt size: 16
+		/*password blank: false, password: true, size:128, validator: {password, obj ->
+			password = obj.password
+
+			password == password ?: ['invalid.matchingpasswords']
+		}
+		
+		salt blank: false, size:16, validator: {salt, obj ->
+			salt = obj.salt
+		}*/
     }
 
     static mapping = {
