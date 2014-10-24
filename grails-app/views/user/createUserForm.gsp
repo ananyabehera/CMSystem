@@ -18,6 +18,10 @@
   				<!-- Page Heading Col -->
   				<div class="col=md-12">
   					<h1>Create User</h1>
+  					
+  					<g:if test="${flash.message}">
+  						<div class="alert alert-danger" role="alert">${flash.message}</div>
+  					</g:if>
   				</div> <!-- /col-md-12 -->
   				
   			</div> <!-- /row -->

@@ -11,9 +11,27 @@ class UserController {
 	}
 	
 	def login() {
-		def login = false;
+		def login = false
+		def user = User.findByUserName(params.userName)
 		
-		def user = User.findByUserNameAndPassword(params.userName, params.password)
+		if(user.password == checkHash(params.password, user.salt)) {
+			session.user = user
+			session.login = false
+
+			if(user.level == Permission.ADMIN)
+				redirect(controller: "AdminHome", action: "renderHomePage")
+			else
+				redirect(controller: "GeneralHome", action: "renderHomePage")
+		}
+		else {
+			flash.message = "Login Failed"
+			session.login = true
+
+			redirect(action: 'index')
+		}
+		
+		/*def login = false;	
+		def user = User.findByUserNameAndPasswordAndSalt(params.userName, params.password,)
 		
 		if(user) {
 			flash.message = "Login Succeeded"
@@ -30,7 +48,7 @@ class UserController {
 			session.login = true
 
 			redirect(action: 'index')
-		}
+		}*/
 		
 	}
 	
@@ -42,9 +60,19 @@ class UserController {
 		def userInstance = new User()
 		def passwordHash
 		
-		userInstance.firstName = params.firstName
-		userInstance.lastName = params.lastName
-		userInstance.userName = params.userName
+		if(User.findByFirstNameAndLastNameAndUserNameLike(params.firstName, params.lastName, params.usernameName)) {
+			flash.message = "- Name already in Use.\n- Username Already in use."
+		}
+		else if(User.findByFirstNameAndLastNameLike(params.firstName, params.lastName)) {
+			flash.message = "- Name already in Use."
+		}
+		else if(User.findByFirstNameLike(params.usernameName)) {
+			flash.message = "- Username Already in use."
+		}
+		
+		userInstance.firstName = params.firstName.toLowerCase()
+		userInstance.lastName = params.lastName.toLowerCase()
+		userInstance.userName = params.userName.toLowerCase()
 		userInstance.password = params.password
 		userInstance.level = params.level
 		userInstance.salt = randomSalt()
@@ -70,6 +98,10 @@ class UserController {
 		}
 		
 		return salt
+	}
+	
+	def checkHash(String password, String salt) {
+		DigestUtils.sha512Hex(password + salt);
 	}
 	
 	def calculateHash(String password, String salt) {
