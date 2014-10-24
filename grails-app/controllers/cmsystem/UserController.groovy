@@ -22,10 +22,7 @@ class UserController {
 				redirect(controller: "GeneralHome", action: "renderHomePage")
 		}
 		else {
-			//flash.message = "Login Failed"
-			flash.message = "User Password: " + user.password + 
-			"\nEntered password Hash:" + checkHash(params.password, user.salt) +
-			"\nUser Salt: " + user.salt
+			flash.message = "Login Failed"
 			session.login = true
 
 			redirect(action: 'index')
@@ -77,8 +74,7 @@ class UserController {
 			userInstance.save(flush: true)
 			
 			flash.message = "User created."
-			//login() - uncomment once login is setup to decode sha512+salt
-			redirect(controller: "User", action: "index")
+			login()
 		}	
 	}
 	
