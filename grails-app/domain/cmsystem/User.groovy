@@ -9,7 +9,7 @@ class User {
 	Permission level
 	
     static constraints = {
-		password size: 128
+		password size: 1..128
     }
 
     static mapping = {
