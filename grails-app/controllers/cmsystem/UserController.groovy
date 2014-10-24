@@ -11,7 +11,7 @@ class UserController {
 	// renders the user list
 	def renderListing() {
 		//params.max = 10
-		[tuserInstanceList: user.list(), userInstanceTotal: user.count()]
+		[userInstanceList: user.list(), userInstanceTotal: user.count()]
 	}
 	
 	def login() {
