@@ -80,7 +80,7 @@ class UserController {
 			userInstance.save(flush: true)
 			
 			flash.message = "User created."
-			login()
+			redirect(controller: "AdminHome", action: "renderHomePage")
 		}	
 	}
 	
@@ -108,7 +108,7 @@ class UserController {
 		
 		if(user) {
 			user.delete(flush: true)
-			//redirect(controller: "User", action: "renderListing") -- Uncomment once list has been created
+			redirect(controller: "User", action: "renderListing")
 		}
 	}
 	
