@@ -57,7 +57,9 @@
             						<td>${user.firstName}</td>
             						<td>${user.lastName}</td>
             						<td>${user.userName}</td>
-            						<td>${user.level}</td>
+            						<g:if test="${user.userName != 'admin'} ">
+            							<td>${user.level}</td>
+            						</g:if>
             						<td><g:link controller="User" action="deleteUser" id="${user.id}">Delete</g:link></td>
         						</tr>
         					</tbody>
