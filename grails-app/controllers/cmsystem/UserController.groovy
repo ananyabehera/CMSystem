@@ -25,7 +25,9 @@ class UserController {
 		}
 		else {
 			//flash.message = "Login Failed"
-			flash.message = "User Password: " + user.password + "\nEntered password Hash:" + checkHash(params.password, user.salt)
+			flash.message = "User Password: " + user.password + 
+			"\nEntered password Hash:" + checkHash(params.password, user.salt) +
+			"\nUser Salt: " + user.salt
 			session.login = true
 
 			redirect(action: 'index')
@@ -61,6 +63,7 @@ class UserController {
 		def userInstance = new User()
 		def passwordHash
 		
+		// This if validation is slightly broken, only findByUserName works
 		if(User.findByFirstNameAndLastNameAndUserNameLike(params.firstName, params.lastName, params.userName)) {
 			flash.message = "- Name already in Use.\n- Username Already in use."
 			render(view: "createUserForm")
