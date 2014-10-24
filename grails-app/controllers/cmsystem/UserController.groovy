@@ -51,7 +51,7 @@ class UserController {
 		passwordHash = calculateHash(userInstance.password, userInstance.salt)
 		userInstance.password = passwordHash
 		
-		userInstancec.save(flush: true)
+		userInstance.save(flush: true)
 		
 		flash.message = "User created."
 		//login() - uncomment once login is setup to decode sha512+salt
