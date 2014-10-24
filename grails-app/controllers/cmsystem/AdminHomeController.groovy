@@ -23,4 +23,12 @@ class AdminHomeController {
 	def listTags() {
 		redirect(controller: "Tag", action: "renderListing")	
 	}
+	
+	def createUser() {
+		redirect(controller: "User", action: "renderUserForm")
+	}
+	
+	def listUsers() {
+		redirect(controller: "User", action: "renderListing")
+	}
 }
