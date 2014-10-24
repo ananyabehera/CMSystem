@@ -46,6 +46,7 @@ class UserController {
 		userInstance.lastName = params.lastName
 		userInstance.userName = params.userName
 		userInstance.password = params.password
+		userInstance.level = params.level
 		userInstance.salt = randomSalt()
 		
 		passwordHash = calculateHash(userInstance.password, userInstance.salt)
