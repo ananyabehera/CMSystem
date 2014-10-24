@@ -61,11 +61,11 @@ class UserController {
 		def userInstance = new User()
 		def passwordHash
 		
-		if(User.findByFirstNameLike(params.firstName) && User.findByLastNameLike(params.lastName) && User.findByUserNameLike(params.userName)) {
+		if(User.findByFirstNameAndLastNameAndUserNameLike(params.firstName, params.lastName, params.userName)) {
 			flash.message = "- Name already in Use.\n- Username Already in use."
 			render(view: "createUserForm")
 		}
-		else if(User.findByFirstNameLike(params.firstName) && User.findByLastNameLike(params.lastName)) {
+		else if(User.findByFirstNameAndLastNameLike(params.firstName, params.lastName)) {
 			flash.message = "- Name already in Use."
 			render(view: "createUserForm")
 		}
