@@ -33,7 +33,7 @@
 				</div>
 			</div> <!-- /row -->
 			
-			<g:if test="${session.user.level == 0}">
+			<g:if test="${session.user.level = 0}">
 				
 				<!-- Button Options -->
 				<div class="row">
