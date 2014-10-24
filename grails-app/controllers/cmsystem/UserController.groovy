@@ -2,8 +2,6 @@ package cmsystem
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import java.io.*;
-
 class UserController {
 
     def index() { 
@@ -14,7 +12,7 @@ class UserController {
 		def login = false
 		def user = User.findByUserNameLike(params.userName)
 		
-		if(user.password == checkHash(params.password, user.salt)) {
+		if(user.password == calculateHash(params.password)) {
 			session.user = user
 			session.login = false
 
@@ -72,9 +70,8 @@ class UserController {
 			userInstance.userName = params.userName.toLowerCase()
 			userInstance.password = params.password
 			userInstance.level = params.level
-			userInstance.salt = randomSalt()
 			
-			passwordHash = calculateHash(userInstance.password, userInstance.salt)
+			passwordHash = calculateHash(userInstance.password)
 			userInstance.password = passwordHash
 			
 			userInstance.save(flush: true)
@@ -85,7 +82,9 @@ class UserController {
 		}	
 	}
 	
-	def randomSalt () {
+	/*
+	 * Currently not implemented as transient data wont work correctly - may implement later on
+	 * def randomSalt () {
 		def String salt = 0
 		def random = new Random()
 		
@@ -96,14 +95,10 @@ class UserController {
 		}
 		
 		return salt
-	}
+	}*/
 	
-	def checkHash(String password, String salt) {
-		DigestUtils.sha512Hex(password + salt);
-	}
-	
-	def calculateHash(String password, String salt) {
-		return DigestUtils.sha512Hex(password + salt);
+	def calculateHash(String password) {
+		return DigestUtils.sha512Hex(password);
 	}
 	
 	def deleteUser() {
