@@ -51,7 +51,7 @@ class UserController {
 		passwordHash = calculateHash(userInstance.password, userInstance.salt)
 		userInstance.password = passwordHash
 		
-		userInstance.save(flush: true)
+		userInstancec.save(flush: true)
 		
 		flash.message = "User created."
 		//login() - uncomment once login is setup to decode sha512+salt
@@ -73,6 +73,15 @@ class UserController {
 	
 	def calculateHash(String password, String salt) {
 		return DigestUtils.sha512Hex(password + salt);
+	}
+	
+	def deleteUser() {
+		def user = User.findById(params.id)
+		
+		if(user) {
+			user.delete(flush: true)
+			//redirect(controller: "User", action: "renderListing") -- Uncomment once list has been created
+		}
 	}
 	
 	def logout() {
