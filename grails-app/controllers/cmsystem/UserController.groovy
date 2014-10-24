@@ -73,22 +73,24 @@ class UserController {
 			flash.message = "- Username Already in use."
 			redirect(action: "createUserForm")
 		}
+		else {
+			userInstance.firstName = params.firstName.toLowerCase()
+			userInstance.lastName = params.lastName.toLowerCase()
+			userInstance.userName = params.userName.toLowerCase()
+			userInstance.password = params.password
+			userInstance.level = params.level
+			userInstance.salt = randomSalt()
+			
+			passwordHash = calculateHash(userInstance.password, userInstance.salt)
+			userInstance.password = passwordHash
+			
+			userInstance.save(flush: true)
+			
+			flash.message = "User created."
+			//login() - uncomment once login is setup to decode sha512+salt
+			redirect(controller: "User", action: "index")
+		}
 		
-		userInstance.firstName = params.firstName.toLowerCase()
-		userInstance.lastName = params.lastName.toLowerCase()
-		userInstance.userName = params.userName.toLowerCase()
-		userInstance.password = params.password
-		userInstance.level = params.level
-		userInstance.salt = randomSalt()
-		
-		passwordHash = calculateHash(userInstance.password, userInstance.salt)
-		userInstance.password = passwordHash
-		
-		userInstance.save(flush: true)
-		
-		flash.message = "User created."
-		//login() - uncomment once login is setup to decode sha512+salt
-		redirect(controller: "User", action: "index")
 	}
 	
 	def randomSalt () {
