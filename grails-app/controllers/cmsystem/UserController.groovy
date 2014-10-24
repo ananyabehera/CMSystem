@@ -8,6 +8,12 @@ class UserController {
 		render(view: 'index')
 	}
 	
+	// renders the user list
+	def renderListing() {
+		//params.max = 10
+		[tuserInstanceList: user.list(), userInstanceTotal: user.count()]
+	}
+	
 	def login() {
 		def login = false
 		def user = User.findByUserNameLike(params.userName)
