@@ -12,9 +12,11 @@ class User {
 	static transients = ['password', 'salt']
 	
     static constraints = {
-		password bindable: true
+		password bindable: true,
+			nullable: false
 		
-		salt bindable: true
+		salt bindable: true,
+			nullable: false
     }
 
     static mapping = {

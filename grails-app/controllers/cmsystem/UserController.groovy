@@ -66,8 +66,7 @@ class UserController {
 		if(User.findByUserNameLike(params.userName)) {
 			flash.message = "- Username Already in use."
 			render(view: "createUserForm")
-		}
-		else {
+		} else {
 			userInstance.firstName = params.firstName.toLowerCase()
 			userInstance.lastName = params.lastName.toLowerCase()
 			userInstance.userName = params.userName.toLowerCase()
@@ -83,8 +82,7 @@ class UserController {
 			flash.message = "User created."
 			//login() - uncomment once login is setup to decode sha512+salt
 			redirect(controller: "User", action: "index")
-		}
-		
+		}	
 	}
 	
 	def randomSalt () {
