@@ -12,15 +12,11 @@ class User {
 	static transients = ['password', 'salt']
 	
     static constraints = {
-		/*password blank: false, password: true, size:128, validator: {password, obj ->
-			password = obj.password
-
-			password == password ?: ['invalid.matchingpasswords']
-		}
+		password size: 128,
+				bindable: true
 		
-		salt blank: false, size:16, validator: {salt, obj ->
-			salt = obj.salt
-		}*/
+		salt size: 16,
+			bindable: true
     }
 
     static mapping = {
