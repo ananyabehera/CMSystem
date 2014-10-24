@@ -24,7 +24,8 @@ class UserController {
 				redirect(controller: "GeneralHome", action: "renderHomePage")
 		}
 		else {
-			flash.message = "Login Failed"
+			//flash.message = "Login Failed"
+			flash.message = "User Password: " + user.password + "\nEntered password Hash:" + checkHash(params.password, user.salt)
 			session.login = true
 
 			redirect(action: 'index')
