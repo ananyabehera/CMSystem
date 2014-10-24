@@ -12,21 +12,19 @@
 				<g:if test="${session.user.level != 'ADMIN'}">
 					<h1>
 						Welcome ${session.user.firstName} ${session.user.lastName}
-						<g:link class="small" action="logout" controller="User">Logout?</g:link>
+						<g:link class="small" controller="User" action="logout">Logout?</g:link>
 					</h1>
 					<h2>Document Options:</h2>
 					<g:link class="btn btn-success btn-lg btn-block" action="uploadDoc"><span class="glyphicon glyphicon-cloud-upload"></span> Upload Document</g:link>
 					<g:link class="btn btn-primary btn-lg btn-block" action="listDocs"><span class="glyphicon glyphicon-list-alt"></span> Document Library</g:link>
-
-					<!--Added the remainder buttons just incase.  Will update them as soon as we finish development on that part.-->
 				
 					<h2>Tag Options:</h2>
 					<g:link class="btn btn-success btn-lg btn-block" action="createTag"><span class="glyphicon glyphicon-plus"></span> Create Tag</g:link>
 					<g:link class="btn btn-primary btn-lg btn-block" action="listTags"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>
 					
 					<h2>User Options:</h2> <!-- ADD CODE FOR THIS SHORTLY -->
-					<g:link class="btn btn-success btn-lg btn-block" Controller="User" action="createUserForm"><span class="glyphicon glyphicon-plus"></span> Create User</g:link>
-					<g:link class="btn btn-primary btn-lg btn-block" Controller="User" action="renderListing"><span class="glyphicon glyphicon-list-alt"></span> User Library</g:link>
+					<g:link class="btn btn-success btn-lg btn-block" controller="User" action="createUserForm"><span class="glyphicon glyphicon-plus"></span> Create User</g:link>
+					<g:link class="btn btn-primary btn-lg btn-block" controller="User" action="renderListing"><span class="glyphicon glyphicon-list-alt"></span> User Library</g:link>
 				</g:if>
 				<g:else>
 					<p>You do not have permission to view this page.</p>
