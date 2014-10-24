@@ -63,16 +63,7 @@ class UserController {
 		def userInstance = new User()
 		def passwordHash
 		
-		// This if validation is slightly broken, only findByUserName works
-		if(User.findByFirstNameAndLastNameAndUserNameLike(params.firstName, params.lastName, params.userName)) {
-			flash.message = "- Name already in Use.\n- Username Already in use."
-			render(view: "createUserForm")
-		}
-		else if(User.findByFirstNameAndLastNameLike(params.firstName, params.lastName)) {
-			flash.message = "- Name already in Use."
-			render(view: "createUserForm")
-		}
-		else if(User.findByUserNameLike(params.userName)) {
+		if(User.findByUserNameLike(params.userName)) {
 			flash.message = "- Username Already in use."
 			render(view: "createUserForm")
 		}
