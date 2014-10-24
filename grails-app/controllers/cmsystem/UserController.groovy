@@ -65,15 +65,15 @@ class UserController {
 		
 		if(User.findByFirstNameAndLastNameAndUserNameLike(params.firstName, params.lastName, params.usernameName)) {
 			flash.message = "- Name already in Use.\n- Username Already in use."
-			render(view: "createUserForm")
+			redirect(action: "createUserForm")
 		}
 		else if(User.findByFirstNameAndLastNameLike(params.firstName, params.lastName)) {
 			flash.message = "- Name already in Use."
-			render(view: "createUserForm")
+			redirect(action: "createUserForm")
 		}
 		else if(User.findByFirstNameLike(params.usernameName)) {
 			flash.message = "- Username Already in use."
-			render(view: "createUserForm")
+			redirect(action: "createUserForm")
 		}
 		
 		userInstance.firstName = params.firstName.toLowerCase()

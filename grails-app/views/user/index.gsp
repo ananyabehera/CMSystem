@@ -12,11 +12,11 @@
 		<div class="container">
 			<div class="login">
 				
-				<g:if test="${session.login}">
+				<!--<g:if test="${session.login}">-->
 			
 					<div class="alert alert-danger" role="alert">${flash.message}</div>
 		
-				</g:if>
+				<!--</g:if>-->
 				
 				<g:form action="login" class="form-signin" role="form" controller="User"> <!-- send form request to action named "login" -->
 					<h2 class="form-signin-heading">Please sign in</h2>
