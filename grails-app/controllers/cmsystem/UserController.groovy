@@ -14,10 +14,7 @@ class UserController {
 		def login = false
 		def user = User.findByUserNameLike(params.userName)
 		
-		flash.message = user.password + checkHash(params.password, user.salt)
-		redirect(action: 'index')
-		
-		/*if(user.password == checkHash(params.password, user.salt)) {
+		if(user.password == checkHash(params.password, user.salt)) {
 			session.user = user
 			session.login = false
 
@@ -31,7 +28,7 @@ class UserController {
 			session.login = true
 
 			redirect(action: 'index')
-		}*/
+		}
 		
 		/*def login = false;	
 		def user = User.findByUserNameAndPasswordAndSalt(params.userName, params.password,)
@@ -63,15 +60,15 @@ class UserController {
 		def userInstance = new User()
 		def passwordHash
 		
-		if(User.findByFirstNameAndLastNameAndUserNameLike(params.firstName, params.lastName, params.usernameName)) {
+		if(User.findByFirstNameLike(params.firstName) && User.findByLastNameLike(params.lastName) && User.findByUserNameLike(params.userName)) {
 			flash.message = "- Name already in Use.\n- Username Already in use."
 			redirect(action: "createUserForm")
 		}
-		else if(User.findByFirstNameAndLastNameLike(params.firstName, params.lastName)) {
+		else if(User.findByFirstNameLike(params.firstName) && User.findByLastNameLike(params.lastName)) {
 			flash.message = "- Name already in Use."
 			redirect(action: "createUserForm")
 		}
-		else if(User.findByFirstNameLike(params.usernameName)) {
+		else if(User.findByUserNameLike(params.userName)) {
 			flash.message = "- Username Already in use."
 			redirect(action: "createUserForm")
 		}
