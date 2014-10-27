@@ -21,6 +21,7 @@ class DocumentController {
 	
 	def upload_Doc() {
 		def file = request.getFile('file')
+		def uploadedBy = User.findById(session.user.id)
 		if(file.empty) 
 		{
 			flash.message = "File cannot be empty"
@@ -28,23 +29,23 @@ class DocumentController {
 		else 
 		{
 			def documentInstance = new Document()
-			documentInstance.name = params.documentTitle
+			documentInstance.docName = params.documentTitle
 			documentInstance.file = file.bytes
 
 			//Code to get filetype explicitly
-			documentInstance.type = file.contentType.split("/")[1]
-			documentInstance.documentDesc = params.docDesc
+			documentInstance.fileType = file.contentType.split("/")[1]
+			documentInstance.docDesc = params.docDesc
+			documentInstance.user = uploadedBy
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
 		}
 		
 		flash.message = "Document uploaded."
-		redirect(controller: "AdminHome", action: "renderHomePage")
+		redirect(controller: "LandingPage", action: "renderHomePage")
 		
 	}
 
-	def renderListing() {
-		//params.max = 1
+	def documentLibrary() {
         [documentInstanceList: Document.list(), documentInstanceTotal: Document.count()]
 	}
 
@@ -54,7 +55,7 @@ class DocumentController {
 		if(doc)
 		{
 			doc.delete(flush: true)
-			redirect(controller: "Document", action: "renderListing")
+			redirect(controller: "Document", action: "documentLibrary")
 		}
 	}
 
@@ -65,13 +66,13 @@ class DocumentController {
 	def edit_Doc() {
 		def doc = Document.findById(params.id)
 
-		doc.name = params.documentTitle
-		doc.documentDesc = params.docDesc
+		doc.docName = params.documentTitle
+		doc.docDesc = params.docDesc
 
 		doc.save(flush: true)
 		
 		//Tag fields need to be added
-		redirect(controller: "AdminHome", action: "renderHomePage")
+		redirect(controller: "Document", action: "documentLibrary")
 		
 	}
 
@@ -80,12 +81,12 @@ class DocumentController {
 
 		if (doc == null)
 		{
-			redirect(controller: "Document", action: "renderListing")
+			redirect(controller: "Document", action: "documentLibrary")
 		}
 		else
 		{
 			response.setContentType("APPLICATION/OCTET-STREAM")
-            response.setHeader("Content-Disposition", "Attachment;Filename=\"${doc.name}.${doc.type}\"")
+            response.setHeader("Content-Disposition", "Attachment;Filename=\"${doc.docName}.${doc.fileType}\"")
 
             def outputStream = response.getOutputStream()
             outputStream << doc.file

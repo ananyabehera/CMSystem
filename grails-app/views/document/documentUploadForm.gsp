@@ -10,13 +10,13 @@
   		<div class="container">
   		
   			<g:if test="${session.user}">
-				<g:if test="${session.user.level != 'ADMIN'}">
+				<g:if test="${session.user.permissionId == 1}">
   		
   					<div class="row">
   				
   						<!-- Home Button Col -->
   						<div class="col-md-1 home-button">
-  							<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
+  							<g:link class="btn btn-success" controller="landingPage" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   						</div> <!-- /col-md-1 -->
   				
   						<!-- Page Heading Col -->

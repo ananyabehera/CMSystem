@@ -3,7 +3,7 @@
   <head>
   	<meta name="layout" content="main" />
   	
-  	<title>[APP]::User Library</title>
+  	<title>[APP]::Tag Library</title>
   </head>
   
   <body>
@@ -13,12 +13,12 @@
   			
   			<!-- Home Button Col -->
   			<div class="col-md-1 home-button">
-  				<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
+  				<g:link class="btn btn-success" controller="landingPage" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   			</div> <!-- /col-md-1 -->
   				
   			<!-- Page Heading Col -->
   			<div class="col=md-12">
-  				<h1>User Library</h1>
+  				<h1>Tag Library</h1>
   			</div> <!-- /col-md-12 -->
   			
   		</div> <!-- /row -->
@@ -43,22 +43,26 @@
   					<table class="table table-hover">
   						<thead>
   							<th><input type="checkbox" id="selectAll" name="selectAll" /></th>
-  							<th>First Name</th>
-  							<th>Last Name</th>
-  							<th>Username</th>
-  							<th>Authority Level</th>
+  							<th>Tag Name</th>
+  							<th>Date Created</th>
+  							<th>Date Updated</th>
   							<th>Options</th>
   						</thead>
   					
-    					<g:each in="${userInstanceList}" status="i" var="user">
+    					<g:each in="${tagInstanceList}" status="i" var="tag">
        	 					<tbody>
        	 						<tr>
        	 							<td><input type="checkbox" id="selectAll" name="selectAll" /></td>
-            						<td>${user.firstName}</td>
-            						<td>${user.lastName}</td>
-            						<td>${user.userName}</td>
-            						<td>${user.level}</td>
-            						<td><g:link controller="User" action="deleteUser" id="${user.id}">Delete</g:link></td>
+            						<td>${tag.tagName}</td>
+            						<td><g:formatDate date="${tag.dateCreated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
+            						<td><g:formatDate date="${tag.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
+            						<td>
+            							<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link>
+            							<g:if test="${session.user.permissionId == 1}"> 
+            								| <g:link controller="Tag" action="tagEditForm" id="${tag.id}">Edit</g:link>
+            								| <g:link controller="Tag" action="deleteTag" id="${tag.id}">Delete</g:link>
+            							</g:if>
+            						</td>
         						</tr>
         					</tbody>
    						</g:each>

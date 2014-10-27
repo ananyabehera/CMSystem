@@ -10,12 +10,12 @@
   		<div class="container">
   		
   			<g:if test="${session.user}">
-				<g:if test="${session.user.level != 'ADMIN'}">
+				<g:if test="${session.user.permissionId == 1}">
   					<div class="row">
   				
   						<!-- List Button Col -->
   						<div class="col-md-1 home-button">
-  							<g:link class="btn btn-success" controller="Document" action="renderListing"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
+  							<g:link class="btn btn-success" controller="Document" action="documentLibrary"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
   						</div> <!-- /col-md-1 -->
   				
   						<!-- Page Heading Col -->
@@ -34,7 +34,7 @@
 							<div class="col-md-9">
 						
   								<div class="form-group">
-									<input type="text" id="documentTitle" name="documentTitle" class="form-control" placeholder="Title" value="${documentInstance.name}" required />
+									<input type="text" id="documentTitle" name="documentTitle" class="form-control" placeholder="Title" value="${documentInstance.docName}" required />
 								</div> <!-- /form-group -->
 						
 							</div> <!-- /col-md-9 -->
@@ -62,7 +62,7 @@
 							<div class="col-md-9">
 						
 								<div class="form-group">
-									<textarea id="docDesc" name="docDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.documentDesc}</textarea>
+									<textarea id="docDesc" name="docDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.docDesc}</textarea>
 								</div>
 						
 								<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Update</button>

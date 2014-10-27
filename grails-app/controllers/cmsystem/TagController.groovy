@@ -21,7 +21,7 @@ class TagController {
 	}
 	
 	// renders the tag list
-	def renderListing() {
+	def tagLibrary() {
 		//params.max = 10
 		[tagInstanceList: Tag.list(), tagInstanceTotal: Tag.count()]
 	}
@@ -32,7 +32,7 @@ class TagController {
 		tag.save()
 		
 		flash.message = "Tag created."
-		redirect(controller: "AdminHome", action: "renderHomePage")
+		redirect(controller: "LandingPage", action: "renderHomePage")
 	}
 	
 	// updates an editable tag
@@ -45,7 +45,7 @@ class TagController {
 			tag.tagDesc = params.tagDesc
 			tag.save()
 			flash.message = "Tag updated."
-			redirect(controller: "Tag", action: "renderListing")
+			redirect(controller: "Tag", action: "tagLibrary")
 		}
 	}
 	
@@ -55,7 +55,7 @@ class TagController {
 		
 		if(tag) {
 			tag.delete(flush: true)
-			redirect(controller: "Tag", action: "renderListing")
+			redirect(controller: "Tag", action: "tagLibrary")
 		}
 	}
 }

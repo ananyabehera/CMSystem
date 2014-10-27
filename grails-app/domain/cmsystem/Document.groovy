@@ -2,20 +2,29 @@ package cmsystem
 
 class Document {
 	
-	String name
-	Date uploadDate = new Date()
-	String documentDesc
+	String docName
+	String docDesc
+	Date dateUploaded = new Date()
 	byte[] file
-	String type
+	String fileType
 	
-	static hasMany = [tags:Tag]
+	static belongsTo = [user:User]
+	static hasMany = [doc_tag_categories:Doc_Tag_Category]
 	
     static constraints = {
-		name(blank:false,nullable:false)
-		file(nullable:false, maxSize:1073741824)
+		docName blank: false,
+			nullable: false,
+			size: 1..100
+		
+		docDesc size: 1..1000
+		
+		file nullable:false,
+			maxSize:1073741824
+			
+		fileType size: 1..5
     }
 
     static mapping = {
-    	table 'document'
+    	table 'Document'
     }
 }

@@ -15,7 +15,7 @@
   				
   				<!-- List Button Col -->
   				<div class="col-md-1 home-button">
-  					<g:link class="btn btn-success" controller="Tag" action="renderListing"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
+  					<g:link class="btn btn-success" controller="Tag" action="tagLibrary"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
   				</div> <!-- /col-md-1 -->
   				
   				<!-- Page Heading Col -->
@@ -33,7 +33,7 @@
 				</div>
 			</div> <!-- /row -->
 			
-			<g:if test="${session.user.level == 'ADMIN'}">
+			<g:if test="${session.user.permissionId == 1}">
 				
 				<!-- Button Options -->
 				<div class="row">

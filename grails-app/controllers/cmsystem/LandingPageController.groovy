@@ -1,11 +1,11 @@
 package cmsystem
 
-class AdminHomeController {
+class LandingPageController {
 
     def index() { }
 	
 	def renderHomePage() {
-		render(view: "adminHome")
+		render(view: "landingPage")
 	}
 	
 	def uploadDoc() {
@@ -13,7 +13,7 @@ class AdminHomeController {
 	}
 
 	def listDocs() {
-		redirect(controller: "Document", action: "renderListing")
+		redirect(controller: "Document", action: "documentLibrary")
 	}
 
 	def createTag() {
@@ -21,7 +21,7 @@ class AdminHomeController {
 	}
 	
 	def listTags() {
-		redirect(controller: "Tag", action: "renderListing")	
+		redirect(controller: "Tag", action: "tagLibrary")	
 	}
 	
 	def createUser() {
@@ -29,6 +29,6 @@ class AdminHomeController {
 	}
 	
 	def listUsers() {
-		redirect(controller: "User", action: "renderListing")
+		redirect(controller: "User", action: "userLibrary")
 	}
 }

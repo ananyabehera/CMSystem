@@ -3,7 +3,7 @@
   <head>
   	<meta name="layout" content="main" />
   	
-  	<title>[APP]::Tag Library</title>
+  	<title>[APP]::Document Library</title>
   </head>
   
   <body>
@@ -13,19 +13,12 @@
   			
   			<!-- Home Button Col -->
   			<div class="col-md-1 home-button">
-  			
-  				<g:if test="${session.user.level = 'ADMIN'}">
-  					<g:link class="btn btn-success" controller="adminHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
-  				</g:if>
-  				<g:else>
-  					<g:link class="btn btn-success" controller="generalHome" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
-  				</g:else>
-  				
+  				<g:link class="btn btn-success" controller="landingPage" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
   			</div> <!-- /col-md-1 -->
   				
   			<!-- Page Heading Col -->
   			<div class="col=md-12">
-  				<h1>Tag Library</h1>
+  				<h1>Document Library</h1>
   			</div> <!-- /col-md-12 -->
   			
   		</div> <!-- /row -->
@@ -41,7 +34,7 @@
   			
   		</div> <!-- /row -->
   		
-  		<!-- Tag Table Row -->
+  		<!-- Document Table Row -->
   		<div class="row">
   		
   			<div class="col-md-12">
@@ -50,26 +43,29 @@
   					<table class="table table-hover">
   						<thead>
   							<th><input type="checkbox" id="selectAll" name="selectAll" /></th>
-  							<th>Tag Name</th>
-  							<th>Date Created</th>
-  							<th>Date Updated</th>
+  							<th>Name</th>
+  							<th>Uploaded By</th>
+  							<th>Date Uploaded</th>
+  							<th>Type</th>
   							<th>Options</th>
   						</thead>
   					
-    					<g:each in="${tagInstanceList}" status="i" var="tag">
+    					<g:each in="${documentInstanceList}" status="i" var="doc">
        	 					<tbody>
        	 						<tr>
        	 							<td><input type="checkbox" id="selectAll" name="selectAll" /></td>
-            						<td>${tag.tagName}</td>
-            						<td><g:formatDate date="${tag.dateCreated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
-            						<td><g:formatDate date="${tag.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
+            						<td>${doc.docName}</td>
+            						<td>${doc.user.firstName} ${doc.user.lastName}</td>
+            						<td><g:formatDate date="${doc.dateUploaded}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
+            						<td>${doc.fileType}</td>
             						<td>
-            							<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link>
-            							<g:if test="${session.user.level == 'ADMIN'}"> 
-            								| <g:link controller="Tag" action="tagEditForm" id="${tag.id}">Edit</g:link>
-            								| <g:link controller="Tag" action="deleteTag" id="${tag.id}">Delete</g:link>
-            							</g:if>
-            						</td>
+            							<g:link controller="Document" action="download_Doc" id="${doc.id}">Download</g:link> |
+                          				<g:link controller="Document" action="documentDetails" id="${doc.id}">View</g:link>
+            							<g:if test="${session.user.permissionId == 1}">
+                          					| <g:link controller="Document" action="editDocumentForm" id="${doc.id}">Edit</g:link>
+                          					| <g:link controller="Document" action="deleteDocument" id="${doc.id}">Delete</g:link>
+                        				</g:if>
+                        			</td>
         						</tr>
         					</tbody>
    						</g:each>

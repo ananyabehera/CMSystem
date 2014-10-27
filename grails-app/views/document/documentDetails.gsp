@@ -15,12 +15,12 @@
   				
   				<!-- List Button Col -->
   				<div class="col-md-1 home-button">
-  					<g:link class="btn btn-success" controller="Document" action="renderListing"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
+  					<g:link class="btn btn-success" controller="Document" action="documentLibrary"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
   				</div> <!-- /col-md-1 -->
   				
   				<!-- Page Heading Col -->
   				<div class="col=md-12">
-  					<h1>${documentInstance.name}</h1>
+  					<h1>${documentInstance.docName}</h1>
   				</div> <!-- /col-md-12 -->
   				
   			</div> <!-- /row -->
@@ -28,8 +28,9 @@
   			<!-- Document Date Row -->
 			<div class="row">
 				<div class="col-md-12">
-					<p><strong>Date Uploaded:</strong> <g:formatDate date="${documentInstance.uploadDate}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></p>
-					<p><strong>Document Type:</strong> ${documentInstance.type}</p>
+					<p><strong>Uploaded By</strong> ${documentInstance.user.firstName} ${documentInstance.user.lastName}</p>
+					<p><strong>Date Uploaded:</strong> <g:formatDate date="${documentInstance.dateUploaded}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></p>
+					<p><strong>Type:</strong> ${documentInstance.fileType}</p>
 					<p><strong>Tags:</strong> [TAG LIST GOES HERE SEPERATED WITH A ',' PER ITEM]</p>
 				</div>
 			</div> <!-- /row -->
@@ -40,7 +41,7 @@
 				<div class="col-md-12">
 					<g:link id="${documentInstance.id}" class="btn btn-success" controller="Document" action="download_Doc"><span class="glyphicon glyphicon-cloud-download"></span> Download</g:link>
 				
-				<g:if test="${session.user.level = 'ADMIN'}">
+				<g:if test="${session.user.permissionId == 1}">
 					<g:link id="${documentInstance.id}" class="btn btn-warning" controller="Document" action="editDocumentForm"><span class="glyphicon glyphicon-pencil"></span> Edit</g:link>
 					<g:link id="${documentInstance.id}" class="btn btn-danger" controller="Document" action="deleteDocument"><span class="glyphicon glyphicon-trash"></span> Delete</g:link>
 				</g:if>
@@ -52,7 +53,7 @@
 			<!-- Document Description -->
 			<div class="row">
 				<div class="col-md-12">
-					<p>${documentInstance.documentDesc}</p>
+					<p>${documentInstance.docDesc}</p>
 				</div> <!-- col-md-12 -->
 					
   			</div> <!-- /row -->

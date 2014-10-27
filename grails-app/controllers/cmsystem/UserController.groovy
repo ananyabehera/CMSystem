@@ -9,70 +9,53 @@ class UserController {
 	}
 	
 	// renders the user list
-	def renderListing() {
+	def userLibrary() {
 		//params.max = 10
 		[userInstanceList: User.list(), userInstanceTotal: User.count()]
 	}
 	
 	def login() {
 		def login = false
-		def user = User.findByUserNameLike(params.userName)
+		def user = User.findByUsernameLike(params.username.toLowerCase())
 		
-		if(user.password == calculateHash(params.password)) {
-			session.user = user
-			session.login = false
+		if(user != null) {
+		
+			if(user.password == calculateHash(params.password)) {
+				session.user = user
+				session.login = false
+			
+				redirect(controller: "LandingPage", action: "renderHomePage")
+			} else {
+				flash.message = "Login Failed: Incorrect password entered."
+				session.login = true
 
-			if(user.level == Permission.ADMIN)
-				redirect(controller: "AdminHome", action: "renderHomePage")
-			else
-				redirect(controller: "GeneralHome", action: "renderHomePage")
-		}
-		else {
-			flash.message = "Login Failed"
-			session.login = true
-
+				redirect(action: 'index')
+			}
+		} else {
+			flash.message = "Login Failed: Account does not exist."
+			
 			redirect(action: 'index')
 		}
-		
-		/*def login = false;	
-		def user = User.findByUserNameAndPasswordAndSalt(params.userName, params.password,)
-		
-		if(user) {
-			flash.message = "Login Succeeded"
-			session.user = user
-			session.login = false
-
-			if(user.level == Permission.ADMIN)
-				redirect(controller: "AdminHome", action: "renderHomePage")
-			else
-				redirect(controller: "GeneralHome", action: "renderHomePage")
-		}
-		else {
-			flash.message = "Login Failed"
-			session.login = true
-
-			redirect(action: 'index')
-		}*/
-		
 	}
 	
-	def renderUserForm() {
-		render(view: "createUserForm")
+	def createUserForm() {
+		[permissionInstanceList: Permission.list(), permissionInstanceTotal: Permission.count()]
 	}
 	
 	def createUser() {
 		def userInstance = new User()
+		def permission = Permission.findById(params.permission)
 		def passwordHash
 		
-		if(User.findByUserNameLike(params.userName)) {
+		if(User.findByUsernameLike(params.username)) {
 			flash.message = "- Username Already in use."
 			render(view: "createUserForm")
 		} else {
 			userInstance.firstName = params.firstName.toLowerCase()
 			userInstance.lastName = params.lastName.toLowerCase()
-			userInstance.userName = params.userName.toLowerCase()
+			userInstance.username = params.username.toLowerCase()
 			userInstance.password = params.password
-			userInstance.level = params.level
+			userInstance.permission = permission
 			
 			passwordHash = calculateHash(userInstance.password)
 			userInstance.password = passwordHash
@@ -80,7 +63,7 @@ class UserController {
 			userInstance.save(flush: true)
 			
 			flash.message = "User created."
-			redirect(controller: "AdminHome", action: "renderHomePage")
+			redirect(controller: "LandingPage", action: "renderHomePage")
 		}	
 	}
 	
@@ -108,7 +91,7 @@ class UserController {
 		
 		if(user) {
 			user.delete(flush: true)
-			redirect(controller: "User", action: "renderListing")
+			redirect(controller: "User", action: "userLibrary")
 		}
 	}
 	
