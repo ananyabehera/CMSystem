@@ -1,6 +1,6 @@
 package cmsystem
 
-class User {
+class UserAccount {
 
 	String firstName
 	String lastName
@@ -18,6 +18,6 @@ class User {
     }
 
     static mapping = {
-    	table 'User'
+    	table 'UserAccount'
     }
 }

@@ -1,6 +1,6 @@
 package cmsystem
 
-class Tag_Category {
+class TagCategory {
 	
 	static belongsTo = [tag:Tag, category:Category]
 	
@@ -8,6 +8,6 @@ class Tag_Category {
     }
 	
 	static mapping = {
-		table 'Tag_Category'
+		table 'TagCategory'
 	}
 }

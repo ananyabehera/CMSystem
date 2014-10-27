@@ -7,7 +7,7 @@ class Category {
 	Date dateCreated
 	Date dateUpdated
 	
-	static hasMany = [tag_categories:Tag_Category, doc_tag_categories:Doc_Tag_Category]
+	static hasMany = [tagCategories:TagCategory, docTagCategories:DocTagCategory]
 	
     static constraints = {
 		catgName size: 1..100

@@ -1,6 +1,6 @@
 package cmsystem
 
-class Doc_Tag_Category {
+class DocTagCategory {
 	
 	static belongsTo = [document:Document, tag:Tag, category:Category]
 	
@@ -8,6 +8,6 @@ class Doc_Tag_Category {
     }
 	
 	static mapping = {
-		table 'Doc_Tag_Category'
+		table 'DocTagCategory'
 	}
 }

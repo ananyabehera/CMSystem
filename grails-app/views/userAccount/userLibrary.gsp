@@ -58,7 +58,7 @@
             						<td>${user.lastName}</td>
             						<td>${user.username}</td>
             						<td>${user.permission.pType}</td>
-            						<td><g:link controller="User" action="deleteUser" id="${user.id}">Delete</g:link></td>
+            						<td><g:link controller="UserAccount" action="deleteUser" id="${user.id}">Delete</g:link></td>
         						</tr>
         					</tbody>
    						</g:each>

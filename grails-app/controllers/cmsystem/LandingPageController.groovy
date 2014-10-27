@@ -25,10 +25,10 @@ class LandingPageController {
 	}
 	
 	def createUser() {
-		redirect(controller: "User", action: "renderUserForm")
+		redirect(controller: "UserAccount", action: "createUserForm")
 	}
 	
 	def listUsers() {
-		redirect(controller: "User", action: "userLibrary")
+		redirect(controller: "UserAccount", action: "userLibrary")
 	}
 }

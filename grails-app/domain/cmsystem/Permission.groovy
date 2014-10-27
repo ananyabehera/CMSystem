@@ -3,7 +3,7 @@ package cmsystem
 class Permission {
 	String pType
 	
-	static hasMany = [users:User]
+	static hasMany = [userAccounts:UserAccount]
 	
     static constraints = {
 		pType size: 1..30

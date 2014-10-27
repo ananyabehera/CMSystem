@@ -55,7 +55,7 @@
        	 						<tr>
        	 							<td><input type="checkbox" id="selectAll" name="selectAll" /></td>
             						<td>${doc.docName}</td>
-            						<td>${doc.user.firstName} ${doc.user.lastName}</td>
+            						<td>${doc.userAccount.firstName} ${doc.userAccount.lastName}</td>
             						<td><g:formatDate date="${doc.dateUploaded}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>${doc.fileType}</td>
             						<td>

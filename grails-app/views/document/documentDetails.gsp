@@ -28,7 +28,7 @@
   			<!-- Document Date Row -->
 			<div class="row">
 				<div class="col-md-12">
-					<p><strong>Uploaded By</strong> ${documentInstance.user.firstName} ${documentInstance.user.lastName}</p>
+					<p><strong>Uploaded By</strong> ${documentInstance.userAccount.firstName} ${documentInstance.userAccount.lastName}</p>
 					<p><strong>Date Uploaded:</strong> <g:formatDate date="${documentInstance.dateUploaded}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></p>
 					<p><strong>Type:</strong> ${documentInstance.fileType}</p>
 					<p><strong>Tags:</strong> [TAG LIST GOES HERE SEPERATED WITH A ',' PER ITEM]</p>

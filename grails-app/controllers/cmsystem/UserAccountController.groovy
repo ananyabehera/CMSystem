@@ -2,7 +2,7 @@ package cmsystem
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-class UserController {
+class UserAccountController {
 
     def index() { 
 		render(view: 'index')
@@ -11,12 +11,12 @@ class UserController {
 	// renders the user list
 	def userLibrary() {
 		//params.max = 10
-		[userInstanceList: User.list(), userInstanceTotal: User.count()]
+		[userInstanceList: UserAccount.list(), userInstanceTotal: UserAccount.count()]
 	}
 	
 	def login() {
 		def login = false
-		def user = User.findByUsernameLike(params.username.toLowerCase())
+		def user = UserAccount.findByUsernameLike(params.username.toLowerCase())
 		
 		if(user != null) {
 		
@@ -43,11 +43,11 @@ class UserController {
 	}
 	
 	def createUser() {
-		def userInstance = new User()
+		def userInstance = new UserAccount()
 		def permission = Permission.findById(params.permission)
 		def passwordHash
 		
-		if(User.findByUsernameLike(params.username)) {
+		if(UserAccount.findByUsernameLike(params.username)) {
 			flash.message = "- Username Already in use."
 			render(view: "createUserForm")
 		} else {
@@ -87,11 +87,11 @@ class UserController {
 	}
 	
 	def deleteUser() {
-		def user = User.findById(params.id)
+		def user = UserAccount.findById(params.id)
 		
 		if(user) {
 			user.delete(flush: true)
-			redirect(controller: "User", action: "userLibrary")
+			redirect(controller: "UserAccount", action: "userLibrary")
 		}
 	}
 	

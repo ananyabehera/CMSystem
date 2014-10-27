@@ -21,7 +21,7 @@ class DocumentController {
 	
 	def upload_Doc() {
 		def file = request.getFile('file')
-		def uploadedBy = User.findById(session.user.id)
+		def uploadedBy = UserAccount.findById(session.user.id)
 		if(file.empty) 
 		{
 			flash.message = "File cannot be empty"
@@ -35,7 +35,7 @@ class DocumentController {
 			//Code to get filetype explicitly
 			documentInstance.fileType = file.contentType.split("/")[1]
 			documentInstance.docDesc = params.docDesc
-			documentInstance.user = uploadedBy
+			documentInstance.userAccount = uploadedBy
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
 		}
