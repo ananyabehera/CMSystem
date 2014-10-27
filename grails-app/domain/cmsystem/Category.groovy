@@ -2,10 +2,10 @@ package cmsystem
 
 class Category {
 	
-	String CatgName
+	String catgName
 	String catgDesc
-	Date dateCreated
-	Date dateUpdated
+	Date dateCreated = new Date()
+	Date dateUpdated = new Date()
 	
 	static hasMany = [tagCategories:TagCategory, docTagCategories:DocTagCategory]
 	

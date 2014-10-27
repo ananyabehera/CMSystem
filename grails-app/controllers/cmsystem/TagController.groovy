@@ -25,6 +25,22 @@ class TagController {
 		//params.max = 10
 		[tagInstanceList: Tag.list(), tagInstanceTotal: Tag.count()]
 	}
+
+	def catgLibrary() {
+		[catgInstanceList: Category.list(), catgInstanceTotal: Category.count()]
+	}
+
+	def renderCategoryForm() {
+		render(view: "categoryCreateForm")
+	}
+
+	def catgEditForm() {
+		[catgInstance: Category.load(params.id)]
+	}
+
+	def catgDetails() {
+		[catgInstance: Category.load(params.id)]
+	}
 	
 	// creates a new tag
 	def createTag () {
@@ -32,6 +48,14 @@ class TagController {
 		tag.save()
 		
 		flash.message = "Tag created."
+		redirect(controller: "LandingPage", action: "renderHomePage")
+	}
+
+	def createCategory () {
+		def catg = new Category(params)
+		catg.save()
+
+		flash.message = "Category Created."
 		redirect(controller: "LandingPage", action: "renderHomePage")
 	}
 	
@@ -48,6 +72,20 @@ class TagController {
 			redirect(controller: "Tag", action: "tagLibrary")
 		}
 	}
+
+	def updateCatg() {
+		def catg = Category.findById(params.id)
+
+		if(catg)
+		{
+			catg.catgName = params.catgName
+			catg.dateUpdated = new Date()
+			catg.catgDesc = params.catgDesc
+			catg.save()
+			flash.message = "Category Updated"
+			redirect(controller: "Tag", action: "catgLibrary")
+		}
+	}
 	
 	// deletes a tag
 	def deleteTag() {	
@@ -56,6 +94,15 @@ class TagController {
 		if(tag) {
 			tag.delete(flush: true)
 			redirect(controller: "Tag", action: "tagLibrary")
+		}
+	}
+
+	def deleteCatg() {
+		def catg = Category.findById(params.id)
+
+		if(catg) {
+			catg.delete(flush: true)
+			redirect(controller: "Tag", action: "catgLibrary")
 		}
 	}
 }

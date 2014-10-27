@@ -20,6 +20,8 @@
 					<g:link class="btn btn-primary btn-lg btn-block" action="listDocs"><span class="glyphicon glyphicon-list-alt"></span> Document Library</g:link>
 				
 					<h2>Tag Options:</h2>
+					<g:link class="btn btn-success btn-lg btn-block" action="createCategory"><span class="glyphicon glyphicon-plus"></span> Create Tag Category</g:link>
+					<g:link class="btn btn-primary btn-lg btn-block" action="listCategories"><span class="glyphicon glyphicon-list-alt"></span> Category Library</g:link>
 					<g:link class="btn btn-success btn-lg btn-block" action="createTag"><span class="glyphicon glyphicon-plus"></span> Create Tag</g:link>
 					<g:link class="btn btn-primary btn-lg btn-block" action="listTags"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>
 					

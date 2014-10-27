@@ -31,4 +31,12 @@ class LandingPageController {
 	def listUsers() {
 		redirect(controller: "UserAccount", action: "userLibrary")
 	}
+
+	def createCategory() {
+		redirect(controller: "Tag", action: "renderCategoryForm")
+	}
+
+	def listCategories() {
+		redirect(controller: "Tag", action: "catgLibrary")
+	}
 }
