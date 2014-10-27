@@ -8,7 +8,7 @@ class Document {
 	byte[] file
 	String fileType
 	
-	static belongsTo = [userAccount:UserAccount]
+	static belongsTo = [userAccount:UserAccount, docType:DocType]
 	static hasMany = [docTagCategories:DocTagCategory]
 	
     static constraints = {
