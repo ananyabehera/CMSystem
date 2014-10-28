@@ -7,7 +7,7 @@ class TagController {
 	
 	// opens the tag create form
 	def renderTagForm() {
-		render(view: "tagCreateForm")
+		[catgInstanceList: Category.list()]
 	}
 	
 	// opens the tag edit form
@@ -44,8 +44,20 @@ class TagController {
 	
 	// creates a new tag
 	def createTag () {
-		def tag = new Tag(params)
-		tag.save()
+		def tag = new Tag()
+		tag.tagName = params.tagName
+		tag.tagDesc = params.tagDesc
+		def theNewTag = tag.save()
+
+		def tempArray = params.categories
+		for(i in tempArray)
+		{
+			def newEntry = new TagCategory()
+			//def tempCatg = Category.findById(i)
+			newEntry.category = Category.findById(i)
+			newEntry.tag = theNewTag
+			newEntry.save()
+		}
 		
 		flash.message = "Tag created."
 		redirect(controller: "LandingPage", action: "renderHomePage")
