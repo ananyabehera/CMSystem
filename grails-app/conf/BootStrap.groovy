@@ -15,6 +15,10 @@ class BootStrap {
 			permission: user).save(flush: true)
 
 		def newCatg = new Category(catgName: 'Skills', catgDesc: 'Expertise').save(flush: true)
+
+		def docType1 = new DocType(dType: 'Report').save(flush: true)
+		def docType2 = new DocType(dType: 'Audit').save(flush: true)
+		def docType3 = new DocType(dType: 'Image').save(flush: true)
 		
     }
     def destroy = {

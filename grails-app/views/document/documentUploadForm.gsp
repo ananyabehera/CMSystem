@@ -61,16 +61,12 @@
 				
 						</div> <!-- /row -->
 				
-						<!-- Tag Row -->
+						<!-- Type Row -->
 						<div class="row">
 							<div class="col-md-9">
 						
 								<div class="form-group">
-									<select multiple class="form-control">
-  										<g:each in="${tagInstanceList}" status="i" var="tag">
-  											<option value="${tag.id}">${tag.tagName}</option>
-  										</g:each>
-									</select>
+									<g:select name="type" from="${doctypeInstanceList}" optionKey="id" optionValue="dType" />
 								</div>
 						
 							</div> <!-- col-md-9 -->
