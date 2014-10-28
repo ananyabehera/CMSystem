@@ -58,7 +58,13 @@
             						<td>${user.lastName}</td>
             						<td>${user.username}</td>
             						<td>${user.permission.pType}</td>
-            						<td><g:link controller="UserAccount" action="deleteUser" id="${user.id}">Delete</g:link></td>
+            						<g:if test="${user.username != 'admin'}">
+            							<td><g:link controller="UserAccount" action="deleteUser" id="${user.id}">Delete</g:link></td>
+        							</g:if>
+        							<g:else>
+        								<td></td>
+        							</g:else>
+        							
         						</tr>
         					</tbody>
    						</g:each>

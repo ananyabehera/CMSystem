@@ -46,7 +46,6 @@
 							<div class="col-md-9">
 						
   								<div class="form-group">
-									<!--<input type="text" id="tagName" name="tagName" class="form-control" placeholder="Tag Name" maxlength="50" required /> -->
 									<g:select name="categories" from="${catgInstanceList}" optionKey="id" optionValue="catgName" multiple="true" />
 								</div> <!-- /form-group -->
 						
