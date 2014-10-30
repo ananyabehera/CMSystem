@@ -15,57 +15,26 @@
 				</h1>
 				<g:if test="${session.user.permissionId == 1}">
 					
-					<!-- Document and Sorting Row -->
-					<div class="row">
-						
-						<!-- Document Options Col -->
-						<div class="col-md-6">
-							<h2>Document Options:</h2>
-							<g:link class="btn btn-success btn-default btn-block" action="uploadDoc"><span class="glyphicon glyphicon-cloud-upload"></span> Upload Document</g:link>
-							<g:link class="btn btn-primary btn-default btn-block" action="listDocs"><span class="glyphicon glyphicon-list-alt"></span> Document Library</g:link>
-						</div> <!-- /col-md-6 -->
-						
-						<!-- Sorting Options Col -->
-						<div class="col-md-6">
-							<h2>Sorting Options:</h2>
-							<g:link class="btn btn-success btn-default btn-block" action="createCategory"><span class="glyphicon glyphicon-plus"></span> Create Tag Category</g:link>
-							<g:link class="btn btn-primary btn-default btn-block" action="listCategories"><span class="glyphicon glyphicon-list-alt"></span> Category Library</g:link>
-							<g:link class="btn btn-success btn-default btn-block" action="createTag"><span class="glyphicon glyphicon-plus"></span> Create Tag</g:link>
-							<g:link class="btn btn-primary btn-default btn-block" action="listTags"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>
-						</div> <!-- /col-md-6 -->
-						
-					</div> <!-- /row -->
+					<h2>Document Options:</h2>
+					<g:link class="btn btn-success btn-lg btn-block" action="uploadDoc"><span class="glyphicon glyphicon-cloud-upload"></span> Upload Document</g:link>
+					<g:link class="btn btn-primary btn-lg btn-block" action="listDocs"><span class="glyphicon glyphicon-list-alt"></span> Document Library</g:link>
+				
+					<h2>Tag Options:</h2>
+					<g:link class="btn btn-success btn-lg btn-block" action="createCategory"><span class="glyphicon glyphicon-plus"></span> Create Tag Category</g:link>
+					<g:link class="btn btn-primary btn-lg btn-block" action="listCategories"><span class="glyphicon glyphicon-list-alt"></span> Category Library</g:link>
+					<g:link class="btn btn-success btn-lg btn-block" action="createTag"><span class="glyphicon glyphicon-plus"></span> Create Tag</g:link>
+					<g:link class="btn btn-primary btn-lg btn-block" action="listTags"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>
 					
-					<!-- User Options Row -->
-					<div class="row">
-						
-						<!-- User Options Col -->
-						<div class="col-md-6">
-							<h2>User Options:</h2>
-							<g:link class="btn btn-success btn-default btn-block" action="createUser"><span class="glyphicon glyphicon-plus"></span> Create User</g:link>
-							<g:link class="btn btn-primary btn-default btn-block" action="listUsers"><span class="glyphicon glyphicon-list-alt"></span> User Library</g:link>
-						</div> <!-- /col-md-6 -->
-						
-					</div> <!-- /row -->
+					<h2>User Options:</h2>
+					<g:link class="btn btn-success btn-lg btn-block" action="createUser"><span class="glyphicon glyphicon-plus"></span> Create User</g:link>
+					<g:link class="btn btn-primary btn-lg btn-block" action="listUsers"><span class="glyphicon glyphicon-list-alt"></span> User Library</g:link>
 				</g:if>
 				<g:else>
-					<!-- Document and Sorting Row -->
-					<div class="row">
-						
-						<!-- Document Options Col -->
-						<div class="col-md-6">
-							<h2>Document Options:</h2>
-							<g:link class="btn btn-primary btn-default btn-block" action="listDocs"><span class="glyphicon glyphicon-list-alt"></span> Document Library</g:link>
-						</div> <!-- /col-md-6 -->
-						
-						<!-- Sorting Options Col -->
-						<div class="col-md-6">
-							<h2>Sorting Options:</h2>
-							<g:link class="btn btn-primary btn-default btn-block" action="listCategories"><span class="glyphicon glyphicon-list-alt"></span> Category Library</g:link>
-							<g:link class="btn btn-primary btn-default btn-block" action="listTags"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>
-						</div> <!-- /col-md-6 -->
-						
-					</div> <!-- /row -->
+					<h2>Document Options:</h2>
+					<g:link class="btn btn-primary btn-lg btn-block" action="listDocs"><span class="glyphicon glyphicon-list-alt"></span> Document Library</g:link>
+					
+					<h2>Tag Options:</h2>
+					<g:link class="btn btn-primary btn-lg btn-block" action="listTags"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>
 				</g:else>
 			</g:if>
 			<g:else>

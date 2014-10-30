@@ -53,6 +53,7 @@ class TagController {
 		for(i in tempArray)
 		{
 			def newEntry = new TagCategory()
+			//def tempCatg = Category.findById(i)
 			newEntry.category = Category.findById(i)
 			newEntry.tag = theNewTag
 			newEntry.save()
