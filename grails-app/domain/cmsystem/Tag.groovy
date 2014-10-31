@@ -7,7 +7,8 @@ class Tag {
 	Date dateCreated = new Date()
 	Date dateUpdated = new Date()
 	
-	static hasMany = [tagCategories:TagCategory, docTagCategories:DocTagCategory]
+	static belongsTo = [category:Category]
+	static hasMany = [docTags:DocTag]
 	
     static constraints = {
 		tagName size: 1..100

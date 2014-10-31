@@ -26,7 +26,7 @@ class TagController {
 		[tagInstanceList: Tag.list(), tagInstanceTotal: Tag.count()]
 	}
 
-	def catgLibrary() {
+	/*def catgLibrary() {
 		[catgInstanceList: Category.list(), catgInstanceTotal: Category.count()]
 	}
 
@@ -40,7 +40,7 @@ class TagController {
 
 	def catgDetails() {
 		[catgInstance: Category.load(params.id)]
-	}
+	}*/
 	
 	// creates a new tag
 	def createTag () {
@@ -52,23 +52,23 @@ class TagController {
 		def tempArray = params.categories
 		for(i in tempArray)
 		{
-			def newEntry = new TagCategory()
+			/*def newEntry = new TagCategory()
 			newEntry.category = Category.findById(i)
 			newEntry.tag = theNewTag
-			newEntry.save()
+			newEntry.save()*/
 		}
 		
 		flash.message = "Tag created."
 		redirect(controller: "LandingPage", action: "renderHomePage")
 	}
 
-	def createCategory () {
+	/*def createCategory () {
 		def catg = new Category(params)
 		catg.save()
 
 		flash.message = "Category Created."
 		redirect(controller: "LandingPage", action: "renderHomePage")
-	}
+	}*/
 	
 	// updates an editable tag
 	def updateTag() {
