@@ -11,9 +11,7 @@ class DocumentController {
 	
     def index() { }
 	
-	def documentUploadForm() {
-		[doctypeInstanceList: DocType.list()]
-	}
+	def documentUploadForm() { }
 	
 	def documentDetails() {
 		[documentInstance: Document.load(params.id)]
@@ -36,7 +34,6 @@ class DocumentController {
 			documentInstance.fileType = file.contentType.split("/")[1]
 			documentInstance.docDesc = params.docDesc
 			documentInstance.userAccount = uploadedBy
-			documentInstance.docType = DocType.findById(params.type)
 			if(!documentInstance.save(flush: true))
 				render "Error Occured"
 		}

@@ -28,13 +28,13 @@ class TagController {
 
 	/*def catgLibrary() {
 		[catgInstanceList: Category.list(), catgInstanceTotal: Category.count()]
-	}
+	} */
 
 	def renderCategoryForm() {
 		render(view: "categoryCreateForm")
 	}
 
-	def catgEditForm() {
+	/*def catgEditForm() {
 		[catgInstance: Category.load(params.id)]
 	}
 
