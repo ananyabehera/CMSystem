@@ -45,18 +45,12 @@ class TagController {
 	// creates a new tag
 	def createTag () {
 		def tag = new Tag()
-		tag.tagName = params.tagName
+		//tag.tagName = params.tagName
 		tag.tagDesc = params.tagDesc
+		def existingCatg = Category.findById(params.category)
+		tag.category = existingCatg
+		tag.tagName = existingCatg.catgName + ": " + params.tagName
 		def theNewTag = tag.save()
-
-		def tempArray = params.categories
-		for(i in tempArray)
-		{
-			/*def newEntry = new TagCategory()
-			newEntry.category = Category.findById(i)
-			newEntry.tag = theNewTag
-			newEntry.save()*/
-		}
 		
 		flash.message = "Tag created."
 		redirect(controller: "LandingPage", action: "renderHomePage")

@@ -46,7 +46,7 @@
 							<div class="col-md-9">
 						
   								<div class="form-group">
-									<g:select name="categories" from="${catgInstanceList}" optionKey="id" optionValue="catgName" multiple="true" />
+									<g:select name="category" from="${catgInstanceList}" optionKey="id" optionValue="catgName" multiple="false"/>
 								</div> <!-- /form-group -->
 						
 							</div> <!-- /col-md-9 -->

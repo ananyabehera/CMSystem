@@ -11,7 +11,9 @@ class DocumentController {
 	
     def index() { }
 	
-	def documentUploadForm() { }
+	def documentUploadForm() { 
+		[categoryInstanceList: Category.list(), tagInstanceList: Tag.list()]
+	}
 	
 	def documentDetails() {
 		[documentInstance: Document.load(params.id)]
@@ -34,8 +36,21 @@ class DocumentController {
 			documentInstance.fileType = file.contentType.split("/")[1]
 			documentInstance.docDesc = params.docDesc
 			documentInstance.userAccount = uploadedBy
-			if(!documentInstance.save(flush: true))
-				render "Error Occured"
+			def theNewDocument = documentInstance.save(flush: true)
+
+			def tempArray = params.tags
+			for(i in tempArray)
+			{	
+				def newEntry = new DocTag()
+				newEntry.tag = Tag.findById(i)
+				newEntry.document = theNewDocument
+				newEntry.save()
+
+				def tempEntry = new DocCategory()
+				tempEntry.document = theNewDocument
+				tempEntry.category = newEntry.tag.category
+				tempEntry.save()
+			}
 		}
 		
 		flash.message = "Document uploaded."

@@ -61,12 +61,12 @@
 				
 						</div> <!-- /row -->
 				
-						<!-- Type Row -->
-						<!--<div class="row">
+						<!-- Tag Row -->
+						<div class="row">
 							<div class="col-md-9">
 						
 								<div class="form-group">
-									<g:select name="type" from="${doctypeInstanceList}" optionKey="id" optionValue="dType" />
+									<g:select name="tags" from="${tagInstanceList}" optionKey="id" optionValue="tagName" multiple="true"/>
 								</div>
 						
 							</div> 
