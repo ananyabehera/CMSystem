@@ -1,11 +1,20 @@
 package cmsystem
 
 import org.apache.commons.codec.digest.DigestUtils;
+import grails.converters.*
 
 class UserAccountController {
 
     def index() { 
 		render(view: 'index')
+	}
+	
+	def show = {
+		if(params.id && UserAccount.exists(params.id)) {
+			render UserAccount.findById(params.id) as XML
+		} else {
+			render UserAccount.list() as XML
+		}
 	}
 	
 	// renders the user list

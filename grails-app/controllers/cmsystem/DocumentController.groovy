@@ -3,6 +3,7 @@ package cmsystem
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
 import grails.util.GrailsUtil
+//import grails.converters.*
 /*import java.lang.**/
 
 class DocumentController {
@@ -10,6 +11,14 @@ class DocumentController {
 	boolean transactional = true
 	
     def index() { }
+	
+	/*def show = {
+		if(params.id && Document.exists(params.id)) {
+			render Document.findById(params.id) as XML
+		} else {
+			render Document.list() as XML
+		}
+	}*/
 	
 	def documentUploadForm() { 
 		[tagInstanceList: Tag.list()]

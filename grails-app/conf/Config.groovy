@@ -63,10 +63,12 @@ grails.gorm.failOnError = true
 environments {
     development {
         grails.logging.jul.usebridge = true
+		grails.converters.default.pretty.print = true
     }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
+		grails.converters.default.pretty.print = true
     }
 }
 
