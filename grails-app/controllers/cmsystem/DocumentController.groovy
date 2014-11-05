@@ -12,11 +12,11 @@ class DocumentController {
     def index() { }
 	
 	def documentUploadForm() { 
-		[categoryInstanceList: Category.list(), tagInstanceList: Tag.list()]
+		[tagInstanceList: Tag.list()]
 	}
 	
 	def documentDetails() {
-		[documentInstance: Document.load(params.id)]
+		[documentInstance: Document.load(params.id), docTagInstance: DocTag.list()]
 	}
 	
 	def upload_Doc() {
@@ -73,7 +73,7 @@ class DocumentController {
 	}
 
 	def editDocumentForm() {
-		[documentInstance: Document.load(params.id)]
+		[documentInstance: Document.load(params.id), tagInstanceList: Tag.list()]
 	}
 
 	def edit_Doc() {

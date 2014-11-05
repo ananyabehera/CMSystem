@@ -43,6 +43,19 @@
 				
 						</div> <!-- /row -->
 				
+						<!-- Tag Category Row -->
+						<div class="row">
+					
+							<div class="col-md-9">
+						
+  								<div class="form-group">
+  									<g:select class ="form-control" name="category" from="${categoryInstance}" optionValue="catgName" optionKey="id" />
+								</div> <!-- /form-group -->
+						
+							</div> <!-- /col-md-9 -->
+				
+						</div> <!-- /row -->	
+				
 						<!-- Tag Description and Create Button Row -->
 						<div class="row">
 							<div class="col-md-9">

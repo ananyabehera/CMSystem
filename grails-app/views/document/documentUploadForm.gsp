@@ -66,12 +66,12 @@
 							<div class="col-md-9">
 						
 								<div class="form-group">
-									<g:select name="tags" from="${tagInstanceList}" optionKey="id" optionValue="tagName" multiple="true"/>
+									<g:select class="form-control" name="tags" from="${tagInstanceList}" optionKey="id" optionValue="${{it.category?.catgName.concat(": ").concat(it.tagName)}}" multiple="true"/>
 								</div>
 						
 							</div> 
 					
-  						</div> -->
+  						</div>
 				
 						<!-- Document Description and Upload Button Row -->
 						<div class="row">

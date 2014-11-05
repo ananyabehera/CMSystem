@@ -32,7 +32,7 @@
 					<p><strong>Date Uploaded:</strong> <g:formatDate date="${documentInstance.dateUploaded}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></p>
 					<p><strong>File Type:</strong> ${documentInstance.fileType}</p>
 					<p><strong>Categories:</strong> </p>
-					<p><strong>Tags:</strong> [TAG LIST GOES HERE SEPERATED WITH A ',' PER ITEM]</p>
+					<p><strong>Tags:</strong>${docTagInstance.tag.tagName}, </p>
 				</div>
 			</div> <!-- /row -->
 				

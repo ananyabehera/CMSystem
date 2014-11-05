@@ -46,14 +46,10 @@
 							<div class="col-md-9">
 						
 								<div class="form-group">
-									<select multiple class="form-control">
-  										<!--<g:each in="${tagInstanceList}" status="i" var="tag">
-  											<option value="${tag.tagName}">${tag.tagName}</option>
-  										</g:each>-->
-									</select>
+									<g:select class="form-control" name="tags" from="${tagInstanceList}" optionKey="id" optionValue="${{it.category?.catgName.concat(": ").concat(it.tagName)}}" multiple="true"/>
 								</div>
 						
-							</div> <!-- col-md-9 -->
+							</div> 
 					
   						</div> <!-- /row -->
 				

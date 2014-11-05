@@ -44,6 +44,7 @@
   						<thead>
   							<th><input type="checkbox" id="selectAll" name="selectAll" /></th>
   							<th>Tag Name</th>
+  							<th>Category</th>
   							<th>Date Created</th>
   							<th>Date Updated</th>
   							<th>Options</th>
@@ -54,6 +55,7 @@
        	 						<tr>
        	 							<td><input type="checkbox" id="selectAll" name="selectAll" /></td>
             						<td>${tag.tagName}</td>
+            						<td>${tag.category.catgName}</td>
             						<td><g:formatDate date="${tag.dateCreated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td><g:formatDate date="${tag.dateUpdated}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
             						<td>
