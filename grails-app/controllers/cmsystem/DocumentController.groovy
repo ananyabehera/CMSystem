@@ -16,7 +16,8 @@ class DocumentController {
 	}
 	
 	def documentDetails() {
-		[documentInstance: Document.load(params.id), docTagInstance: DocTag.list()]
+		def documentInstance = Document.findById(params.id)
+		[documentInstance: Document.load(params.id) , docTagInstance: DocTag.findAllWhere(document: documentInstance)]
 	}
 	
 	def upload_Doc() {
