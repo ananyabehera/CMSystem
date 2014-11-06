@@ -17,6 +17,24 @@ class UserAccountController {
 		}
 	}
 	
+	def save = {
+		def user = new UserAccount(params['user'])
+		
+		if(user.save()) {
+			render user as XML
+		} else {
+			// Error handling section
+		}
+	}
+	
+	def update = {
+		
+	}
+	
+	def delete = {
+		
+	}
+	
 	// renders the user list
 	def userLibrary() {
 		//params.max = 10

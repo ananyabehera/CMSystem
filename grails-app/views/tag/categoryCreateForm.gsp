@@ -25,7 +25,7 @@
   				
   					</div> <!-- /row -->
   			
-  					<g:uploadForm controller="Tag" action="createCategory">
+  					<g:uploadForm controller="Tag" action="saveCategory">
 				
 						<!-- Category Name Row -->
 						<div class="row">

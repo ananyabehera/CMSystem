@@ -5,6 +5,16 @@ class TagController {
 
     def index() { }
 	
+	def saveCategory = {
+		def category = new Category(params['category'])
+		
+		if(category.save()) {
+			render category as XML
+		} else {
+			// Error handling section
+		}
+	}
+	
 	// opens the tag create form
 	def renderTagForm() {
 		[catgInstanceList: Category.list()]

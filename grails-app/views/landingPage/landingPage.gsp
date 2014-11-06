@@ -44,6 +44,7 @@
 							<h2>User Options:</h2>
 							<g:link class="btn btn-success btn-default btn-block" action="createUser"><span class="glyphicon glyphicon-plus"></span> Create User</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" action="listUsers"><span class="glyphicon glyphicon-list-alt"></span> User Library</g:link>
+							<g:link id="1" class="btn btn-primary" controller="UserAccount" action="Show">Users</g:link>
 						</div> <!-- /col-md-6 -->
 						
 					</div> <!-- /row -->
