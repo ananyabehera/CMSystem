@@ -7,27 +7,24 @@ class TagController {
 
     def index() { }
 	
-	def save = {
-		def tag = new Tag(params['tag'])
-		
-		if(tag.save()) {
-			render tag as JSON
-		} else {
-			// Error handling section
-		}
-	}
-
 	def show = {
-		if(params.id && Tag.exists(params.id))
-		{
-			render Tag.findById(params.id) as JSON
-		}
-		else
-		{
-			render Tag.list() as JSON
+		if(params.id && Category.exists(params.id)) {
+			render Category.findById(params.id) as JSON
+		} else {
+			render Category.list() as JSON
 		}
 	}
 	
+	def remove = {
+		if(params.id && Category.exists(params.id)){
+			Category.load(params.id).delete(flush: true)
+			render(status: 200, text: "200: OK") as JSON
+		} else {
+			// Error handling section
+			render(status: 400, text: "400: Bad Request")
+		}
+	}
+
 	// opens the tag create form
 	def renderTagForm() {
 		[catgInstanceList: Category.list()]

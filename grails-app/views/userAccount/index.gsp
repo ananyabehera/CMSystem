@@ -18,7 +18,7 @@
 		
 				</g:if>
 				
-				<g:form action="login" class="form-signin" role="form" controller="UserAccount"> <!-- send form request to action named "login" -->
+				<g:form action="login" class="form-signin" role="form" controller="Auth"> <!-- send form request to action named "login" -->
 					<h2 class="form-signin-heading">Please sign in</h2>
 					<input type="text" name="username" class="form-control" placeholder="Username" required autofocus />
 					<input type="password" name="password" class="form-control" placeholder="Password" required />

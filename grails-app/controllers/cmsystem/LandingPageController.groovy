@@ -1,11 +1,15 @@
 package cmsystem
 
+import grails.converters.JSON
+
 class LandingPageController {
 
-    def index() { }
+    //def auth = new AuthController()
 	
 	def renderHomePage() {
-		render(view: "landingPage")
+		//if(auth.sessionActive()) {
+			render(view: "landingPage")
+		//} 
 	}
 	
 	def uploadDoc() {

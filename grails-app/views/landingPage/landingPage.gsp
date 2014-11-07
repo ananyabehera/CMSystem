@@ -11,7 +11,7 @@
 			<g:if test="${session.user}">
 				<h1>
 					Welcome ${session.user.firstName} ${session.user.lastName}
-					<g:link class="small" controller="UserAccount" action="logout">Logout?</g:link>
+					<g:link class="small" controller="Auth" action="logout">Logout?</g:link>
 				</h1>
 				<g:if test="${session.user.permissionId == 1}">
 					

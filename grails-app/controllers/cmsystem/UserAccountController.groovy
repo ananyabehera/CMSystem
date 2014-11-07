@@ -1,9 +1,10 @@
 package cmsystem
 
-import org.apache.commons.codec.digest.DigestUtils;
 import grails.converters.*
 
 class UserAccountController {
+	
+	def authController = new AuthController()
 
     def index() { 
 		render(view: 'index')
@@ -11,9 +12,9 @@ class UserAccountController {
 	
 	def show = {
 		if(params.id && UserAccount.exists(params.id)) {
-			render UserAccount.findById(params.id) as XML
+			render UserAccount.findById(params.id) as JSON
 		} else {
-			render UserAccount.list() as XML
+			render UserAccount.list() as JSON
 		}
 	}
 	
@@ -21,7 +22,7 @@ class UserAccountController {
 		def user = new UserAccount(params['user'])
 		
 		if(user.save()) {
-			render user as XML
+			render user as JSON
 		} else {
 			// Error handling section
 		}
@@ -31,43 +32,27 @@ class UserAccountController {
 		
 	}
 	
-	def delete = {
-		
-	}
-	
-	// renders the user list
-	def userLibrary() {
-		//params.max = 10
-		[userInstanceList: UserAccount.list(), userInstanceTotal: UserAccount.count()]
-	}
-	
-	def login() {
-		def login = false
-		def user = UserAccount.findByUsernameLike(params.username.toLowerCase())
-		
-		if(user != null) {
-		
-			if(user.password == calculateHash(params.password)) {
-				session.user = user
-				session.login = false
-			
-				redirect(controller: "LandingPage", action: "renderHomePage")
-			} else {
-				flash.message = "Login Failed: Incorrect password entered."
-				session.login = true
-
-				redirect(action: 'index')
-			}
+	def remove = {
+		if(params.id && UserAccount.exists(params.id)){
+			UserAccount.load(params.id).delete(flush: true)
+			render(status: 200, text: "200: OK") as JSON
 		} else {
-			flash.message = "Login Failed: Account does not exist."
-			
-			redirect(action: 'index')
+			// Error handling section
+			render(status: 400, text: "400: Bad Request")
 		}
 	}
 	
-	def createUserForm() {
+	// renders the user list
+	/*def userLibrary() {
+		//params.max = 10
+		[userInstanceList: UserAccount.list(), userInstanceTotal: UserAccount.count()]
+	}*/
+	
+	
+	
+	/*def createUserForm() {
 		[permissionInstanceList: Permission.list(), permissionInstanceTotal: Permission.count()]
-	}
+	}*/
 	
 	def createUser() {
 		def userInstance = new UserAccount()
@@ -84,7 +69,7 @@ class UserAccountController {
 			userInstance.password = params.password
 			userInstance.permission = permission
 			
-			passwordHash = calculateHash(userInstance.password)
+			passwordHash = authController.calculateHash(userInstance.password)
 			userInstance.password = passwordHash
 			
 			userInstance.save(flush: true)
@@ -109,9 +94,7 @@ class UserAccountController {
 		return salt
 	}*/
 	
-	def calculateHash(String password) {
-		return DigestUtils.sha512Hex(password);
-	}
+	
 	
 	def deleteUser() {
 		def user = UserAccount.findById(params.id)
@@ -120,10 +103,5 @@ class UserAccountController {
 			user.delete(flush: true)
 			redirect(controller: "UserAccount", action: "userLibrary")
 		}
-	}
-	
-	def logout() {
-		session.user = null
-		redirect(action: 'index')
 	}
 }
