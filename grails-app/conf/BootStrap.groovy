@@ -19,6 +19,9 @@ class BootStrap {
 		def newCatg2 = new Category(catgName: 'Skills', catgDesc: 'Expertise shown').save(flush: true)
 		def newCatg3 = new Category(catgName: 'Business Unit', catgDesc: ' The particular Line of Service').save(flush: true)
 		def newCatg4 = new Category(catgName: 'Grade', catgDesc: 'The grade level of the PwC staff member').save(flush: true)
+
+		def newTag1 = new Tag(tagName: 'Digital', tagDesc: 'Digital Change Services', category: newCatg3).save(flush: true)
+		def newTag2 = new Tag(tagName: 'Java', tagDesc: 'Oracle\'s Java Language', category: newCatg2).save(flush: true)
 		
     }
     def destroy = {

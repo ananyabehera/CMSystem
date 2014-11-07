@@ -3,15 +3,28 @@ import grails.converters.*
 
 class TagController {
 
+	//static allowedMethods = [save: "POST", update: "POST", delete:  "DELETE"]
+
     def index() { }
 	
-	def saveCategory = {
-		def category = new Category(params['category'])
+	def save = {
+		def tag = new Tag(params['tag'])
 		
-		if(category.save()) {
-			render category as XML
+		if(tag.save()) {
+			render tag as JSON
 		} else {
 			// Error handling section
+		}
+	}
+
+	def show = {
+		if(params.id && Tag.exists(params.id))
+		{
+			render Tag.findById(params.id) as JSON
+		}
+		else
+		{
+			render Tag.list() as JSON
 		}
 	}
 	
@@ -35,22 +48,6 @@ class TagController {
 		//params.max = 10
 		[tagInstanceList: Tag.list(), tagInstanceTotal: Tag.count()]
 	}
-
-	def catgLibrary() {
-		[catgInstanceList: Category.list(), catgInstanceTotal: Category.count()]
-	}
-
-	def renderCategoryForm() {
-		render(view: "categoryCreateForm")
-	}
-
-	def catgEditForm() {
-		[catgInstance: Category.load(params.id)]
-	}
-
-	def catgDetails() {
-		[catgInstance: Category.load(params.id)]
-	}
 	
 	// creates a new tag
 	def createTag () {
@@ -65,17 +62,9 @@ class TagController {
 		flash.message = "Tag created."
 		redirect(controller: "LandingPage", action: "renderHomePage")
 	}
-
-	def createCategory () {
-		def catg = new Category(params)
-		catg.save()
-
-		flash.message = "Category Created."
-		redirect(controller: "LandingPage", action: "renderHomePage")
-	}
 	
 	// updates an editable tag
-	def updateTag() {
+	def update = {
 		def tag = Tag.findById(params.id)
 		
 		if(tag) {
@@ -84,42 +73,29 @@ class TagController {
 			tag.tagName = params.tagName
 			tag.dateUpdated = new Date()
 			tag.tagDesc = params.tagDesc
-			tag.save()
-			flash.message = "Tag updated."
-			redirect(controller: "Tag", action: "tagLibrary")
-		}
-	}
-
-	def updateCatg() {
-		def catg = Category.findById(params.id)
-
-		if(catg)
-		{
-			catg.catgName = params.catgName
-			catg.dateUpdated = new Date()
-			catg.catgDesc = params.catgDesc
-			catg.save()
-			flash.message = "Category Updated"
-			redirect(controller: "Tag", action: "catgLibrary")
+			if(tag.save())
+			{
+				render tag as JSON
+			}
+			else
+			{
+				//error handling code
+			}
 		}
 	}
 	
 	// deletes a tag
-	def deleteTag() {	
-		def tag = Tag.findById(params.id)
-		
-		if(tag) {
-			tag.delete(flush: true)
-			redirect(controller: "Tag", action: "tagLibrary")
-		}
-	}
+	def delete =  {	
 
-	def deleteCatg() {
-		def catg = Category.findById(params.id)
-
-		if(catg) {
-			catg.delete(flush: true)
-			redirect(controller: "Tag", action: "catgLibrary")
+		if(params.id && Tag.exists(params.id))
+		{
+			Tag.load(params.id).delete(flush: true)
+			render "Deleted 1 item"
 		}
+		//else
+		//{
+		//	render Tag.list() as JSON
+		//}
 	}
+	
 }

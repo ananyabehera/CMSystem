@@ -26,7 +26,7 @@
   				
   					</div> <!-- /row -->
   			
-  					<g:uploadForm controller="Tag" action="updateTag">
+  					<g:uploadForm controller="Tag" action="update">
 				
 						<g:hiddenField name="id" value="${tagInstance.id}" />
 					

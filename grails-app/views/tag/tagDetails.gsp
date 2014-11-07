@@ -40,7 +40,7 @@
 				
 					<div class="col-md-12">
 						<g:link id="${tagInstance.id}" class="btn btn-warning" controller="Tag" action="tagEditForm"><span class="glyphicon glyphicon-pencil"></span> Edit</g:link>
-						<g:link id="${tagInstance.id}" class="btn btn-danger" controller="Tag" action="deleteTag"><span class="glyphicon glyphicon-trash"></span> Delete</g:link>
+						<g:link id="${tagInstance.id}" class="btn btn-danger" controller="Tag" action="delete"><span class="glyphicon glyphicon-trash"></span> Delete</g:link>
 					</div> <!-- col-md-12 -->
 					
   				</div> <!-- /row -->
