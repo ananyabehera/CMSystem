@@ -23,7 +23,8 @@ class AuthController {
 	
 	def logout = {
 		
-		if(session.invalidate()) {
+		if(session.user != null) {
+			session.user = null
 			render(status: 200, text: '200: OK') as JSON
 		} else {
 			render(status: 400, text: '400: Bad Request') as JSON
@@ -36,10 +37,10 @@ class AuthController {
 	
 	def sessionActive() {
 		
-		if(!session.user == isAttached()) {
-			render(status: 401, text: '401: Unauthorized') as JSON
-		} else {
+		if(session.user != null) {
 			return true
+		} else {
+			render(status: 401, text: '401: Unauthorized') as JSON
 		}
 	}
 }

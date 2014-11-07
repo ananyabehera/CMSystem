@@ -4,27 +4,33 @@ import grails.converters.*
 
 class UserAccountController {
 	
-	def authController = new AuthController()
+	def AuthController authController = new AuthController()
 
     def index() { 
 		render(view: 'index')
 	}
 	
 	def show = {
-		if(params.id && UserAccount.exists(params.id)) {
-			render UserAccount.findById(params.id) as JSON
-		} else {
-			render UserAccount.list() as JSON
+		if (authController.sessionActive()) {
+			if(params.id && UserAccount.exists(params.id)) {
+				render UserAccount.findById(params.id) as JSON
+			} else {
+				render UserAccount.list() as JSON
+			}
 		}
+		
 	}
 	
-	def save = {
-		def user = new UserAccount(params['user'])
+	def create = {
+		if (authController.sessionActive())
+		{
+			def user = new UserAccount(params['user'])
 		
-		if(user.save()) {
-			render user as JSON
-		} else {
-			// Error handling section
+			if(user.save()) {
+				render user as JSON
+			} else {
+				// Error handling section
+			}
 		}
 	}
 	
@@ -33,26 +39,17 @@ class UserAccountController {
 	}
 	
 	def remove = {
-		if(params.id && UserAccount.exists(params.id)){
-			UserAccount.load(params.id).delete(flush: true)
-			render(status: 200, text: "200: OK") as JSON
-		} else {
-			// Error handling section
-			render(status: 400, text: "400: Bad Request")
+		if (authController.sessionActive())
+		{
+			if(params.id && UserAccount.exists(params.id)){
+				UserAccount.load(params.id).delete(flush: true)
+				render(status: 200, text: "200: OK") as JSON
+			} else {
+				// Error handling section
+				render(status: 400, text: "400: Bad Request")
+			}
 		}
 	}
-	
-	// renders the user list
-	/*def userLibrary() {
-		//params.max = 10
-		[userInstanceList: UserAccount.list(), userInstanceTotal: UserAccount.count()]
-	}*/
-	
-	
-	
-	/*def createUserForm() {
-		[permissionInstanceList: Permission.list(), permissionInstanceTotal: Permission.count()]
-	}*/
 	
 	def createUser() {
 		def userInstance = new UserAccount()
@@ -78,23 +75,6 @@ class UserAccountController {
 			redirect(controller: "LandingPage", action: "renderHomePage")
 		}	
 	}
-	
-	/*
-	 * Currently not implemented as transient data wont work correctly - may implement later on
-	 * def randomSalt () {
-		def String salt = 0
-		def random = new Random()
-		
-		
-		for(int i = 0; i < 16; i++)
-		{
-			salt = salt + random.nextInt(10)
-		}
-		
-		return salt
-	}*/
-	
-	
 	
 	def deleteUser() {
 		def user = UserAccount.findById(params.id)
