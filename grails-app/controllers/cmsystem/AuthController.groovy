@@ -43,4 +43,13 @@ class AuthController {
 			render(status: 401, text: '401: Unauthorized') as JSON
 		}
 	}
+	
+	def adminAccess() {
+		if(session.user.permissionId == 1)
+		{
+			return true
+		} else {
+			render(status: 401, text: '401: Unauthorized') as JSON
+		}
+	}
 }

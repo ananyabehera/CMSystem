@@ -26,7 +26,7 @@
   				
   			</div> <!-- /row -->
   			
-  			<g:uploadForm controller="UserAccount" action="save">
+  			<g:uploadForm controller="UserAccount" action="create">
 				
 				<!-- First Name Row -->
 				<div class="row">
