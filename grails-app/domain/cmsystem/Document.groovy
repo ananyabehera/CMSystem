@@ -2,8 +2,8 @@ package cmsystem
 
 class Document {
 	
-	String docName
-	String docDesc
+	String documentName
+	String documentDesc
 	Date dateUploaded = new Date()
 	byte[] file
 	String fileType
@@ -12,11 +12,11 @@ class Document {
 	static hasMany = [docTags:DocTag, docCategories:DocCategory]
 	
     static constraints = {
-		docName blank: false,
+		documentName blank: false,
 			nullable: false,
 			size: 1..100
 		
-		docDesc size: 1..1000
+		documentDesc size: 1..1000
 		
 		file nullable:false,
 			maxSize:1073741824

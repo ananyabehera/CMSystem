@@ -48,7 +48,6 @@ class DocumentController {
 						catgEntry.category = tagEntry.tag.category
 						catgEntry.save()
 					}
-				
 					render(status: 201, text: '201: Created') as JSON
 				} else {
 					// Error handling section
@@ -61,15 +60,30 @@ class DocumentController {
 	def update = {
 		if (authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && Document.exists(params.id)) {
-				def doc = Document.findById(params.id)
+				def document = Document.findById(params.id)
 				
-				doc.docName = params.documentTitle
-				doc.docDesc = params.docDesc
+				document.documentName = params.documentTitle
+				document.documentDesc = params.documentDesc
 						
-				//Tag fields need to be added
+				DocTag.executeUpdate("delete DocTag d where d.document = :doc", [doc: document])
+				DocCategory.executeUpdate("delete DocCategory d where d.document = :doc", [doc: document])
 				
 				if(document.save(flush: true)) {
-					render(status: 200, text: '200: OK') as JSON
+					def tempArray = params.tags
+				
+					for(i in tempArray) {
+						def tagEntry = new DocTag()
+						def catgEntry = new DocCategory()
+					
+						tagEntry.tag = Tag.findById(i)
+						tagEntry.document = document
+						tagEntry.save()
+				
+						catgEntry.document = document
+						catgEntry.category = tagEntry.tag.category
+						catgEntry.save()
+					}
+					render(status: 201, text: '201: Created') as JSON
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -87,7 +101,7 @@ class DocumentController {
 				def outputStream = response.getOutputStream()
 				
 				response.setContentType("APPLICATION/OCTET-STREAM")
-				response.setHeader("Content-Disposition", "Attachment;Filename=\"${doc.docName}.${doc.fileType}\"")
+				response.setHeader("Content-Disposition", "Attachment;Filename=\"${doc.documentName}.${doc.fileType}\"")
 	
 				outputStream << doc.file
 				outputStream.flush()
