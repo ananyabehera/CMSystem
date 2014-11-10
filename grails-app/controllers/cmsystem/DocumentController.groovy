@@ -1,120 +1,151 @@
 package cmsystem
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile
-import org.codehaus.groovy.grails.web.context.ServletContextHolder
-import grails.util.GrailsUtil
-//import grails.converters.*
-/*import java.lang.**/
+import grails.converters.JSON
 
 class DocumentController {
 
 	boolean transactional = true
 	
-    def index() { }
+    def AuthController authController = new AuthController()
 	
-	/*def show = {
-		if(params.id && Document.exists(params.id)) {
-			render Document.findById(params.id) as XML
-		} else {
-			render Document.list() as XML
-		}
-	}*/
-	
-	def documentUploadForm() { 
-		[tagInstanceList: Tag.list()]
-	}
-	
-	def documentDetails() {
-		def documentInstance = Document.findById(params.id)
-		[documentInstance: Document.load(params.id) , docTagInstance: DocTag.findAllWhere(document: documentInstance)]
-	}
-	
-	def upload_Doc() {
-		def file = request.getFile('file')
-		def uploadedBy = UserAccount.findById(session.user.id)
-		if(file.empty) 
-		{
-			flash.message = "File cannot be empty"
-		} 
-		else 
-		{
-			def documentInstance = new Document()
-			documentInstance.docName = params.documentTitle
-			documentInstance.file = file.bytes
-
-			//Code to get filetype explicitly
-			documentInstance.fileType = file.contentType.split("/")[1]
-			documentInstance.docDesc = params.docDesc
-			documentInstance.userAccount = uploadedBy
-			def theNewDocument = documentInstance.save(flush: true)
-
-			def tempArray = params.tags
-			for(i in tempArray)
-			{	
-				def newEntry = new DocTag()
-				newEntry.tag = Tag.findById(i)
-				newEntry.document = theNewDocument
-				newEntry.save()
-
-				def tempEntry = new DocCategory()
-				tempEntry.document = theNewDocument
-				tempEntry.category = newEntry.tag.category
-				tempEntry.save()
+	def show = {
+		if (authController.sessionActive()) {
+			if(params.id && Document.exists(params.id)) {
+				render Document.findById(params.id) as JSON
+			} else {
+				render Document.list() as JSON
 			}
 		}
-		
-		flash.message = "Document uploaded."
-		redirect(controller: "LandingPage", action: "renderHomePage")
-		
 	}
-
-	def documentLibrary() {
-        [documentInstanceList: Document.list(), documentInstanceTotal: Document.count()]
-	}
-
-	def deleteDocument() {
-		def doc = Document.findById(params.id)
+	
+	def create = {
+		if (authController.sessionActive() && authController.adminAccess()) {
+			def file = request.getFile('file')
 		
-		if(doc)
-		{
-			doc.delete(flush: true)
-			redirect(controller: "Document", action: "documentLibrary")
+			if(file.empty) {
+				render(status: 400, text: '400: Bad Request')
+			} else {
+				def document = new Document()
+			
+				document.documentName = params.documentTitle
+				document.file = file.bytes
+				document.fileType = file.contentType.split("/")[1]
+				document.documentDesc = params.documentDesc
+				document.userAccount = UserAccount.findById(session.user.id)
+			
+				if(document.save(flush: true)) {
+					def tempArray = params.tags
+				
+					for(i in tempArray) {
+						def tagEntry = new DocTag()
+						def catgEntry = new DocCategory()
+					
+						tagEntry.tag = Tag.findById(i)
+						tagEntry.document = document
+						tagEntry.save()
+				
+						catgEntry.document = document
+						catgEntry.category = tagEntry.tag.category
+						catgEntry.save()
+					}
+				
+					render(status: 201, text: '201: Created') as JSON
+				} else {
+					// Error handling section
+					render(status: 400, text: '400: Bad Request') as JSON
+				}
+			}
 		}
 	}
 
-	def editDocumentForm() {
-		[documentInstance: Document.load(params.id), tagInstanceList: Tag.list()]
-	}
-
-	def edit_Doc() {
-		def doc = Document.findById(params.id)
-
-		doc.docName = params.documentTitle
-		doc.docDesc = params.docDesc
-
-		doc.save(flush: true)
-		
-		//Tag fields need to be added
-		redirect(controller: "Document", action: "documentLibrary")
-		
-	}
-
-	def download_Doc() {
-		def doc = Document.load(params.id)
-
-		if (doc == null)
-		{
-			redirect(controller: "Document", action: "documentLibrary")
-		}
-		else
-		{
-			response.setContentType("APPLICATION/OCTET-STREAM")
-            response.setHeader("Content-Disposition", "Attachment;Filename=\"${doc.docName}.${doc.fileType}\"")
-
-            def outputStream = response.getOutputStream()
-            outputStream << doc.file
-            outputStream.flush()
-            outputStream.close()
+	def update = {
+		if (authController.sessionActive() && authController.adminAccess()) {
+			if(params.id && Document.exists(params.id)) {
+				def doc = Document.findById(params.id)
+				
+				doc.docName = params.documentTitle
+				doc.docDesc = params.docDesc
+						
+				//Tag fields need to be added
+				
+				if(document.save(flush: true)) {
+					render(status: 200, text: '200: OK') as JSON
+				} else {
+					// Error handling section
+					render(status: 400, text: '400: Bad Request') as JSON
+				}
+			} else {
+				render(status: 404, text: '404: Not Found') as JSON
+			}	
 		}
 	}
+	
+	def download = {
+		if (authController.sessionActive()) {
+			if(params.id && Document.exists(params.id)) {
+				def doc = Document.load(params.id)
+				def outputStream = response.getOutputStream()
+				
+				response.setContentType("APPLICATION/OCTET-STREAM")
+				response.setHeader("Content-Disposition", "Attachment;Filename=\"${doc.docName}.${doc.fileType}\"")
+	
+				outputStream << doc.file
+				outputStream.flush()
+				outputStream.close()
+			} else {
+				render(status: 404, text: '404: Not Found') as JSON
+			}	
+		}
+	}
+	
+	def remove = {
+		if (authController.sessionActive() && authController.adminAccess()) {
+			if(params.id && Document.exists(params.id)) {
+				Document.load(params.id).delete(flush: true)
+				render(status: 200, text: "200: OK") as JSON
+			} else {
+				// Error handling section
+				render(status: 404, text: "404: Not Found")
+			}
+		}
+	}
+	
+	/*def upload_Doc() {
+	 def file = request.getFile('file')
+	 def uploadedBy = UserAccount.findById(session.user.id)
+	 if(file.empty)
+	 {
+		 flash.message = "File cannot be empty"
+	 }
+	 else
+	 {
+		 def documentInstance = new Document()
+		 documentInstance.docName = params.documentTitle
+		 documentInstance.file = file.bytes
+
+		 //Code to get filetype explicitly
+		 documentInstance.fileType = file.contentType.split("/")[1]
+		 documentInstance.docDesc = params.docDesc
+		 documentInstance.userAccount = uploadedBy
+		 def theNewDocument = documentInstance.save(flush: true)
+
+		 def tempArray = params.tags
+		 for(i in tempArray)
+		 {
+			 def newEntry = new DocTag()
+			 newEntry.tag = Tag.findById(i)
+			 newEntry.document = theNewDocument
+			 newEntry.save()
+
+			 def tempEntry = new DocCategory()
+			 tempEntry.document = theNewDocument
+			 tempEntry.category = newEntry.tag.category
+			 tempEntry.save()
+		 }
+	 }
+	 
+	 flash.message = "Document uploaded."
+	 redirect(controller: "LandingPage", action: "renderHomePage")
+	 
+ }*/
 }

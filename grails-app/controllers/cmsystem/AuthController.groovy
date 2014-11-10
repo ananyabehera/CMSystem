@@ -2,7 +2,6 @@ package cmsystem
 
 import grails.converters.JSON
 import org.apache.commons.codec.digest.DigestUtils;
-import javax.servlet.http.*
 
 class AuthController {
 	

@@ -1,14 +1,10 @@
 package cmsystem
 
-import grails.converters.*
+import grails.converters.JSON
 
 class UserAccountController {
 	
 	def AuthController authController = new AuthController()
-
-    def index() { 
-		render(view: 'index')
-	}
 	
 	def show = {
 		if (authController.sessionActive() && authController.adminAccess()) {
@@ -17,8 +13,7 @@ class UserAccountController {
 			} else {
 				render UserAccount.list() as JSON
 			}
-		}
-		
+		}	
 	}
 	
 	def create = {
@@ -35,7 +30,7 @@ class UserAccountController {
 				user.password = authController.calculateHash(params.password)
 				user.permission = permission
 				
-				if(user.save()) {
+				if(user.save(flush: true)) {
 					render(status: 201, text: '201: Created') as JSON
 				} else {
 					// Error handling section
@@ -55,7 +50,7 @@ class UserAccountController {
 				user.lastName = params.lastName.toLowerCase()
 				user.permission = permission
 				
-				if(user.save()) {
+				if(user.save(flush: true)) {
 					render(status: 200, text: '200: OK') as JSON
 				} else {
 					// Error handling section
@@ -84,8 +79,12 @@ class UserAccountController {
 		if (authController.sessionActive() && authController.adminAccess())
 		{
 			if(params.id && UserAccount.exists(params.id)){
-				UserAccount.load(params.id).delete(flush: true)
-				render(status: 200, text: "200: OK") as JSON
+				if(UserAccount.load(params.id).delete(flush: true)) {
+					render(status: 200, text: "200: OK") as JSON
+				} else {
+				render(status: 400, text: '400: Bad Request') as JSON
+				}
+				
 			} else {
 				// Error handling section
 				render(status: 404, text: "404: Not Found")
