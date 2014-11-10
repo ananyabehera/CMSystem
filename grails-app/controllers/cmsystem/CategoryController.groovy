@@ -4,8 +4,6 @@ import grails.converters.*
 class CategoryController {
 
 	def AuthController authController = new AuthController()
-
-    def index() { }
 	
 	def show = {
 		if(authController.sessionActive()) {
@@ -34,15 +32,15 @@ class CategoryController {
 
 	def update = {
 		if(authController.sessionActive() && authController.adminAccess()) {
-			def catg = Category.findById(params.id)
-
-			if(catg) {	
+			if(params.id && Category.exists(params.id)) {	
+				def catg = Category.findById(params.id)
+				
 				catg.catgName = params.catgName
 				catg.dateUpdated = new Date()
 				catg.catgDesc = params.catgDesc
 				
 				if(catg.save()) {
-					render catg as JSON
+					render(status: 200, text: '200: OK') as JSON
 				} else {
 					//error handling code
 					render(status: 400, text: '400: Bad Request') as JSON

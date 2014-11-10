@@ -78,7 +78,7 @@ class UserAccountController {
 	def remove = {
 		if (authController.sessionActive() && authController.adminAccess())
 		{
-			if(params.id && UserAccount.exists(params.id)){
+			if(params.id && UserAccount.exists(params.id)) {
 				if(UserAccount.load(params.id).delete(flush: true)) {
 					render(status: 200, text: "200: OK") as JSON
 				} else {

@@ -3,10 +3,7 @@ import grails.converters.*
 
 class TagController {
 
-	//static allowedMethods = [save: "POST", update: "POST", delete:  "DELETE"]
 	def AuthController authController = new AuthController()
-
-    def index() { }
 	
 	def show = {
 		if(authController.sessionActive()) {
@@ -22,9 +19,9 @@ class TagController {
 	def create =  {
 		if(authController.sessionActive() && authController.adminAccess()) {
 			def tag = new Tag()
+			
 			tag.tagDesc = params.tagDesc
-			def existingCatg = Category.findById(params.category)
-			tag.category = existingCatg
+			tag.category = Category.findById(params.category)
 			tag.tagName = params.tagName
 		
 			if(tag.save()) {
@@ -39,17 +36,16 @@ class TagController {
 	// updates an editable tag
 	def update = {
 		if(authController.sessionActive() && authController.adminAccess()) {
-			def tag = Tag.findById(params.id)
-		
-			if(tag) {
-				def existingCatg = Category.findById(params.category)
-				tag.category = existingCatg
+			if(params.id && Tag.exists(params.id)) {
+				def tag = Tag.findById(params.id)
+				
+				tag.category = Category.findById(params.category)
 				tag.tagName = params.tagName
 				tag.dateUpdated = new Date()
 				tag.tagDesc = params.tagDesc
 				
 				if(tag.save()) {
-					render tag as JSON
+					render(status: 200, text: '200: OK') as JSON
 				} else {
 					//error handling code
 					render(status: 400, text: '400: Bad Request') as JSON

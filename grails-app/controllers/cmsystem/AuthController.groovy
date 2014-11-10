@@ -1,7 +1,8 @@
 package cmsystem
 
 import grails.converters.JSON
-import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.codec.digest.DigestUtils
+import javax.servlet.*
 
 class AuthController {
 	
@@ -11,7 +12,7 @@ class AuthController {
 		if(user != null) {		
 			if(user.password == calculateHash(params.password)) {
 				session.user = user
-				render(status: 200, text: '200: OK') as JSON
+				return true
 			} else {
 				render(status: 401, text: '401: Unauthorized') as JSON
 			}
@@ -21,10 +22,9 @@ class AuthController {
 	}
 	
 	def logout = {
-		
 		if(session.user != null) {
 			session.user = null
-			render(status: 200, text: '200: OK') as JSON
+			return true
 		} else {
 			render(status: 400, text: '400: Bad Request') as JSON
 		}

@@ -11,7 +11,7 @@
 			<g:if test="${session.user}">
 				<h1>
 					Welcome ${session.user.firstName} ${session.user.lastName}
-					<g:link class="small" controller="Auth" action="logout">Logout?</g:link>
+					<g:link class="small" controller="Nav" action="loginPage">Logout?</g:link>
 				</h1>
 				<g:if test="${session.user.permissionId == 1}">
 					
@@ -23,7 +23,6 @@
 							<h2>Document Options:</h2>
 							<g:link class="btn btn-success btn-default btn-block" controller="Nav" action="documentUploadForm"><span class="glyphicon glyphicon-cloud-upload"></span> Upload Document</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" action="listDocs"><span class="glyphicon glyphicon-list-alt"></span> Document Library</g:link>
-							<g:link class="btn btn-primary btn-default btn-block" controller="Nav" action="editDocumentForm/2"><span class="glyphicon glyphicon-list-alt"></span> Edit Form</g:link>
 						</div> <!-- /col-md-6 -->
 						
 						<!-- Sorting Options Col -->
@@ -45,7 +44,6 @@
 							<h2>User Options:</h2>
 							<g:link class="btn btn-success btn-default btn-block" controller="UserAccount" action="createUserForm"><span class="glyphicon glyphicon-plus"></span> Create User</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" action="listUsers"><span class="glyphicon glyphicon-list-alt"></span> User Library</g:link>
-							<g:link id="1" class="btn btn-primary" controller="UserAccount" action="Show">Users</g:link>
 						</div> <!-- /col-md-6 -->
 						
 					</div> <!-- /row -->
