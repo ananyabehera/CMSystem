@@ -61,8 +61,8 @@
             						<td>
             							<g:link controller="Tag" action="tagDetails" id="${tag.id}">View</g:link>
             							<g:if test="${session.user.permissionId == 1}"> 
-            								| <g:link controller="Tag" action="tagEditForm" id="${tag.id}">Edit</g:link>
-            								| <g:link controller="Tag" action="delete" id="${tag.id}">Delete</g:link>
+            								| <g:link controller="Nav" action="tagEditForm" id="${tag.id}">Edit</g:link>
+            								| <g:link controller="Tag" action="remove" id="${tag.id}">Delete</g:link>
             							</g:if>
             						</td>
         						</tr>

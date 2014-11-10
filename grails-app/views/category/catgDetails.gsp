@@ -39,8 +39,8 @@
 				<div class="row">
 				
 					<div class="col-md-12">
-						<g:link id="${catgInstance.id}" class="btn btn-warning" controller="Category" action="catgEditForm"><span class="glyphicon glyphicon-pencil"></span> Edit</g:link>
-						<g:link id="${catgInstance.id}" class="btn btn-danger" controller="Category" action="delete"><span class="glyphicon glyphicon-trash"></span> Delete</g:link>
+						<g:link id="${catgInstance.id}" class="btn btn-warning" controller="Nav" action="catgEditForm"><span class="glyphicon glyphicon-pencil"></span> Edit</g:link>
+						<g:link id="${catgInstance.id}" class="btn btn-danger" controller="Category" action="remove"><span class="glyphicon glyphicon-trash"></span> Delete</g:link>
 					</div> <!-- col-md-12 -->
 					
   				</div> <!-- /row -->

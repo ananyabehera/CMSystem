@@ -48,9 +48,7 @@ class NavController {
 		 [catgInstanceList: Category.list(), catgInstanceTotal: Category.count()]
 	 }
  
-	 def renderCategoryForm() {
-		 render(view: "categoryCreateForm")
-	 }
+	 def categoryCreateForm() {}
  
 	 def catgEditForm() {
 		 [catgInstance: Category.load(params.id)]

@@ -59,8 +59,8 @@
             						<td>
             							<g:link controller="Category" action="catgDetails" id="${catg.id}">View</g:link>
             							<g:if test="${session.user.permissionId == 1}"> 
-            								| <g:link controller="Category" action="catgEditForm" id="${catg.id}">Edit</g:link>
-            								| <g:link controller="Category" action="delete" id="${catg.id}">Delete</g:link>
+            								| <g:link controller="Nav" action="catgEditForm" id="${catg.id}">Edit</g:link>
+            								| <g:link controller="Category" action="remove" id="${catg.id}">Delete</g:link>
             							</g:if>
             						</td>
         						</tr>

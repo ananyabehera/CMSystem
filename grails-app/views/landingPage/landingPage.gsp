@@ -29,9 +29,9 @@
 						<!-- Sorting Options Col -->
 						<div class="col-md-6">
 							<h2>Sorting Options:</h2>
-							<g:link class="btn btn-success btn-default btn-block" action="createCategory"><span class="glyphicon glyphicon-plus"></span> Create Tag Category</g:link>
+							<g:link class="btn btn-success btn-default btn-block" controller="Nav" action="categoryCreateForm"><span class="glyphicon glyphicon-plus"></span> Create Tag Category</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" action="listCategories"><span class="glyphicon glyphicon-list-alt"></span> Category Library</g:link>
-							<g:link class="btn btn-success btn-default btn-block" action="createTag"><span class="glyphicon glyphicon-plus"></span> Create Tag</g:link>
+							<g:link class="btn btn-success btn-default btn-block" controller="Nav" action="renderTagForm"><span class="glyphicon glyphicon-plus"></span> Create Tag</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" action="listTags"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>
 						</div> <!-- /col-md-6 -->
 						
