@@ -25,7 +25,7 @@
   				
   					</div> <!-- /row -->
   			
-  					<g:uploadForm controller="Document" action="edit_Doc">
+  					<g:uploadForm controller="Document" action="update">
   						<g:hiddenField name="id" value="${documentInstance.id}"/>
 				
 						<!-- Document Title Row -->
@@ -34,7 +34,7 @@
 							<div class="col-md-9">
 						
   								<div class="form-group">
-									<input type="text" id="documentTitle" name="documentTitle" class="form-control" placeholder="Title" value="${documentInstance.docName}" required />
+									<input type="text" id="documentTitle" name="documentTitle" class="form-control" placeholder="Title" value="${documentInstance.documentName}" required />
 								</div> <!-- /form-group -->
 						
 							</div> <!-- /col-md-9 -->
@@ -58,7 +58,7 @@
 							<div class="col-md-9">
 						
 								<div class="form-group">
-									<textarea id="docDesc" name="docDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.docDesc}</textarea>
+									<textarea id="documentDesc" name="documentDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.documentDesc}</textarea>
 								</div>
 						
 								<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Update</button>

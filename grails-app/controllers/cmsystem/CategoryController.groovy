@@ -8,76 +8,42 @@ class CategoryController {
     def index() { }
 	
 	def show = {
-		if(authController.sessionActive())
-		{
-			if(params.id && Category.exists(params.id)) 
-			{
+		if(authController.sessionActive()) {
+			if(params.id && Category.exists(params.id)) {
 				render Category.findById(params.id) as JSON
-			} 	
-			else 
-			{
+			} else {
 				render Category.list() as JSON
 			}
 		}
-		
 	}
 	
-	def remove = {
-		if(authController.sessionActive() && authController.adminAccess())
-		{
-			if(params.id && Category.exists(params.id))
-			{
-				Category.load(params.id).delete(flush: true)
-				render(status: 200, text: "200: OK") as JSON
-			} 
-			else 
-			{
+	def create =  {
+		if(authController.sessionActive() && authController.adminAccess()) {
+			def catg = new Category()
+			catg.catgDesc = params.catgDesc
+			catg.catgName = params.catgName
+		
+			if(catg.save()) {
+				render(status: 201, text: '201: Created') as JSON
+			} else {
 				// Error handling section
-				render(status: 400, text: "400: Bad Request")
+				render(status: 400, text: '400: Bad Request') as JSON
 			}
 		}
 	}
 
-	def catgLibrary() {
-		[catgInstanceList: Category.list(), catgInstanceTotal: Category.count()]
-	}
-
-	def renderCategoryForm() {
-		render(view: "categoryCreateForm")
-	}
-
-	def catgEditForm() {
-		[catgInstance: Category.load(params.id)]
-	}
-
-	def catgDetails() {
-		[catgInstance: Category.load(params.id)]
-	}
-
-	def createCategory () {
-		def catg = new Category(params)
-		catg.save()
-
-		flash.message = "Category Created."
-		redirect(controller: "LandingPage", action: "renderHomePage")
-	}
-
 	def update = {
-		if(authController.sessionActive() && authController.adminAccess())
-		{
+		if(authController.sessionActive() && authController.adminAccess()) {
 			def catg = Category.findById(params.id)
 
-			if(catg)
-			{	
+			if(catg) {	
 				catg.catgName = params.catgName
 				catg.dateUpdated = new Date()
 				catg.catgDesc = params.catgDesc
-				if(catg.save())
-				{
+				
+				if(catg.save()) {
 					render catg as JSON
-				}
-				else
-				{
+				} else {
 					//error handling code
 					render(status: 400, text: '400: Bad Request') as JSON
 				}
@@ -85,23 +51,15 @@ class CategoryController {
 		}
 	}
 
-	def create =  {	
-
-		if(authController.sessionActive() && authController.adminAccess())
-		{
-			def catg = new Category()
-			catg.catgDesc = params.catgDesc
-			catg.catgName = params.catgName
-
-			if(catg.save()) 
-			{
-				render(status: 201, text: '201: Created') as JSON
-			}isn
-			else
-			{
+	def remove = {
+		if(authController.sessionActive() && authController.adminAccess()) {
+			if(params.id && Category.exists(params.id)) {
+				Category.load(params.id).delete(flush: true)
+				render(status: 200, text: "200: OK") as JSON
+			} else {
 				// Error handling section
-				render(status: 400, text: '400: Bad Request') as JSON
+				render(status: 400, text: "400: Bad Request")
 			}
-		}	
+		}
 	}
 }

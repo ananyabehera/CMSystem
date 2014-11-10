@@ -21,8 +21,9 @@
 						<!-- Document Options Col -->
 						<div class="col-md-6">
 							<h2>Document Options:</h2>
-							<g:link class="btn btn-success btn-default btn-block" action="uploadDoc"><span class="glyphicon glyphicon-cloud-upload"></span> Upload Document</g:link>
+							<g:link class="btn btn-success btn-default btn-block" controller="Nav" action="documentUploadForm"><span class="glyphicon glyphicon-cloud-upload"></span> Upload Document</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" action="listDocs"><span class="glyphicon glyphicon-list-alt"></span> Document Library</g:link>
+							<g:link class="btn btn-primary btn-default btn-block" controller="Nav" action="editDocumentForm/2"><span class="glyphicon glyphicon-list-alt"></span> Edit Form</g:link>
 						</div> <!-- /col-md-6 -->
 						
 						<!-- Sorting Options Col -->
