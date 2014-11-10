@@ -96,7 +96,7 @@ class CategoryController {
 			if(catg.save()) 
 			{
 				render(status: 201, text: '201: Created') as JSON
-			}
+			}isn
 			else
 			{
 				// Error handling section
