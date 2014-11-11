@@ -1,3 +1,11 @@
+/**
+	Document Controller class to enable RESTFUL API method calls.
+
+	@authors Ananya Behera and Christian Sesta
+	@version 9.2
+	@datemodified 7th November 2014
+*/
+
 package cmsystem
 
 import grails.converters.JSON
@@ -6,8 +14,21 @@ class DocumentController {
 
 	boolean transactional = true
 	
+	/**
+		The AuthController attribute allows for session management and method availability based on permission
+		levels.
+	*/
     def AuthController authController = new AuthController()
 	
+	/**
+		The "show" method corresponds to the GET HTTP request and returns a list of Documents existing in the database 
+		when an id is not specified, else it renders the specific desired document.  Document details are rendered in JSON format.
+
+		@argument If an id is passed as an argument, the details of the corresponding Document are returned.
+		@precondition None
+		@postcondition None
+		@return JSON formatted details of the desired document or documents
+	*/
 	def show = {
 		if (authController.sessionActive()) {
 			if(params.id && Document.exists(params.id)) {
@@ -18,6 +39,16 @@ class DocumentController {
 		}
 	}
 	
+	/**
+		The "create" method corresponds to the POST HTTP request and persists form data related to the creation of 
+		a new Document into the database.  If successful, a 201 message is returned, else a 400 error.
+
+		@argument The form data passes as fields within the 'params' argument.
+		@precondition Atleast one tag must have been created as per functional requirements
+		@postcondition A new document is created and added to the list of existing documents in the database.  In addition, 
+						associating tables are updated accordingly
+		@return Status message depending on whether the save was successful or not 
+	*/
 	def create = {
 		if (authController.sessionActive() && authController.adminAccess()) {
 			def file = request.getFile('file')
@@ -57,6 +88,15 @@ class DocumentController {
 		}
 	}
 
+	/**
+		The "update" method corresponds to the POST HTTP request and updates an editable document in the database.
+		If successful, the document details are rendered in JSON format, else a 400 error.
+
+		@argument The form data passes as fields within the 'params' argument.
+		@precondition Atleast one tag must have been created as per functional requirements
+		@postcondition The existing document is updated with new data and saved to the database
+		@return Status message depending on whether the save was successful or not 
+	*/
 	def update = {
 		if (authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && Document.exists(params.id)) {
@@ -94,6 +134,16 @@ class DocumentController {
 		}
 	}
 	
+
+	/**
+		The "download" method enables system users to access and retrieve versions of files and documents in the
+		database.
+		
+		@argument The id of the Document to be downloaded must be specified.
+		@precondition The document to be downloaded must be already present in the database.
+		@postcondition None
+		@return Status message depending on whether the download was successful or not 
+	*/
 	def download = {
 		if (authController.sessionActive()) {
 			if(params.id && Document.exists(params.id)) {
@@ -112,6 +162,15 @@ class DocumentController {
 		}
 	}
 	
+	/**
+		The "remove" method corresponds to the DELETE HTTP request and removes the desired document from the database.
+		Scaffold deleting features ensure that all bridging classes are updated accordingly
+		
+		@argument The id of the Document to be deleted must be specified.
+		@precondition The document to be removed must be already present in the database.
+		@postcondition The document is removed from the database and associated tables are also updated.
+		@return Status message depending on whether the delete was successful or not 
+	*/
 	def remove = {
 		if (authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && Document.exists(params.id)) {
@@ -123,43 +182,4 @@ class DocumentController {
 			}
 		}
 	}
-	
-	/*def upload_Doc() {
-	 def file = request.getFile('file')
-	 def uploadedBy = UserAccount.findById(session.user.id)
-	 if(file.empty)
-	 {
-		 flash.message = "File cannot be empty"
-	 }
-	 else
-	 {
-		 def documentInstance = new Document()
-		 documentInstance.docName = params.documentTitle
-		 documentInstance.file = file.bytes
-
-		 //Code to get filetype explicitly
-		 documentInstance.fileType = file.contentType.split("/")[1]
-		 documentInstance.docDesc = params.docDesc
-		 documentInstance.userAccount = uploadedBy
-		 def theNewDocument = documentInstance.save(flush: true)
-
-		 def tempArray = params.tags
-		 for(i in tempArray)
-		 {
-			 def newEntry = new DocTag()
-			 newEntry.tag = Tag.findById(i)
-			 newEntry.document = theNewDocument
-			 newEntry.save()
-
-			 def tempEntry = new DocCategory()
-			 tempEntry.document = theNewDocument
-			 tempEntry.category = newEntry.tag.category
-			 tempEntry.save()
-		 }
-	 }
-	 
-	 flash.message = "Document uploaded."
-	 redirect(controller: "LandingPage", action: "renderHomePage")
-	 
- }*/
 }
