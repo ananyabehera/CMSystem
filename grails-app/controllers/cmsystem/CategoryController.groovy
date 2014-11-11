@@ -17,8 +17,6 @@ class CategoryController {
 		levels.
 	*/
 	def AuthController authController = new AuthController()
-
-    def index() { }
 	
 	/**
 		The "show" method corresponds to the GET HTTP request and returns a list of Categories existing in the database 
@@ -55,7 +53,8 @@ class CategoryController {
 			catg.catgName = params.catgName
 		
 			if(catg.save()) {
-				render(status: 201, text: '201: Created') as JSON
+				//render(status: 201, text: '201: Created') as JSON
+				return true
 			} else {
 				// Error handling section
 				render(status: 400, text: '400: Bad Request') as JSON
@@ -74,15 +73,16 @@ class CategoryController {
 	*/
 	def update = {
 		if(authController.sessionActive() && authController.adminAccess()) {
-			def catg = Category.findById(params.id)
-
-			if(catg) {	
+			if(params.id && Category.exists(params.id)) {	
+				def catg = Category.findById(params.id)
+				
 				catg.catgName = params.catgName
 				catg.dateUpdated = new Date()
 				catg.catgDesc = params.catgDesc
 				
 				if(catg.save()) {
-					render catg as JSON
+					//render(status: 200, text: '200: OK') as JSON
+					return true
 				} else {
 					//error handling code
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -104,7 +104,8 @@ class CategoryController {
 		if(authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && Category.exists(params.id)) {
 				Category.load(params.id).delete(flush: true)
-				render(status: 200, text: "200: OK") as JSON
+				//render(status: 200, text: "200: OK") as JSON
+				return true
 			} else {
 				// Error handling section
 				render(status: 400, text: "400: Bad Request")

@@ -2,61 +2,86 @@ package cmsystem
 
 class NavController {
 
+	def docController = new DocumentController()
+	def catgController = new CategoryController()
+	def tagController = new TagController()
+	def userController = new UserAccountController()
+	def authController = new AuthController()
+	
      def index() { 
 		render(view: 'index')
-	}
-	 
-	 def documentUploadForm() {
-		 [tagInstanceList: Tag.list()]
 	 }
 	 
-	 def documentDetails() {
-		 def documentInstance = Document.findById(params.id)
-		 [documentInstance: Document.load(params.id) , docTagInstance: DocTag.findAllWhere(document: documentInstance)]
+	 def landingPage() {
+		 if(authController.login()) { 
+			render(view: 'landingPage')
+		 }
 	 }
 	 
-	 def documentLibrary() {
-        [documentInstanceList: Document.list(), documentInstanceTotal: Document.count()]
-	}
-	
-	def editDocumentForm() {
-		[documentInstance: Document.load(params.id), tagInstanceList: Tag.list()]
-	}
+	 def loginPage() {
+		 if(authController.logout())
+		 {
+			 render(view: 'index')
+		 }
+	 }
 	 
-	 // opens the tag create form
-	 def renderTagForm() {
+	 def createUserPage() {
+		 [permissionInstanceList: Permission.list()]
+	 }
+	 
+	 def createUser() {
+		 if(userController.create()) {
+			 render(view: 'landingPage')
+		  }
+	 }
+	 
+	 def userLibraryPage() {
+		 userController.show()
+	 }
+	 
+	 def createCategoryPage() {
+		 render(view: 'createCategoryForm')
+	 }
+	 
+	 def createCategory() {
+		 if(catgController.create()) {
+			 render(view: 'landingPage')
+		  }
+	 }
+	 
+	 def categoryLibraryPage() {
+		 catgController.show()
+	 }
+	 
+	 def createTagPage() {
 		 [catgInstanceList: Category.list()]
 	 }
 	 
-	 // opens the tag edit form
-	 def tagEditForm() {
-		 [tagInstance: Tag.load(params.id), categoryInstance: Category.list()]
+	 def createTag() {
+		 if(tagController.create()) {
+			 render(view: 'landingPage')
+		  }
 	 }
 	 
-	 // opens details of a specific tag
-	 def tagDetails() {
-		 [tagInstance: Tag.load(params.id)]
+	 def tagLibraryPage() {
+		 tagController.show()
 	 }
 	 
-	 // renders the tag list
-	 def tagLibrary() {
-		 //params.max = 10
-		 [tagInstanceList: Tag.list(), tagInstanceTotal: Tag.count()]
+	 def documentUploadPage() {
+		 [tagInstanceList: Tag.list()]
 	 }
 	 
-	 def catgLibrary() {
-		 [catgInstanceList: Category.list(), catgInstanceTotal: Category.count()]
-	 }
- 
-	 def categoryCreateForm() {}
- 
-	 def catgEditForm() {
-		 [catgInstance: Category.load(params.id)]
-	 }
- 
-	 def catgDetails() {
-		 [catgInstance: Category.load(params.id)]
+	 def uploadDocument() {
+		  if(docController.create()) { 
+			render(view: 'landingPage')
+		  }
 	 }
 	 
+	 def documentLibraryPage() {
+		 docController.show()
+	 }
 	 
+	 def userSearch() {
+		 userController.search()
+	 }
 }

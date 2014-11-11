@@ -36,7 +36,7 @@ class UserAccountController {
 			}
 		}	
 	}
-	
+
 
 	/**
 		The "create" method corresponds to the POST HTTP request and persists form data related to the creation of 
@@ -47,6 +47,7 @@ class UserAccountController {
 		@postcondition A new user is created and added to the list of existing users in the database.
 		@return Status message depending on whether the save was successful or not 
 	*/
+
 	def create = {
 		if (authController.sessionActive() && authController.adminAccess()) {
 			def user = new UserAccount()
@@ -62,7 +63,8 @@ class UserAccountController {
 				user.permission = permission
 				
 				if(user.save(flush: true)) {
-					render(status: 201, text: '201: Created') as JSON
+					//render(status: 201, text: '201: Created') as JSON
+					return true
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -71,6 +73,22 @@ class UserAccountController {
 		}
 	}
 	
+	
+	def search = {
+		if (authController.sessionActive()) {
+			// Below 2 lines cause duplicate results to be displayed. Not to sear how else to do it :'C 
+			def searchResults = UserAccount.findAllByFirstNameIlike("%"+params.search+"%")
+			searchResults += UserAccount.findAllByLastNameIlike("%"+params.search+"%")
+				
+			if(searchResults.size() > 0) {
+				//render(status: 200, text: '200: OK') as JSON
+				render searchResults as JSON
+			} else {
+				// Error handling section
+				render(status: 400, text: '400: Bad Request') as JSON
+			}
+		}
+	}
 
 	/**
 		The "update" method corresponds to the POST HTTP request and updates an editable user in the database.
@@ -92,7 +110,8 @@ class UserAccountController {
 				user.permission = permission
 				
 				if(user.save(flush: true)) {
-					render(status: 200, text: '200: OK') as JSON
+					//render(status: 200, text: '200: OK') as JSON
+					return true
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -118,7 +137,8 @@ class UserAccountController {
 			
 			if(params.password == params.passwordConfirmation) {
 				user.password = authController.calculateHash(params.password)
-				render(status: 200, text: '200: OK') as JSON
+				//render(status: 200, text: '200: OK') as JSON
+				return true
 			} else {
 				render(status: 409, text: '409: Conflict') as JSON
 			}
@@ -137,9 +157,10 @@ class UserAccountController {
 	def remove = {
 		if (authController.sessionActive() && authController.adminAccess())
 		{
-			if(params.id && UserAccount.exists(params.id)){
+			if(params.id && UserAccount.exists(params.id)) {
 				if(UserAccount.load(params.id).delete(flush: true)) {
-					render(status: 200, text: "200: OK") as JSON
+					//render(status: 200, text: "200: OK") as JSON
+					return true
 				} else {
 				render(status: 400, text: '400: Bad Request') as JSON
 				}

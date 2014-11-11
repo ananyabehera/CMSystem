@@ -12,7 +12,7 @@
   				
   				<!-- Home Button Col -->
   				<div class="col-md-1 home-button">
-  					<g:link class="btn btn-success" controller="LandingPage" action="renderHomePage"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
+  					<g:link class="btn btn-success" controller="Nav" action="landingPage"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
   				</div> <!-- /col-md-1 -->
   				
   				<!-- Page Heading Col -->
@@ -26,7 +26,7 @@
   				
   			</div> <!-- /row -->
   			
-  			<g:uploadForm controller="UserAccount" action="create">
+  			<g:uploadForm controller="Nav" action="createUser">
 				
 				<!-- First Name Row -->
 				<div class="row">

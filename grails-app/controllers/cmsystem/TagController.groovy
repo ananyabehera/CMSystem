@@ -51,13 +51,14 @@ class TagController {
 	def create =  {
 		if(authController.sessionActive() && authController.adminAccess()) {
 			def tag = new Tag()
+			
 			tag.tagDesc = params.tagDesc
-			def existingCatg = Category.findById(params.category)
-			tag.category = existingCatg
+			tag.category = Category.findById(params.category)
 			tag.tagName = params.tagName
 		
 			if(tag.save()) {
-				render(status: 201, text: '201: Created') as JSON
+				//render(status: 201, text: '201: Created') as JSON
+				return true
 			} else {
 				// Error handling section
 				render(status: 400, text: '400: Bad Request') as JSON
@@ -76,17 +77,17 @@ class TagController {
 	*/
 	def update = {
 		if(authController.sessionActive() && authController.adminAccess()) {
-			def tag = Tag.findById(params.id)
-		
-			if(tag) {
-				def existingCatg = Category.findById(params.category)
-				tag.category = existingCatg
+			if(params.id && Tag.exists(params.id)) {
+				def tag = Tag.findById(params.id)
+				
+				tag.category = Category.findById(params.category)
 				tag.tagName = params.tagName
 				tag.dateUpdated = new Date()
 				tag.tagDesc = params.tagDesc
 				
 				if(tag.save()) {
-					render tag as JSON
+					//render(status: 200, text: '200: OK') as JSON
+					return true
 				} else {
 					//error handling code
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -108,7 +109,8 @@ class TagController {
 		if(authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && Tag.exists(params.id)) {
 				Tag.load(params.id).delete(flush: true)
-				render(status: 200, text: "200: OK") as JSON
+				//render(status: 200, text: "200: OK") as JSON
+				return true
 			} else {
 				// Error handling section
 				render(status: 400, text: "400: Bad Request")

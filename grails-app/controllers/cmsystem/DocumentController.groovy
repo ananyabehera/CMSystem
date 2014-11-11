@@ -79,7 +79,9 @@ class DocumentController {
 						catgEntry.category = tagEntry.tag.category
 						catgEntry.save()
 					}
-					render(status: 201, text: '201: Created') as JSON
+					
+					//render(status: 201, text: '201: Created') as JSON
+					return true
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -123,7 +125,9 @@ class DocumentController {
 						catgEntry.category = tagEntry.tag.category
 						catgEntry.save()
 					}
-					render(status: 201, text: '201: Created') as JSON
+					
+					//render(status: 201, text: '201: Created') as JSON
+					return true
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -156,6 +160,9 @@ class DocumentController {
 				outputStream << doc.file
 				outputStream.flush()
 				outputStream.close()
+				
+				//render(status: 200, text: "200: OK") as JSON
+				return true
 			} else {
 				render(status: 404, text: '404: Not Found') as JSON
 			}	
@@ -175,7 +182,8 @@ class DocumentController {
 		if (authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && Document.exists(params.id)) {
 				Document.load(params.id).delete(flush: true)
-				render(status: 200, text: "200: OK") as JSON
+				//render(status: 200, text: "200: OK") as JSON
+				return true
 			} else {
 				// Error handling section
 				render(status: 404, text: "404: Not Found")

@@ -39,6 +39,7 @@ grails.project.dependency.resolution = {
         mavenRepo "http://repo.grails.org/grails/plugins/"
         mavenRepo "http://repo.grails.org/grails/core"
         mavenRepo "https://oss.sonatype.org/content/repositories/releases/"
+		//mavenRepo "http://repo.grails.org/grails/core"
     }
 
     dependencies {
@@ -62,6 +63,8 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.3.2"
 
         compile ':cache:1.0.1'
+		
+		//compile ":searchable:0.6.9"
 		
 		//compile ':spring-security-core:2.0-RC4' - Requires grails 2.3
     }
