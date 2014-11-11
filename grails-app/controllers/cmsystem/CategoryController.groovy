@@ -1,5 +1,5 @@
 /**
-	Category Controller class to enable RESTFUL API method calls.
+	Category Controller class to enable RESTful API method calls.
 
 	@authors Ananya Behera and Christian Sesta
 	@version 4.4
@@ -20,12 +20,12 @@ class CategoryController {
 	
 	/**
 		The "show" method corresponds to the GET HTTP request and returns a list of Categories existing in the database 
-		when an id is not specified, else it renders the specific desired category.  Tag details are rendered in JSON format.
+		when an id is not specified, else it renders the specific desired category. Tag details are rendered in JSON format.
 
 		@argument If an id is passed as an argument, the tag details of the corresponding Tag are returned.
 		@precondition None
 		@postcondition None
-		@return JSON formatted details of the desired cateogory or categories
+		@return JSON formatted details of the desired category or categories
 	*/
 	def show = {
 		if(authController.sessionActive()) {
@@ -64,7 +64,7 @@ class CategoryController {
 
 	/**
 		The "update" method corresponds to the POST HTTP request and updates an editable category in the database.
-		If successful, the category details are rendered in JSON format, else a 400 error.
+		If successful, a 200 message is returned, else a 400 error.
 
 		@argument The form data passes as fields within the 'params' argument.
 		@precondition None

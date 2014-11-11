@@ -20,7 +20,7 @@ class AuthController {
 
 		@arguments Sign in form input data as field in the 'params' argument
 		@precondition Username and Password fields must have been filled in
-		@postcondition The session.user is attribute is assigned to the current user, which is necessary for session 
+		@postcondition The session.user attribute is assigned to the current user, which is necessary for session 
 						management and permission levels
 		@return Status message depending on credential matching
 	*/
@@ -77,11 +77,6 @@ class AuthController {
 	
 	/**
 		This method when called upon, decides whether the current user has administrator privileges or not.
-
-		@argument None
-		@precondition There must be a user logged into the system such that the session.user attribute is populated.
-		@postcondition None
-		@return Returns true if the session user has admin access or returns a 401 error message.
 	*/
 	def adminAccess() {
 		if(session.user.permissionId == 1)

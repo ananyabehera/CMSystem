@@ -1,5 +1,5 @@
 /**
-	Tag Controller class to enable RESTFUL API method calls.
+	Tag Controller class to enable RESTful API method calls.
 
 	@authors Ananya Behera and Christian Sesta
 	@version 6.3
@@ -44,7 +44,7 @@ class TagController {
 		a new Tag into the database.  If successful, a 201 message is returned, else a 400 error.
 
 		@argument The form data passes as fields within the 'params' argument.
-		@precondition Atleast 1 Category mush have been added to the database as per functional requirements.
+		@precondition At least 1 Category must have been added to the database as per functional requirements.
 		@postcondition A new tag is created and added to the list of existing tags in the database.
 		@return Status message depending on whether the save was successful or not 
 	*/
@@ -68,7 +68,7 @@ class TagController {
 	
 	/**
 		The "update" method corresponds to the POST HTTP request and updates an editable tag in the database.
-		If successful, the tag details are rendered in JSON format, else a 400 error.
+		If successful, a 200 message is returned, else a 400 error.
 
 		@argument The form data passes as fields within the 'params' argument.
 		@precondition Atleast 1 Category must have been added to the database as per functional requirements.

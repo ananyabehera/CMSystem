@@ -1,5 +1,5 @@
 /**
-	User Account Controller class to enable RESTFUL API method calls.
+	User Account Controller class to enable RESTful API method calls.
 
 	@authors Ananya Behera and Christian Sesta
 	@version 11.6
@@ -47,7 +47,6 @@ class UserAccountController {
 		@postcondition A new user is created and added to the list of existing users in the database.
 		@return Status message depending on whether the save was successful or not 
 	*/
-
 	def create = {
 		if (authController.sessionActive() && authController.adminAccess()) {
 			def user = new UserAccount()
@@ -93,7 +92,7 @@ class UserAccountController {
 
 	/**
 		The "update" method corresponds to the POST HTTP request and updates an editable user in the database.
-		If successful, the user details are rendered in JSON format, else a 400 error.
+		If successful, a 200 message is returned, else a 400 error.
 
 		@argument The form data passes as fields within the 'params' argument.
 		@precondition None
