@@ -82,6 +82,6 @@ class NavController {
 	 }
 	 
 	 def userSearch() {
-		 userController.search()
+		 userAccountController.search()
 	 }
 }

@@ -17,6 +17,8 @@ class UserAccountController {
 		levels.
 	*/
 	def AuthController authController = new AuthController()
+
+	def searchableService
 	
 	/**
 		The "show" method corresponds to the GET HTTP request and returns a list of Users existing in the database 
@@ -73,22 +75,26 @@ class UserAccountController {
 		}
 	}
 	
-	
+	/**
+		Method that uses the search input box parameter to search for user instances whose properties match
+		the substring of the given search string.  Uses the searchable plugin.
+	*/
 	def search = {
-		if (authController.sessionActive()) {
-			// Below 2 lines cause duplicate results to be displayed. Not to sure how to fix, need a select by distinct? 
-			// or attempt an executeQuery on the domain class? :'C 
-			def searchResults = UserAccount.findAllByFirstNameIlike("%"+params.search+"%")
-			searchResults += UserAccount.findAllByLastNameIlike("%"+params.search+"%")
-				
-			if(searchResults.size() > 0) {
-				//render(status: 200, text: '200: OK') as JSON
-				render searchResults as JSON
-			} else {
-				// Error handling section
-				render(status: 400, text: '400: Bad Request') as JSON
-			}
-		}
+		def query = params.search
+		query = "*" + query + "*"
+		if(query)
+		{
+       		def srchResults = searchableService.search(query)
+
+       		if(srchResults.total > 0)
+       		{
+       			render (srchResults.results as JSON)
+        	}
+        	else
+        	{
+        		render(status: 400, text: '400: Bad Request') as JSON
+    		}
+    	}
 	}
 
 	/**

@@ -67,7 +67,7 @@
 							<g:link class="btn btn-success btn-default btn-block" controller="Nav" action="createUserPage"><span class="glyphicon glyphicon-plus"></span> Create User</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" controller="Nav" action="userLibraryPage"><span class="glyphicon glyphicon-list-alt"></span> User Library</g:link>
 							
-							<g:uploadForm class="form-inline" controller="Nav" action="userSearch">
+							<g:uploadForm class="form-inline" controller="UserAccount" action="search">
 								<div class="form-group search">
 									<input type="text" id="search" name="search" class="form-control" placeholder="Search" maxlength="100" required />
 									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search User</button>
