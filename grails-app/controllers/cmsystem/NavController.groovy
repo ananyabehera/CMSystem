@@ -1,7 +1,5 @@
 package cmsystem
 
-import grails.converters.JSON
-
 class NavController {
 
 	def docController = new DocumentController()
@@ -9,6 +7,7 @@ class NavController {
 	def tagController = new TagController()
 	def userController = new UserAccountController()
 	def authController = new AuthController()
+	def bioController = new BiographyController()
 	
      def index() { 
 		render(view: 'index')
@@ -38,6 +37,10 @@ class NavController {
 		 if(userController.create()) {
 			 render(view: 'landingPage')
 		  }
+	 }
+	 
+	 def userSearch() {
+		 userAccountController.search()
 	 }
 	 
 	 def editUserDetailsPage() {
@@ -97,8 +100,6 @@ class NavController {
 	 }
 	 
 	 def deleteCategory() {
-		 def message = "Category has been deleted\n" + Category.findById(params.id)
-		 
 		 if(catgController.remove(params.id)) {
 			render(view: 'landingPage')
 		 }
@@ -131,8 +132,6 @@ class NavController {
 	 }
 	 
 	 def deleteTag() {
-		 def message = "tag has been deleted\n" + Tag.findById(params.id)
-		 
 		 if(tagController.remove(params.id)) {
 			render(view: 'landingPage')
 		 }
@@ -164,9 +163,7 @@ class NavController {
 		 }
 	 }
 	 
-	 def deleteDocument() {
-		 def message = "Document has been deleted\n" + Document.findById(params.id)
-		 
+	 def deleteDocument() {		 
 		 if(docController.remove(params.id)) {
 			render(view: 'landingPage')
 		 }
@@ -176,7 +173,13 @@ class NavController {
 		 docController.show()
 	 }
 	 
-	 def userSearch() {
-		 userAccountController.search()
+	 def biographyLibraryPage() {
+		 bioController.show()
+	 }
+	 
+	 def deleteBiography() {		 
+		 if(bioController.remove(params.id)) {
+			render(view: 'landingPage')
+		 }
 	 }
 }

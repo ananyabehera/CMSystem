@@ -20,9 +20,9 @@ class CategoryController {
 	
 	/**
 		The "show" method corresponds to the GET HTTP request and returns a list of Categories existing in the database 
-		when an id is not specified, else it renders the specific desired category. Tag details are rendered in JSON format.
+		when an id is not specified, else it renders the specific desired category. Category details are rendered in JSON format.
 
-		@argument If an id is passed as an argument, the tag details of the corresponding Tag are returned.
+		@argument If an id is passed as an argument, the tag details of the corresponding Category are returned.
 		@precondition None
 		@postcondition None
 		@return JSON formatted details of the desired category or categories

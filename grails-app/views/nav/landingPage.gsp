@@ -142,7 +142,36 @@
 							</g:uploadForm>
 							
 						</div> <!-- /col-md-6 -->
+					
+						<!-- Biography Options Col -->
+						<div class="col-md-6">
+							<h2>Biography Options:</h2>
+							<g:link class="btn btn-success btn-default btn-block" controller="Nav" action="createBiographyPage"><span class="glyphicon glyphicon-cloud-upload"></span> Create Biography</g:link>
+							<g:link class="btn btn-primary btn-default btn-block" controller="Nav" action="biographyLibraryPage"><span class="glyphicon glyphicon-list-alt"></span> Biography Library</g:link>
 						
+							<g:uploadForm class="form-inline" controller="Nav" action="biographySearch">
+								<div class="form-group search">
+									<input type="text" id="search" name="search" class="form-control" placeholder="Search" maxlength="100" required />
+									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search Biography</button>
+								</div>
+							</g:uploadForm>
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="editBiographyPage">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="Biography ID" maxlength="3" required />
+									<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Edit Biography</button>
+								</div>
+							</g:uploadForm>
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="deleteBiography">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="Biography ID" maxlength="3" required />
+									<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete Biography</button>
+								</div>
+							</g:uploadForm>
+							
+						</div> <!-- /col-md-6 -->
+					
 					</div> <!-- /row -->
 				</g:if>
 				<g:else>
