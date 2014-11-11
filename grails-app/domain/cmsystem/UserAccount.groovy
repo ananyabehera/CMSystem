@@ -2,6 +2,8 @@ package cmsystem
 
 class UserAccount {
 
+	static searchable = true
+
 	String firstName
 	String lastName
 	String username
