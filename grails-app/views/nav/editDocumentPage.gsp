@@ -3,60 +3,71 @@
 	<head>
   		<meta name="layout" content="main" />
   		
-  		<title>[APP]::Create Tag Category</title>
+  		<title>[APP]::Edit Document</title>
   	</head>
   	
   	<body>
   		<div class="container">
+  		
   			<g:if test="${session.user}">
 				<g:if test="${session.user.permissionId == 1}">
-  				
   					<div class="row">
   				
-  						<!-- Home Button Col -->
+  						<!-- List Button Col -->
   						<div class="col-md-1 home-button">
-  							<g:link class="btn btn-success" controller="landingPage" action="renderHomePage"><span class="glyphicon glyphicon-home"></span> Home</g:link>
+  							<g:link class="btn btn-success" controller="Nav" action="landingPage"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
   						</div> <!-- /col-md-1 -->
   				
   						<!-- Page Heading Col -->
   						<div class="col=md-12">
-  							<h1>Create Tag Category</h1>
+  							<h1>Edit Document</h1>
   						</div> <!-- /col-md-12 -->
   				
   					</div> <!-- /row -->
   			
-  					<g:uploadForm controller="Category" action="create">
+  					<g:uploadForm controller="Nav" action="updateDocument">
+  						<g:hiddenField name="id" value="${documentInstance.id}"/>
 				
-						<!-- Category Name Row -->
+						<!-- Document Title Row -->
 						<div class="row">
 					
 							<div class="col-md-9">
 						
   								<div class="form-group">
-									<input type="text" id="catgName" name="catgName" class="form-control" placeholder="Category Name" maxlength="50" required />
+									<input type="text" id="documentTitle" name="documentTitle" class="form-control" placeholder="Title" value="${documentInstance.documentName}" required />
 								</div> <!-- /form-group -->
 						
 							</div> <!-- /col-md-9 -->
 				
 						</div> <!-- /row -->
 				
-						<!-- Category Description and Create Button Row -->
+						<!-- Tag Row -->
 						<div class="row">
 							<div class="col-md-9">
 						
 								<div class="form-group">
-									<textarea id="catgDesc" name="catgDesc" class="form-control" placeholder="Description" rows="5" maxlength="1000" required></textarea>
+									<g:select class="form-control" name="tags" from="${tagInstanceList}" optionKey="id" optionValue="${{it.category?.catgName.concat(": ").concat(it.tagName)}}" multiple="true"/>
 								</div>
+						
+							</div> 
+					
+  						</div> <!-- /row -->
 				
-								<!-- <label>Date:</label><g:datePicker name="date"/><br/><br/> -->
-								<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> Create</button>
+						<!-- Document Description and Upload Button Row -->
+						<div class="row">
+							<div class="col-md-9">
+						
+								<div class="form-group">
+									<textarea id="documentDesc" name="documentDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.documentDesc}</textarea>
+								</div>
+						
+								<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Update</button>
   				
 							</div> <!-- col-md-9 -->
 					
   						</div> <!-- /row -->
 			
 					</g:uploadForm>
-		
 				</g:if>
 				<g:else>
 					<p>You do not have permission to view this page.</p>

@@ -3,64 +3,67 @@
 	<head>
   		<meta name="layout" content="main" />
   		
-  		<title>[APP]::Edit Document</title>
+  		<title>[APP]::Edit Tag</title>
   	</head>
   	
   	<body>
   		<div class="container">
-  		
+  			
   			<g:if test="${session.user}">
 				<g:if test="${session.user.permissionId == 1}">
+  			
   					<div class="row">
   				
   						<!-- List Button Col -->
   						<div class="col-md-1 home-button">
-  							<g:link class="btn btn-success" controller="Document" action="documentLibrary"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
+  							<g:link class="btn btn-success" controller="Nav" action="landingPage"><span class="glyphicon glyphicon-arrow-left"></span> Back</g:link>
   						</div> <!-- /col-md-1 -->
   				
   						<!-- Page Heading Col -->
   						<div class="col=md-12">
-  							<h1>Edit Document</h1>
+  							<h1>Edit Tag</h1>
   						</div> <!-- /col-md-12 -->
   				
   					</div> <!-- /row -->
   			
-  					<g:uploadForm controller="Document" action="update">
-  						<g:hiddenField name="id" value="${documentInstance.id}"/>
+  					<g:uploadForm controller="Nav" action="updateTag">
 				
-						<!-- Document Title Row -->
+						<g:hiddenField name="id" value="${tagInstance.id}" />
+					
+						<!-- Tag Name Row -->
 						<div class="row">
 					
 							<div class="col-md-9">
-						
+					
   								<div class="form-group">
-									<input type="text" id="documentTitle" name="documentTitle" class="form-control" placeholder="Title" value="${documentInstance.documentName}" required />
+									<input type="text" id="tagName" name="tagName" class="form-control" placeholder="Tag Name" maxlength="50" value="${tagInstance.tagName}" required />
 								</div> <!-- /form-group -->
 						
 							</div> <!-- /col-md-9 -->
 				
 						</div> <!-- /row -->
 				
-						<!-- Tag Row -->
+						<!-- Tag Category Row -->
 						<div class="row">
-							<div class="col-md-9">
-						
-								<div class="form-group">
-									<g:select class="form-control" name="tags" from="${tagInstanceList}" optionKey="id" optionValue="${{it.category?.catgName.concat(": ").concat(it.tagName)}}" multiple="true"/>
-								</div>
-						
-							</div> 
 					
-  						</div> <!-- /row -->
+							<div class="col-md-9">
+						
+  								<div class="form-group">
+  									<g:select class ="form-control" name="category" from="${categoryInstanceList}" optionValue="catgName" optionKey="id" />
+								</div> <!-- /form-group -->
+						
+							</div> <!-- /col-md-9 -->
 				
-						<!-- Document Description and Upload Button Row -->
+						</div> <!-- /row -->	
+				
+						<!-- Tag Description and Create Button Row -->
 						<div class="row">
 							<div class="col-md-9">
 						
 								<div class="form-group">
-									<textarea id="documentDesc" name="documentDesc" class="form-control" placeholder="Description" rows="5">${documentInstance.documentDesc}</textarea>
+									<textarea id="tagDesc" name="tagDesc" class="form-control" placeholder="Description" rows="5" maxlength="1000" required>${tagInstance.tagDesc}</textarea>
 								</div>
-						
+				
 								<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Update</button>
   				
 							</div> <!-- col-md-9 -->
@@ -68,6 +71,7 @@
   						</div> <!-- /row -->
 			
 					</g:uploadForm>
+			
 				</g:if>
 				<g:else>
 					<p>You do not have permission to view this page.</p>

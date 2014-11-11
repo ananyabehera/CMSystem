@@ -1,9 +1,7 @@
 package cmsystem
 
 class UserAccount {
-
-	static searchable = true
-
+	
 	String firstName
 	String lastName
 	String username
@@ -11,6 +9,8 @@ class UserAccount {
 	
 	static belongsTo = [permission:Permission]
 	static hasMany = [documents:Document]
+	
+	static searchable = true
 	
     static constraints = {
 		firstName size: 1..50

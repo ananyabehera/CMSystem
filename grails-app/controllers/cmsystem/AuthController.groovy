@@ -57,6 +57,28 @@ class AuthController {
 	}
 	
 	/**
+	 	This method enables the logged in User to change their password.
+	 
+	 	@argument None
+	 	@precondition None
+	 	@postcondition The user password is updated in the database.
+	 	@return Status message depending on whether the update was successful or not
+	*/
+	def changePassword = {
+		if (sessionActive()) {
+			def user = UserAccount.findById(session.user.id)
+		 
+			if(params.password == params.passwordConfirmation) {
+				user.password = calculateHash(params.password)
+				//render(status: 200, text: '200: OK') as JSON
+				return true
+			} else {
+				 render(status: 409, text: '409: Conflict') as JSON
+			}
+		}
+	}
+	
+	/**
 		Helper method to calculate the hash value of a given password.
 	*/
 	def calculateHash(String password) {
@@ -66,8 +88,7 @@ class AuthController {
 	/**
 		Helper method that determines where the session is currently active.
 	*/
-	def sessionActive() {
-		
+	def sessionActive() {	
 		if(session.user != null) {
 			return true
 		} else {
@@ -79,8 +100,7 @@ class AuthController {
 		This method when called upon, decides whether the current user has administrator privileges or not.
 	*/
 	def adminAccess() {
-		if(session.user.permissionId == 1)
-		{
+		if(session.user.permissionId == 1) {
 			return true
 		} else {
 			render(status: 401, text: '401: Unauthorized') as JSON

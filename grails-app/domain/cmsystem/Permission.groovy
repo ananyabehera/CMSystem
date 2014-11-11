@@ -1,6 +1,7 @@
 package cmsystem
 
 class Permission {
+	
 	String pType
 	
 	static hasMany = [userAccounts:UserAccount]

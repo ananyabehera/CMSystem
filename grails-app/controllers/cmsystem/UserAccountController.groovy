@@ -76,7 +76,7 @@ class UserAccountController {
 	
 	/**
 		Method that uses the search input box parameter to search for user instances whose properties match
-		the substring of the given search string.  Uses the searchable plugin.
+		the substring of the given search string. Uses the searchable plugin.
 	*/
 	def search = {
 		def query = params.search
@@ -128,29 +128,6 @@ class UserAccountController {
 		}
 	}
 	
-
-	/**
-		This method enables the logged in User to change their password.
-		
-		@argument None
-		@precondition None
-		@postcondition The user password is updated in the database.
-		@return Status message depending on whether the update was successful or not 
-	*/
-	def changePassword = {
-		if (authController.sessionActive()) {
-			def user = UserAccount.findById(session.user.id)
-			
-			if(params.password == params.passwordConfirmation) {
-				user.password = authController.calculateHash(params.password)
-				//render(status: 200, text: '200: OK') as JSON
-				return true
-			} else {
-				render(status: 409, text: '409: Conflict') as JSON
-			}
-		}
-	}
-	
 	/**
 		The "remove" method corresponds to the DELETE HTTP request and removes the desired user from the database.
 		Scaffold deleting features ensure that all bridging classes are updated accordingly
@@ -161,16 +138,11 @@ class UserAccountController {
 		@return Status message depending on whether the delete was successful or not 
 	*/
 	def remove = {
-		if (authController.sessionActive() && authController.adminAccess())
-		{
+		if (authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && UserAccount.exists(params.id)) {
-				if(UserAccount.load(params.id).delete(flush: true)) {
-					//render(status: 200, text: "200: OK") as JSON
-					return true
-				} else {
-				render(status: 400, text: '400: Bad Request') as JSON
-				}
-				
+				UserAccount.load(params.id).delete(flush: true)
+				//render(status: 200, text: "200: OK") as JSON
+				return true
 			} else {
 				// Error handling section
 				render(status: 404, text: "404: Not Found")

@@ -30,6 +30,21 @@
 									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search Document</button>
 								</div>
 							</g:uploadForm>
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="editDocumentPage">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="Document ID" maxlength="3" required />
+									<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Edit Document</button>
+								</div>
+							</g:uploadForm>
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="deleteDocument">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="Document ID" maxlength="3" required />
+									<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete Document</button>
+								</div>
+							</g:uploadForm>
+							
 						</div> <!-- /col-md-6 -->
 						
 						<!-- Sorting Options Col -->
@@ -45,6 +60,21 @@
 								</div>
 							</g:uploadForm>
 							
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="editCategoryPage">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="Category ID" maxlength="3" required />
+									<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Edit Category</button>
+								</div>
+							</g:uploadForm>
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="deleteCategory">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="Category ID" maxlength="3" required />
+									<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete Category</button>
+								</div>
+							</g:uploadForm>
+							
 							<g:link class="btn btn-success btn-default btn-block" controller="Nav" action="createTagPage"><span class="glyphicon glyphicon-plus"></span> Create Tag</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" controller="Nav" action="tagLibraryPage"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>
 							
@@ -54,6 +84,22 @@
 									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search Tag</button>
 								</div>
 							</g:uploadForm>
+							
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="editTagPage">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="Tag ID" maxlength="3" required />
+									<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Edit Tag</button>
+								</div>
+							</g:uploadForm>
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="deleteTag">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="Tag ID" maxlength="3" required />
+									<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete Tag</button>
+								</div>
+							</g:uploadForm>
+							
 						</div> <!-- /col-md-6 -->
 						
 					</div> <!-- /row -->
@@ -71,6 +117,27 @@
 								<div class="form-group search">
 									<input type="text" id="search" name="search" class="form-control" placeholder="Search" maxlength="100" required />
 									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search User</button>
+								</div>
+							</g:uploadForm>
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="editUserDetailsPage">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="User ID" maxlength="3" required />
+									<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Edit User</button>
+								</div>
+							</g:uploadForm>
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="editPasswordPage">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="User ID" maxlength="3" required />
+									<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Change Password</button>
+								</div>
+							</g:uploadForm>
+							
+							<g:uploadForm class="form-inline" controller="Nav" action="deleteUser">
+								<div class="form-group search">
+									<input type="text" id="id" name="id" class="form-control" placeholder="User ID" maxlength="3" required />
+									<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete User</button>
 								</div>
 							</g:uploadForm>
 							

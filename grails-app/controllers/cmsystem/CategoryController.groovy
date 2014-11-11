@@ -108,7 +108,7 @@ class CategoryController {
 				return true
 			} else {
 				// Error handling section
-				render(status: 400, text: "400: Bad Request")
+				render(status: 404, text: "404: Not Found")
 			}
 		}
 	}

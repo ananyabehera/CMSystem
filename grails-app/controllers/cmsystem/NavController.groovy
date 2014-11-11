@@ -1,5 +1,7 @@
 package cmsystem
 
+import grails.converters.JSON
+
 class NavController {
 
 	def docController = new DocumentController()
@@ -13,14 +15,17 @@ class NavController {
 	 }
 	 
 	 def landingPage() {
-		 if(authController.login()) { 
-			render(view: 'landingPage')
+		 if(session.user == null) {
+			 if(authController.login()) { 
+				 render(view: 'landingPage')
+			 }
+		 } else {
+		 	render(view: 'landingPage')
 		 }
 	 }
 	 
 	 def loginPage() {
-		 if(authController.logout())
-		 {
+		 if(authController.logout()) {
 			 render(view: 'index')
 		 }
 	 }
@@ -35,6 +40,36 @@ class NavController {
 		  }
 	 }
 	 
+	 def editUserDetailsPage() {
+		 def user = UserAccount.findById(params.id)
+		 
+		 [userInstance: UserAccount.load(user.id), permissionInstanceList: Permission.list()]
+	 }
+	 
+	 def updateUserDetails() {
+		 if(userController.update()) {
+			 render(view: 'landingPage')
+		 }
+	 }
+	 
+	 def editPasswordPage() {
+		 def user = UserAccount.findById(params.id)
+		 
+		 [userInstance: UserAccount.load(user.id)]
+	 }
+	 
+	 def updatePassword() {
+		 if(authController.changePassword()) {
+			 render(view: 'landingPage')
+		 }
+	 }
+	 
+	 def deleteUser() {
+		 if(userController.remove(params.id)) {
+			render(view: 'landingPage')
+		 }
+	 }
+	 	 
 	 def userLibraryPage() {
 		 userController.show()
 	 }
@@ -47,6 +82,26 @@ class NavController {
 		 if(catgController.create()) {
 			 render(view: 'landingPage')
 		  }
+	 }
+	 
+	 def editCategoryPage() {
+		 def catg = Category.findById(params.id)
+		 
+		 [catgInstance: Category.load(catg.id)]
+	 }
+	 
+	 def updateCategory() {
+		 if(catgController.update()) {
+			 render(view: 'landingPage')
+		 }
+	 }
+	 
+	 def deleteCategory() {
+		 def message = "Category has been deleted\n" + Category.findById(params.id)
+		 
+		 if(catgController.remove(params.id)) {
+			render(view: 'landingPage')
+		 }
 	 }
 	 
 	 def categoryLibraryPage() {
@@ -63,6 +118,26 @@ class NavController {
 		  }
 	 }
 	 
+	 def editTagPage() {
+		 def tag = Tag.findById(params.id)
+		 
+		 [tagInstance: Tag.load(tag.id), categoryInstanceList: Category.list()]
+	 }
+	 
+	 def updateTag() {
+		 if(tagController.update()) {
+			 render(view: 'landingPage')
+		 }
+	 }
+	 
+	 def deleteTag() {
+		 def message = "tag has been deleted\n" + Tag.findById(params.id)
+		 
+		 if(tagController.remove(params.id)) {
+			render(view: 'landingPage')
+		 }
+	 }
+	 
 	 def tagLibraryPage() {
 		 tagController.show()
 	 }
@@ -75,6 +150,26 @@ class NavController {
 		  if(docController.create()) { 
 			render(view: 'landingPage')
 		  }
+	 }
+	 
+	 def editDocumentPage () {
+		 def document = Document.findById(params.id)
+		 
+		 [documentInstance: Document.load(document.id), tagInstanceList: Tag.list()]
+	 }
+	 
+	 def updateDocument() {
+		 if(docController.update()) {
+			 render(view: 'landingPage')
+		 }
+	 }
+	 
+	 def deleteDocument() {
+		 def message = "Document has been deleted\n" + Document.findById(params.id)
+		 
+		 if(docController.remove(params.id)) {
+			render(view: 'landingPage')
+		 }
 	 }
 	 
 	 def documentLibraryPage() {

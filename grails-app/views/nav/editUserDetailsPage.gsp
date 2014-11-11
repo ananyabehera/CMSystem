@@ -3,7 +3,7 @@
 	<head>
   		<meta name="layout" content="main" />
   		
-  		<title>[APP]::Create User</title>
+  		<title>[APP]::Edit User Details</title>
   	</head>
   	
   	<body>
@@ -17,7 +17,7 @@
   				
   				<!-- Page Heading Col -->
   				<div class="col=md-12">
-  					<h1>Create User</h1>
+  					<h1>Edit User Details</h1>
   					
   					<g:if test="${flash.message}">
   						<div class="alert alert-danger" role="alert">${flash.message}</div>
@@ -26,7 +26,8 @@
   				
   			</div> <!-- /row -->
   			
-  			<g:uploadForm controller="Nav" action="createUser">
+  			<g:uploadForm controller="Nav" action="updateUserDetails">
+  				<g:hiddenField name="id" value="${userInstance.id}" />
 				
 				<!-- First Name Row -->
 				<div class="row">
@@ -34,7 +35,7 @@
 					<div class="col-md-9">
 					
   						<div class="form-group">
-							<input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" maxlength="50" required />
+							<input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" maxlength="50" value="${userInstance.firstName}" required />
 						</div> <!-- /form-group -->
 						
 					</div> <!-- /col-md-9 -->
@@ -47,33 +48,7 @@
 					<div class="col-md-9">
 					
   						<div class="form-group">
-							<input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" maxlength="50" required />
-						</div> <!-- /form-group -->
-						
-					</div> <!-- /col-md-9 -->
-				
-				</div> <!-- /row -->
-				
-				<!-- Username Row -->
-				<div class="row">
-					
-					<div class="col-md-9">
-					
-  						<div class="form-group">
-							<input type="text" id="username" name="username" class="form-control" placeholder="Username" maxlength="50" required />
-						</div> <!-- /form-group -->
-						
-					</div> <!-- /col-md-9 -->
-				
-				</div> <!-- /row -->
-				
-				<!-- Password Row -->
-				<div class="row">
-					
-					<div class="col-md-9">
-					
-  						<div class="form-group">
-							<input type="password" id="password" name="password" class="form-control" placeholder="Password" maxlength="50" required />
+							<input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" maxlength="50" value="${userInstance.lastName}" required />
 						</div> <!-- /form-group -->
 						
 					</div> <!-- /col-md-9 -->
@@ -101,8 +76,7 @@
 				<!-- Create Button Row -->
 				<div class="row">
 					<div class="col-md-9">
-						<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> Create</button>
-  				
+						<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span> Update</button>
 					</div> <!-- col-md-9 -->
 					
   				</div> <!-- /row -->
