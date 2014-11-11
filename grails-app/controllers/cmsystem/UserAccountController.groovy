@@ -76,7 +76,8 @@ class UserAccountController {
 	
 	def search = {
 		if (authController.sessionActive()) {
-			// Below 2 lines cause duplicate results to be displayed. Not to sear how else to do it :'C 
+			// Below 2 lines cause duplicate results to be displayed. Not to sure how to fix, need a select by distinct? 
+			// or attempt an executeQuery on the domain class? :'C 
 			def searchResults = UserAccount.findAllByFirstNameIlike("%"+params.search+"%")
 			searchResults += UserAccount.findAllByLastNameIlike("%"+params.search+"%")
 				
