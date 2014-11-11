@@ -22,7 +22,8 @@ class CategoryController {
 			catg.catgName = params.catgName
 		
 			if(catg.save()) {
-				render(status: 201, text: '201: Created') as JSON
+				//render(status: 201, text: '201: Created') as JSON
+				return true
 			} else {
 				// Error handling section
 				render(status: 400, text: '400: Bad Request') as JSON
@@ -40,7 +41,8 @@ class CategoryController {
 				catg.catgDesc = params.catgDesc
 				
 				if(catg.save()) {
-					render(status: 200, text: '200: OK') as JSON
+					//render(status: 200, text: '200: OK') as JSON
+					return true
 				} else {
 					//error handling code
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -53,7 +55,8 @@ class CategoryController {
 		if(authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && Category.exists(params.id)) {
 				Category.load(params.id).delete(flush: true)
-				render(status: 200, text: "200: OK") as JSON
+				//render(status: 200, text: "200: OK") as JSON
+				return true
 			} else {
 				// Error handling section
 				render(status: 400, text: "400: Bad Request")

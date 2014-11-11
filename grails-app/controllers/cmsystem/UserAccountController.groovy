@@ -16,6 +16,22 @@ class UserAccountController {
 		}	
 	}
 	
+	def search = {
+		if (authController.sessionActive()) {
+			// Below 2 lines cause duplicate results to be displayed. Not to sear how else to do it :'C 
+			def searchResults = UserAccount.findAllByFirstNameIlike("%"+params.search+"%")
+			searchResults += UserAccount.findAllByLastNameIlike("%"+params.search+"%")
+				
+			if(searchResults.size() > 0) {
+				//render(status: 200, text: '200: OK') as JSON
+				render searchResults as JSON
+			} else {
+				// Error handling section
+				render(status: 400, text: '400: Bad Request') as JSON
+			}
+		}
+	}
+	
 	def create = {
 		if (authController.sessionActive() && authController.adminAccess()) {
 			def user = new UserAccount()
@@ -31,7 +47,8 @@ class UserAccountController {
 				user.permission = permission
 				
 				if(user.save(flush: true)) {
-					render(status: 201, text: '201: Created') as JSON
+					//render(status: 201, text: '201: Created') as JSON
+					return true
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -51,7 +68,8 @@ class UserAccountController {
 				user.permission = permission
 				
 				if(user.save(flush: true)) {
-					render(status: 200, text: '200: OK') as JSON
+					//render(status: 200, text: '200: OK') as JSON
+					return true
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -68,7 +86,8 @@ class UserAccountController {
 			
 			if(params.password == params.passwordConfirmation) {
 				user.password = authController.calculateHash(params.password)
-				render(status: 200, text: '200: OK') as JSON
+				//render(status: 200, text: '200: OK') as JSON
+				return true
 			} else {
 				render(status: 409, text: '409: Conflict') as JSON
 			}
@@ -80,7 +99,8 @@ class UserAccountController {
 		{
 			if(params.id && UserAccount.exists(params.id)) {
 				if(UserAccount.load(params.id).delete(flush: true)) {
-					render(status: 200, text: "200: OK") as JSON
+					//render(status: 200, text: "200: OK") as JSON
+					return true
 				} else {
 				render(status: 400, text: '400: Bad Request') as JSON
 				}
