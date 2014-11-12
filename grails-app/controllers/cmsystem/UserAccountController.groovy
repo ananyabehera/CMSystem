@@ -85,14 +85,7 @@ class UserAccountController {
 		{
        		def srchResults = searchableService.search(query)
 
-       		if(srchResults.total > 0)
-       		{
-       			render (srchResults.results as JSON)
-        	}
-        	else
-        	{
-        		render(status: 400, text: '400: Bad Request') as JSON
-    		}
+       		render srchResults.results as JSON
     	}
 	}
 
