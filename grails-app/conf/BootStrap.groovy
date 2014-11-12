@@ -29,12 +29,12 @@ class BootStrap {
 		def newTag1 = new Tag(tagName: 'Digital', tagDesc: 'Digital Change Services', category: newCatg3).save(flush: true)
 		def newTag2 = new Tag(tagName: 'Java', tagDesc: 'Oracle\'s Java Language', category: newCatg2).save(flush: true)
 		
-		new Biography(firstName: 'Christian', lastName: 'Sesta', title: 'Senior Technology Manager', team: 'Digital Change Services',
+		/*new Biography(firstName: 'Christian', lastName: 'Sesta', title: 'Senior Technology Manager', team: 'Digital Change Services',
 			bioDesc: 'I am a 23 year old Data Analyst.', oneLiner: '“If you don’t try, you will never succeed.”', 
 			loveSentance: 'Our office has an awesome Coffee Machine in its DigitalDigs Building').save(flush: true)	 
 		new Biography(firstName: 'Cloris', lastName: 'Ye', title: 'Senior Digital Manager', team: 'Digital Change Services',
 			bioDesc: 'I am a 28 year old Data Warehousing Manager. ', oneLiner: '“Failure can lead to success.”',
-			loveSentance: 'Super Digitals building is awesome, stylish, and cool.').save(flush: true)
+			loveSentance: 'Super Digitals building is awesome, stylish, and cool.').save(flush: true)*/
     }
     def destroy = {
     }

@@ -177,6 +177,28 @@ class NavController {
 		 bioController.show()
 	 }
 	 
+	 def createBiographyPage() {
+		 [catgInstanceList: Category.list()]
+	 }
+	 
+	 def createBiography() {
+		 if(bioController.create()) {
+			 render(view: 'landingPage')
+		  }
+	 }
+	 
+	 def editBiographyPage () {
+		 def bio = Biography.findById(params.id)
+		 
+		 [bioInstance: Biography.load(bio.id)]
+	 }
+	 
+	 def updateBiography() {
+		 if(bioController.update()) {
+			 render(view: 'landingPage')
+		 }
+	 }
+	 
 	 def deleteBiography() {		 
 		 if(bioController.remove(params.id)) {
 			render(view: 'landingPage')

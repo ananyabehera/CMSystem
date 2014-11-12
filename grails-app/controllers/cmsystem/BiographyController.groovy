@@ -47,14 +47,30 @@ class BiographyController {
 	*/
 	def create =  {
 		if(authController.sessionActive() && authController.adminAccess()) {
-			def bio = new Biography(params['bio'])
-		
-			if(bio.save()) {
-				//render(status: 201, text: '201: Created') as JSON
-				return true
+			def file = request.getFile('file')
+			
+			if(file.empty) {
+				render(status: 400, text: '400: Bad Request')
 			} else {
-				// Error handling section
-				render(status: 400, text: '400: Bad Request') as JSON
+				def bio = new Biography()
+		
+				bio.iconFile = file.bytes
+				bio.iconFileType = file.contentType.split("/")[1]
+				bio.firstName = params.firstName
+				bio.lastName = params.lastName
+				bio.title = params.title
+				bio.team = params.team
+				bio.bioDesc = params.bioDesc
+				bio.oneLiner = params.oneLiner
+				bio.loveSentance = params.loveSentance
+			
+				if(bio.save()) {
+					//render(status: 201, text: '201: Created') as JSON
+					return true
+				} else {
+					// Error handling section
+					render(status: 400, text: '400: Bad Request') as JSON
+				}
 			}
 		}
 	}
@@ -71,7 +87,13 @@ class BiographyController {
 	def update = {
 		if(authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && Biography.exists(params.id)) {	
+				def file = request.getFile('file')
 				def bio = Biography.findById(params.id)
+				
+				if(!file.empty) { // Doesn't seem to work even when new file is added it is considered as empty.
+					bio.iconFile = file.bytes
+					bio.iconFileType = file.contentType.split("/")[1]
+				}
 				
 				bio.firstName = params.firstName
 				bio.lastName = params.lastName
