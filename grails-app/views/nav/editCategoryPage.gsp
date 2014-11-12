@@ -27,7 +27,6 @@
   					</div> <!-- /row -->
   			
   					<g:uploadForm controller="Nav" action="updateCategory">
-				
 						<g:hiddenField name="id" value="${catgInstance.id}" />
 					
 						<!-- Tag Name Row -->

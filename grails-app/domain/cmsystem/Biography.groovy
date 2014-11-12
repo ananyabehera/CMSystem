@@ -11,6 +11,8 @@ package cmsystem
 
 class Biography {
 	
+	byte[] iconFile
+	String iconFileType
 	String firstName
 	String lastName
 	String title
@@ -20,6 +22,9 @@ class Biography {
 	String loveSentance
 	
     static constraints = {
+		iconFile nullable:false,
+			 maxSize:1073741824		
+		iconFileType size: 1..5
 		firstName size: 1..50
 		lastName size: 1..50
 		title size: 1..100
