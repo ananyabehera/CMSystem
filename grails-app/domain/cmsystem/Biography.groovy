@@ -1,3 +1,12 @@
+/**
+ Domain model class which defines the structure of Biography data.
+
+ @authors Ananya Behera and Christian Sesta
+ @version 1.1
+ @datemodified 10th November 2014
+*/
+
+
 package cmsystem
 
 class Biography {
@@ -20,6 +29,9 @@ class Biography {
 		loveSentance size: 1..1000
     }
 	
+	/**
+		Maps the Biography domain class to a table named 'Biography' in the database.
+	*/
 	static mapping = {
 		table 'Biography'
 	}
