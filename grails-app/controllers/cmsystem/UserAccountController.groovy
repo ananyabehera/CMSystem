@@ -65,7 +65,7 @@ class UserAccountController {
 				
 				if(user.save(flush: true)) {
 					//render(status: 201, text: '201: Created') as JSON
-					return true
+					render user as JSON
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -110,7 +110,7 @@ class UserAccountController {
 				
 				if(user.save(flush: true)) {
 					//render(status: 200, text: '200: OK') as JSON
-					return true
+					render user as JSON
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON

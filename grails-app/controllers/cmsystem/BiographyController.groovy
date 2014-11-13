@@ -66,7 +66,7 @@ class BiographyController {
 			
 				if(bio.save()) {
 					//render(status: 201, text: '201: Created') as JSON
-					return true
+					render bio as JSON
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -105,7 +105,7 @@ class BiographyController {
 				
 				if(bio.save()) {
 					//render(status: 200, text: '200: OK') as JSON
-					return true
+					render bio as JSON
 				} else {
 					//error handling code
 					render(status: 400, text: '400: Bad Request') as JSON
