@@ -90,7 +90,7 @@ class BiographyController {
 				def file = request.getFile('file')
 				def bio = Biography.findById(params.id)
 				
-				if(!file.empty) { // Doesn't seem to work even when new file is added it is considered as empty.
+				if(!file.empty) {
 					bio.iconFile = file.bytes
 					bio.iconFileType = file.contentType.split("/")[1]
 				}
