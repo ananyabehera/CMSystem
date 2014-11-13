@@ -58,7 +58,7 @@ class TagController {
 		
 			if(tag.save()) {
 				//render(status: 201, text: '201: Created') as JSON
-				return true
+				render tag as JSON
 			} else {
 				// Error handling section
 				render(status: 400, text: '400: Bad Request') as JSON
@@ -87,7 +87,7 @@ class TagController {
 				
 				if(tag.save()) {
 					//render(status: 200, text: '200: OK') as JSON
-					return true
+					render tag as JSON
 				} else {
 					//error handling code
 					render(status: 400, text: '400: Bad Request') as JSON

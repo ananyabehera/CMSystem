@@ -9,7 +9,10 @@ class NavController {
 	def authController = new AuthController()
 	def bioController = new BiographyController()
 	
-     def index() { 
+     def index() {
+		if(session.user != null) {
+			authController.logout()
+		}		
 		render(view: 'index')
 	 }
 	 

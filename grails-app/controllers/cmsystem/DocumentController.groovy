@@ -81,7 +81,7 @@ class DocumentController {
 					}
 					
 					//render(status: 201, text: '201: Created') as JSON
-					return true
+					render document as JSON
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
@@ -127,7 +127,7 @@ class DocumentController {
 					}
 					
 					//render(status: 200, text: '200: OK') as JSON
-					return true
+					render document as JSON
 				} else {
 					// Error handling section
 					render(status: 400, text: '400: Bad Request') as JSON
