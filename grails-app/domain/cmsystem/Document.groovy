@@ -33,8 +33,6 @@ class Document {
 		
 		file nullable:false,
 			maxSize:1073741824
-			
-		fileType size: 1..5
     }
 
     /**
