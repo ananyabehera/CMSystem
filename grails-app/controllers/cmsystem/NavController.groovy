@@ -207,4 +207,8 @@ class NavController {
 			render(view: 'landingPage')
 		 }
 	 }
+
+	 def documentSearch() {
+	 	docController.search()
+	 }
 }

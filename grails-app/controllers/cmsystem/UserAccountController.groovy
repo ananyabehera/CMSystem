@@ -85,7 +85,16 @@ class UserAccountController {
 		{
        		def srchResults = searchableService.search(query)
 
-       		render srchResults.results as JSON
+       		def userArray = []
+       			for(Object o: srchResults.results)
+       			{
+       				if(o.getClass() == UserAccount)
+       				{
+       					userArray.add(o)
+       				}
+       			}
+
+       		render userArray as JSON
     	}
 	}
 

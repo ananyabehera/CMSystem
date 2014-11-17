@@ -14,6 +14,8 @@ class Category {
 	String catgDesc
 	Date dateCreated = new Date()
 	Date dateUpdated = new Date()
+
+	static searchable = true
 	
 	/**
 		Defines that the Tag and DocCategory domain models have a one-to-many relationship with the Category domain model.

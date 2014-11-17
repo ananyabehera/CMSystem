@@ -16,6 +16,9 @@ class Document {
 	byte[] file
 	String fileType
 	
+	static searchable = true
+
+	
 	/**
 		Defines the relationships between the different database tables.  The subsequent lines of code state that:
 		a) Every document belongs to a UserAccount

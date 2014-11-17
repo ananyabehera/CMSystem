@@ -23,6 +23,8 @@ class Tag {
 	static belongsTo = [category:Category]
 	static hasMany = [docTags:DocTag]
 	
+	static searchable = true
+
     static constraints = {
 		tagName size: 1..100
 		tagDesc size: 1..1000

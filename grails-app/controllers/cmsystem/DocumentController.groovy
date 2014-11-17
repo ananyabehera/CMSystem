@@ -13,6 +13,8 @@ import grails.converters.JSON
 class DocumentController {
 
 	boolean transactional = true
+
+	def searchableService
 	
 	/**
 		The AuthController attribute allows for session management and method availability based on permission
@@ -74,7 +76,7 @@ class DocumentController {
 						tagEntry.tag = Tag.findById(i)
 						tagEntry.document = document
 						tagEntry.save()
-				
+						
 						catgEntry.document = document
 						catgEntry.category = tagEntry.tag.category
 						catgEntry.save()
@@ -125,8 +127,6 @@ class DocumentController {
 						catgEntry.category = tagEntry.tag.category
 						catgEntry.save()
 					}
-					
-					//render(status: 200, text: '200: OK') as JSON
 					render document as JSON
 				} else {
 					// Error handling section
@@ -161,7 +161,6 @@ class DocumentController {
 				outputStream.flush()
 				outputStream.close()
 				
-				//render(status: 200, text: "200: OK") as JSON
 				return true
 			} else {
 				render(status: 404, text: '404: Not Found') as JSON
@@ -189,5 +188,60 @@ class DocumentController {
 				render(status: 404, text: "404: Not Found")
 			}
 		}
+	}
+
+	def search = {
+		def query = params.search
+		query = "*" + query + "*"
+		if(query)
+		{
+       		def srchResults = searchableService.search(query)
+       		if(srchResults)
+       		{
+       			def tagArray = []
+       			def catArray = []
+       			def docList = []
+       			for(Object o: srchResults.results)
+       			{
+       				if(o.getClass() == Tag)
+       				{
+       					tagArray.add(o)
+       				}
+       				else if(o.getClass() == Category)
+       				{
+       					catArray.add(o)
+       				}
+       				else if(0.getClass() == Document)
+       				{
+       					docList.add(o)
+       				}
+       			}
+       			for(Tag t: tagArray)
+       			{
+       				def temp = Tag.findById(t.id)
+       				for(DocTag dtag: temp.docTags)
+       				{
+       					def tempDoc = dtag.document
+       					if(docList.contains(tempDoc) != true)
+       					{
+       						docList.add(tempDoc)
+       					}
+       				}
+       			}
+       			for(Category c: catArray)
+       			{
+       				def temp = Category.findById(c.id)
+       				for(DocCategory dcat: temp.docCategories)
+       				{
+       					def tempDoc = dcat.document
+       					if(docList.contains(tempDoc) != true)
+       					{
+       						docList.add(tempDoc)
+       					}
+       				}
+       			}
+       			render docList as JSON		
+       		}
+    	}
 	}
 }
