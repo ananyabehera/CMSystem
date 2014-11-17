@@ -14,6 +14,9 @@ class DocumentController {
 
 	boolean transactional = true
 
+	/**
+		The searchableService attribute allows for the ability to search for a document via its domain class.
+	*/
 	def searchableService
 	
 	/**
@@ -37,6 +40,61 @@ class DocumentController {
 				render Document.findById(params.id) as JSON
 			} else {
 				render Document.list() as JSON
+			}
+		}
+	}
+	
+	/**
+		Method that uses the search input box parameter to search for user instances whose properties match
+	 	the substring of the given search string. Uses the searchable plugin.
+	*/
+	def search = {
+		def query = params.search
+		query = "*" + query + "*"
+	 
+		if(query) {
+			def srchResults = searchableService.search(query)
+			
+			if(srchResults) {
+				def tagArray = []
+				def catArray = []
+				def docList = []
+				
+				for(Object o: srchResults.results) {
+					if(o.getClass() == Tag) {
+						tagArray.add(o)
+					} else if(o.getClass() == Category) {
+						catArray.add(o)
+					} else if(o.getClass() == Document) {
+						docList.add(o)
+					}
+				}
+			 
+				for(Tag t: tagArray) {
+					def temp = Tag.findById(t.id)
+					
+					for(DocTag dtag: temp.docTags) {
+						def tempDoc = dtag.document
+						
+					 if(docList.contains(tempDoc) != true) {
+							docList.add(tempDoc)
+						}
+					}
+				}
+				
+				for(Category c: catArray) {
+					def temp = Category.findById(c.id)
+					
+					for(DocCategory dcat: temp.docCategories) {
+						def tempDoc = dcat.document
+						
+						if(docList.contains(tempDoc) != true) {
+							docList.add(tempDoc)
+						}
+					}
+				}
+				
+				render docList as JSON
 			}
 		}
 	}
@@ -188,60 +246,5 @@ class DocumentController {
 				render(status: 404, text: "404: Not Found")
 			}
 		}
-	}
-
-	def search = {
-		def query = params.search
-		query = "*" + query + "*"
-		if(query)
-		{
-       		def srchResults = searchableService.search(query)
-       		if(srchResults)
-       		{
-       			def tagArray = []
-       			def catArray = []
-       			def docList = []
-       			for(Object o: srchResults.results)
-       			{
-       				if(o.getClass() == Tag)
-       				{
-       					tagArray.add(o)
-       				}
-       				else if(o.getClass() == Category)
-       				{
-       					catArray.add(o)
-       				}
-       				else if(0.getClass() == Document)
-       				{
-       					docList.add(o)
-       				}
-       			}
-       			for(Tag t: tagArray)
-       			{
-       				def temp = Tag.findById(t.id)
-       				for(DocTag dtag: temp.docTags)
-       				{
-       					def tempDoc = dtag.document
-       					if(docList.contains(tempDoc) != true)
-       					{
-       						docList.add(tempDoc)
-       					}
-       				}
-       			}
-       			for(Category c: catArray)
-       			{
-       				def temp = Category.findById(c.id)
-       				for(DocCategory dcat: temp.docCategories)
-       				{
-       					def tempDoc = dcat.document
-       					if(docList.contains(tempDoc) != true)
-       					{
-       						docList.add(tempDoc)
-       					}
-       				}
-       			}
-       			render docList as JSON		
-       		}
-    	}
 	}
 }

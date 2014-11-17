@@ -53,14 +53,6 @@
 							<g:link class="btn btn-success btn-default btn-block" controller="Nav" action="createCategoryPage"><span class="glyphicon glyphicon-plus"></span> Create Category</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" controller="Nav" action="categoryLibraryPage"><span class="glyphicon glyphicon-list-alt"></span> Category Library</g:link>
 							
-							<g:uploadForm class="form-inline" controller="Nav" action="categorySearch">
-								<div class="form-group search">
-									<input type="text" id="search" name="search" class="form-control" placeholder="Search" maxlength="100" required />
-									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search Category</button>
-								</div>
-							</g:uploadForm>
-							
-							
 							<g:uploadForm class="form-inline" controller="Nav" action="editCategoryPage">
 								<div class="form-group search">
 									<input type="text" id="id" name="id" class="form-control" placeholder="Category ID" maxlength="3" required />
@@ -77,14 +69,6 @@
 							
 							<g:link class="btn btn-success btn-default btn-block" controller="Nav" action="createTagPage"><span class="glyphicon glyphicon-plus"></span> Create Tag</g:link>
 							<g:link class="btn btn-primary btn-default btn-block" controller="Nav" action="tagLibraryPage"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>
-							
-							<g:uploadForm class="form-inline" controller="Nav" action="tagSearch">
-								<div class="form-group search">
-									<input type="text" id="search" name="search" class="form-control" placeholder="Search" maxlength="100" required />
-									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search Tag</button>
-								</div>
-							</g:uploadForm>
-							
 							
 							<g:uploadForm class="form-inline" controller="Nav" action="editTagPage">
 								<div class="form-group search">
@@ -196,23 +180,6 @@
 						<div class="col-md-6">
 							<h2>Sorting Options:</h2>
 							<g:link class="btn btn-primary btn-default btn-block" controller="Nav" action="categoryLibraryPage"><span class="glyphicon glyphicon-list-alt"></span> Category Library</g:link>
-							
-							<g:uploadForm class="form-inline" controller="Nav" action="categorySearch">
-								<div class="form-group search">
-									<input type="text" id="search" name="search" class="form-control" placeholder="Search" maxlength="100" required />
-									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search Category</button>
-								</div>
-							</g:uploadForm>
-							
-							<g:link class="btn btn-primary btn-default btn-block" controller="Nav" action="tagLibraryPage"><span class="glyphicon glyphicon-list-alt"></span> Tag Library</g:link>						
-						
-							<g:uploadForm class="form-inline" controller="Nav" action="tagSearch">
-								<div class="form-group search">
-									<input type="text" id="search" name="search" class="form-control" placeholder="Search" maxlength="100" required />
-									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search Tag</button>
-								</div>
-							</g:uploadForm>
-						
 						</div> <!-- /col-md-6 -->
 						
 					</div> <!-- /row -->

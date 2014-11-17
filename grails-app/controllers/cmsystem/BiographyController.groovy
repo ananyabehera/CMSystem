@@ -12,6 +12,11 @@ import grails.converters.*
 class BiographyController {
 
 	/**
+	 	The searchableService attribute allows for the ability to search for a user via its domain class.
+	*/
+	def searchableService
+	
+	/**
 		The AuthController attribute allows for session management and method availability based on permission
 		levels.
 	*/
@@ -33,6 +38,28 @@ class BiographyController {
 			} else {
 				render Biography.list() as JSON
 			}
+		}
+	}
+	
+	/**
+	 	Method that uses the search input box parameter to search for user instances whose properties match
+		the substring of the given search string. Uses the searchable plugin.
+	*/
+	def search = {
+		def query = params.search
+		query = "*" + query + "*"
+ 
+		if(query) {
+			def srchResults = searchableService.search(query)
+			def userArray = []
+			
+			for(Object o: srchResults.results) {
+				if(o.getClass() == UserAccount) {
+					userArray.add(o)
+				}
+			}
+
+			render userArray as JSON
 		}
 	}
 	

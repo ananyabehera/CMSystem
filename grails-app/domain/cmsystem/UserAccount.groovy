@@ -24,7 +24,7 @@ class UserAccount {
 	static hasMany = [documents:Document]
 	
 	/**
-		Identifies that the userAccount class is indexed for search purposes
+		Identifies that the userAccount domain class is indexed for search purposes
 	*/
 	static searchable = true
 	

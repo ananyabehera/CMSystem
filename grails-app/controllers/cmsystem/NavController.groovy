@@ -211,4 +211,8 @@ class NavController {
 	 def documentSearch() {
 	 	docController.search()
 	 }
+	 
+	 def biographySearch() {
+		 bioController.search()
+	 }
 }

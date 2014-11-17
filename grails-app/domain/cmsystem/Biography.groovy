@@ -21,10 +21,14 @@ class Biography {
 	String oneLiner
 	String loveSentance
 	
+	/**
+		 Identifies that the Biography domain class is indexed for search purposes
+	*/
+	static searchable = true
+	
     static constraints = {
 		iconFile nullable:false,
 			 maxSize:1073741824		
-		iconFileType size: 1..5
 		firstName size: 1..50
 		lastName size: 1..50
 		title size: 1..100
