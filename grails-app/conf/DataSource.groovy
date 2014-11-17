@@ -23,14 +23,14 @@ environments {
     
     test {
         dataSource {
-            dbCreate = "create"
+            dbCreate = "create-drop"
             url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
     }
     
     production {
         dataSource {
-            dbCreate = "create"
+            dbCreate = "create-drop"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
 
