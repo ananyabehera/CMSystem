@@ -123,7 +123,7 @@ class DocumentController {
 				document.userAccount = UserAccount.findById(session.user.id)
 				
 				if(document.save(flush: true)) {
-					def tempArray = params.tags.toString()
+					def tempArray = params.tags
 					
 					for(tag in tempArray) {
 						System.err.println("Testing tempArray Output: ${tag}");
@@ -132,7 +132,7 @@ class DocumentController {
 						def tagEntry = new DocTag()
 						def catgEntry = new DocCategory()
 					
-						tagEntry.tag = Tag.findById(tag)
+						tagEntry.tag = Tag.findById(tag.toInteger())
 						tagEntry.document = document
 						tagEntry.save(flush: true)
 						
