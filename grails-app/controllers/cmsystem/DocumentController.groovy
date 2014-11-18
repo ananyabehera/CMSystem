@@ -123,18 +123,16 @@ class DocumentController {
 				document.userAccount = UserAccount.findById(session.user.id)
 				
 				if(document.save(flush: true)) {
+					def tempArray = getParamAsList(params.tags)
+					System.out.println("Testing tempArray Output: ${tempArray}");
 					
-					System.err.println("Testing tempArray Output: ${params.tags}");
-					System.out.println("Testing tempArray Output: ${params.tags}");
-					
-					for(tag in params.tags) {
-						System.err.println("Testing tempArray Output: ${tag}");
+					for(tag in tempArray) {
 						System.out.println("Testing tempArray Output: ${tag}");
 						
 						def tagEntry = new DocTag()
 						def catgEntry = new DocCategory()
 					
-						tagEntry.tag = Tag.findById(tag.toInteger())
+						tagEntry.tag = Tag.findById(tag)
 						tagEntry.document = document
 						tagEntry.save(flush: true)
 						
@@ -296,5 +294,17 @@ class DocumentController {
 				render(status: 404, text: "404: Not Found")
 			}
 		}
+	}
+	
+	/**
+		Creates a list of params from a multiple select box 
+	*/
+	def getParamAsList(param) {
+		def paramList = []
+		if (param && param != 'null') {
+			(param?.class?.isArray()) ? paramList << (param as List) : paramList << (param)
+			paramList = paramList.flatten()
+		}
+		return paramList
 	}
 }
