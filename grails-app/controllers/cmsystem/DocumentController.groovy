@@ -125,10 +125,9 @@ class DocumentController {
 				document.userAccount = UserAccount.findById(session.user.id)
 			
 				if(document.save(flush: true)) {
-					def tempArray = new ArrayList()
-					tempArray = params.tags
+					def tempArray = params.tags
 					
-					for(i in tempArray) {
+					tempArray.each { i->
 						System.err.println("Testing tempArray Output: ${i}");
 						System.out.println("Testing tempArray Output: ${i}");
 						
