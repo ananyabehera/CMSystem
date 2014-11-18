@@ -296,7 +296,7 @@ class DocumentController {
 	}
 	
 	/**
-		Creates a list of params from a multiple select box 
+		A method that converts any number of parameters to an array list 
 	*/
 	def getParamAsList(param) {
 		def paramList = []
