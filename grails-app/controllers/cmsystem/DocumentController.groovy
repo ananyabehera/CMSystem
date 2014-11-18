@@ -125,12 +125,11 @@ class DocumentController {
 				document.userAccount = UserAccount.findById(session.user.id)
 			
 				if(document.save(flush: true)) {
-					def tempArray = [] 
-					tempArray = params.tags
+					def tempArray = params.tags
 					
 					
 					for(i in tempArray) {
-						System.err.println("Testing tempArray Output: ${i}");
+						System.err.println("Testing tempArray Output: ${Tag.findById(i)}");
 						System.out.println("Testing tempArray Output: ${i}");
 						
 						def tagEntry = new DocTag()
