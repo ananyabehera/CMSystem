@@ -125,6 +125,9 @@ class DocumentController {
 				if(document.save(flush: true)) {
 					def tempArray = params.tags
 					
+					System.err.println("Testing tempArray Output: ${params.tags}");
+					System.out.println("Testing tempArray Output: ${params.tags}");
+					
 					for(tag in tempArray) {
 						System.err.println("Testing tempArray Output: ${tag}");
 						System.out.println("Testing tempArray Output: ${tag}");
