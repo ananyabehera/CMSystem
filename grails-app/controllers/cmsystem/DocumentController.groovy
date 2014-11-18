@@ -128,14 +128,14 @@ class DocumentController {
 					def tempArray = params.tags
 					
 					for(String i : tempArray) {
-						def inti = Integer.parseInt(i)
+						i.toInteger()
 						System.err.println("Testing tempArray Output: ${i}");
 						System.out.println("Testing tempArray Output: ${i}");
 						
 						def tagEntry = new DocTag()
 						def catgEntry = new DocCategory()
 					
-						tagEntry.tag = Tag.findById(inti)
+						tagEntry.tag = Tag.findById(i)
 						tagEntry.document = document
 						tagEntry.save(flush: true)
 						
