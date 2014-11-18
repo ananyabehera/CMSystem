@@ -17,7 +17,7 @@ class DocumentController {
 	/**
 		The searchableService attribute allows for the ability to search for a document via its domain class.
 	*/
-	def searchableService
+	//def searchableService
 	
 	/**
 		The AuthController attribute allows for session management and method availability based on permission
@@ -125,11 +125,7 @@ class DocumentController {
 				document.userAccount = UserAccount.findById(session.user.id)
 			
 				if(document.save(flush: true)) {
-					def tempArray = []
-					
-					for(tag in params.tags) {
-						tempArray.add(Tag.findById(tag))
-					}
+					def tempArray = params.tags
 					
 					for(i in tempArray) {
 						System.err.println("Testing tempArray Output: ${i}");
@@ -138,7 +134,7 @@ class DocumentController {
 						def tagEntry = new DocTag()
 						def catgEntry = new DocCategory()
 					
-						tagEntry.tag = i
+						tagEntry.tag = Tag.findById(i)
 						tagEntry.document = document
 						tagEntry.save(flush: true)
 						
