@@ -125,7 +125,8 @@ class DocumentController {
 				document.userAccount = UserAccount.findById(session.user.id)
 			
 				if(document.save(flush: true)) {
-					def tempArray = params.tags
+					def tempArray = [] 
+					tempArray = params.tags
 					
 					
 					for(i in tempArray) {
