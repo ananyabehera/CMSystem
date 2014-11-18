@@ -129,7 +129,9 @@ class DocumentController {
 					
 					
 					for(i in tempArray) {
-						log.info "Testing tempArray Output: ${i}"
+						System.err.println("Testing tempArray Output: ${i}");
+						System.out.println("Testing tempArray Output: ${i}");
+						
 						def tagEntry = new DocTag()
 						def catgEntry = new DocCategory()
 					
