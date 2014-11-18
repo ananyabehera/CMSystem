@@ -126,8 +126,10 @@ class DocumentController {
 			
 				if(document.save(flush: true)) {
 					def tempArray = params.tags
-				
+					
+					
 					for(i in tempArray) {
+						log.info "Testing tempArray Output: ${i}"
 						def tagEntry = new DocTag()
 						def catgEntry = new DocCategory()
 					
