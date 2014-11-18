@@ -110,6 +110,50 @@ class DocumentController {
 		@return Status message depending on whether the save was successful or not 
 	*/
 	def create = {
+		if(authController.sessionActive() && authController.adminAccess()) {
+			def file = request.getFile('file')
+			
+			if(!file.empty) {
+				def document = new Document()
+				
+				document.documentName = params.documentTitle
+				document.file = file.bytes
+				document.fileType = file.contentType.split("/")[1]
+				document.documentDesc = params.documentDesc
+				document.userAccount = UserAccount.findById(session.user.id)
+				
+				if(document.save(flush: true)) {
+					def tempArray = params.tags.toString()
+					
+					for(tag in tempArray) {
+						System.err.println("Testing tempArray Output: ${tag}");
+						System.out.println("Testing tempArray Output: ${tag}");
+						
+						def tagEntry = new DocTag()
+						def catgEntry = new DocCategory()
+					
+						tagEntry.tag = Tag.findById(tag)
+						tagEntry.document = document
+						tagEntry.save(flush: true)
+						
+						catgEntry.document = document
+						catgEntry.category = tagEntry.tag.category
+						catgEntry.save(flush: true)
+					}
+					
+					//render(status: 201, text: '201: Created') as JSON
+					render document as JSON
+				} else {
+					// Error handling section
+					render(status: 400, text: '400: Bad Request') as JSON
+				}
+			} else {
+				// Error handling section
+				render(status: 400, text: '400: Bad Request') as JSON
+			}
+		}
+	}
+	/*def create = {
 		if (authController.sessionActive() && authController.adminAccess()) {
 			def file = request.getFile('file')
 		
@@ -152,7 +196,7 @@ class DocumentController {
 				}
 			}
 		}
-	}
+	}*/
 
 	/**
 		The "update" method corresponds to the POST HTTP request and updates an editable document in the database.
@@ -164,7 +208,7 @@ class DocumentController {
 		@return Status message depending on whether the save was successful or not 
 	*/
 	def update = {
-		if (authController.sessionActive() && authController.adminAccess()) {
+		if(authController.sessionActive() && authController.adminAccess()) {
 			if(params.id && Document.exists(params.id)) {
 				def document = Document.findById(params.id)
 				
