@@ -133,19 +133,11 @@ class DocumentController {
 					
 						tagEntry.tag = Tag.findById(i)
 						tagEntry.document = document
-						
-						if(!tagEntry.save(flush: true)) {
-							// Error handling section
-							render(status: 400, text: '400: Bad Request') as JSON
-						}
+						tagEntry.save(flush: true)
 						
 						catgEntry.document = document
 						catgEntry.category = tagEntry.tag.category
-						
-						if(!catgEntry.save(flush: true)) {
-							// Error handling section
-							render(status: 400, text: '400: Bad Request') as JSON
-						}
+						catgEntry.save(flush: true)
 					}
 					
 					//render(status: 201, text: '201: Created') as JSON
