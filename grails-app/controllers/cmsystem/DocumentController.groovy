@@ -138,6 +138,7 @@ class DocumentController {
 						catgEntry.document = document
 						catgEntry.category = tagEntry.tag.category
 						catgEntry.save(flush: true)
+						
 					}
 					
 					//render(status: 201, text: '201: Created') as JSON
