@@ -127,21 +127,21 @@ class DocumentController {
 				if(document.save(flush: true)) {
 					def tempArray = params.tags
 					
-					tempArray.each { i->
+					for(String i : tempArray) {
+						def inti = Integer.parseInt(i)
 						System.err.println("Testing tempArray Output: ${i}");
 						System.out.println("Testing tempArray Output: ${i}");
 						
 						def tagEntry = new DocTag()
 						def catgEntry = new DocCategory()
 					
-						tagEntry.tag = Tag.findById(i)
+						tagEntry.tag = Tag.findById(inti)
 						tagEntry.document = document
 						tagEntry.save(flush: true)
 						
 						catgEntry.document = document
 						catgEntry.category = tagEntry.tag.category
 						catgEntry.save(flush: true)
-						
 					}
 					
 					//render(status: 201, text: '201: Created') as JSON
