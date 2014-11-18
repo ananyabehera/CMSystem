@@ -124,11 +124,8 @@ class DocumentController {
 				
 				if(document.save(flush: true)) {
 					def tempArray = getParamAsList(params.tags)
-					System.out.println("Testing tempArray Output: ${tempArray}");
 					
 					for(tag in tempArray) {
-						System.out.println("Testing tempArray Output: ${tag}");
-						
 						def tagEntry = new DocTag()
 						def catgEntry = new DocCategory()
 					
@@ -219,20 +216,22 @@ class DocumentController {
 				DocCategory.executeUpdate("delete DocCategory d where d.document = :doc", [doc: document])
 				
 				if(document.save(flush: true)) {
-					def tempArray = params.tags
-				
-					for(i in tempArray) {
+					def tempArray = getParamAsList(params.tags)
+					
+					for(tag in tempArray) {
 						def tagEntry = new DocTag()
 						def catgEntry = new DocCategory()
 					
-						tagEntry.tag = Tag.findById(i)
+						tagEntry.tag = Tag.findById(tag)
 						tagEntry.document = document
-						tagEntry.save()
-				
+						tagEntry.save(flush: true)
+						
 						catgEntry.document = document
 						catgEntry.category = tagEntry.tag.category
-						catgEntry.save()
+						catgEntry.save(flush: true)
 					}
+					
+					//render(status: 201, text: '201: Created') as JSON
 					render document as JSON
 				} else {
 					// Error handling section
