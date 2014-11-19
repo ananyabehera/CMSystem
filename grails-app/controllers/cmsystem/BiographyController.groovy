@@ -51,15 +51,15 @@ class BiographyController {
  
 		if(query) {
 			def srchResults = searchableService.search(query)
-			def userArray = []
+			def bioArray = []
 			
 			for(Object o: srchResults.results) {
-				if(o.getClass() == UserAccount) {
-					userArray.add(o)
+				if(o.getClass() == Biography) {
+					bioArray.add(o)
 				}
 			}
 
-			render userArray as JSON
+			render bioArray as JSON
 		}
 	}
 	
